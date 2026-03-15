@@ -6691,10 +6691,10 @@
         "concept"
       ],
       "connections": [
+        "concept_DUAL_MEM",
+        "concept_SEMANTIC_MEMORY",
         "concept_ATTENTION",
         "concept_MULTIMODAL",
-        "concept_SEMANTIC_MEMORY",
-        "concept_DUAL_MEM",
         "concept_CONSOLIDATION"
       ]
     },
@@ -6712,10 +6712,10 @@
         "concept"
       ],
       "connections": [
-        "concept_SEARCH",
         "concept_CODE_MEMOIR_RAG",
-        "concept_CODE_MEMORY_SEARCH",
-        "concept_LIVING_FRONTEND"
+        "concept_SEARCH",
+        "concept_LIVING_FRONTEND",
+        "concept_CODE_MEMORY_SEARCH"
       ]
     },
     {
@@ -6732,8 +6732,8 @@
         "concept"
       ],
       "connections": [
-        "concept_CODE_MEMORY_SERVER",
-        "concept_MEMORY_PROBE"
+        "concept_MEMORY_PROBE",
+        "concept_CODE_MEMORY_SERVER"
       ]
     },
     {
@@ -6788,8 +6788,8 @@
         "hypothesis"
       ],
       "connections": [
-        "concept_SOUL",
-        "concept_PHASE_EXISTENCE_FOUNDATION"
+        "concept_PHASE_EXISTENCE_FOUNDATION",
+        "concept_SOUL"
       ]
     },
     {
@@ -6919,9 +6919,9 @@
         "epiphany"
       ],
       "connections": [
-        "concept_event_2016_survival_guide",
         "concept_FC",
-        "concept_SEMANTIC_MEMORY"
+        "concept_SEMANTIC_MEMORY",
+        "concept_event_2016_survival_guide"
       ]
     },
     {
@@ -6938,9 +6938,9 @@
         "epiphany"
       ],
       "connections": [
-        "concept_MEMORY",
+        "concept_TOOL_CONNECTION",
         "concept_CORE_CONCEPT",
-        "concept_TOOL_CONNECTION"
+        "concept_MEMORY"
       ]
     },
     {
@@ -6957,9 +6957,9 @@
         "epiphany"
       ],
       "connections": [
+        "concept_CONTEXT",
         "concept_MUSIC_EXPORT",
-        "concept_PASSIVE_IMMUNITY",
-        "concept_CONTEXT"
+        "concept_PASSIVE_IMMUNITY"
       ]
     },
     {
@@ -6991,9 +6991,9 @@
         "concept"
       ],
       "connections": [
+        "concept_MEM",
         "concept_DL",
-        "concept_KG",
-        "concept_MEM"
+        "concept_KG"
       ]
     },
     {
@@ -7010,8 +7010,8 @@
         "concept"
       ],
       "connections": [
-        "concept_MEMORY",
         "concept_SEARCH",
+        "concept_MEMORY",
         "concept_FB"
       ]
     },
@@ -7046,8 +7046,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_MEMORY",
-        "concept_LIVING_FRONTEND"
+        "concept_LIVING_FRONTEND",
+        "concept_MEMORY"
       ]
     },
     {
@@ -7064,8 +7064,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_SYNTHETIC_DREAMING",
         "concept_DEEP_STRUCTURE",
+        "concept_SYNTHETIC_DREAMING",
         "concept_CORE_BELIEF"
       ]
     },
@@ -7083,8 +7083,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_SYNTHETIC_DREAMING",
-        "concept_ACTIVE_HEALING"
+        "concept_ACTIVE_HEALING",
+        "concept_SYNTHETIC_DREAMING"
       ]
     },
     {
@@ -7101,8 +7101,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_STATE",
-        "concept_CYTOKINE_STORM"
+        "concept_CYTOKINE_STORM",
+        "concept_STATE"
       ]
     },
     {
@@ -7223,8 +7223,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_MEMORY",
-        "concept_REPLAY_FORWARD_ISOMORPHISM"
+        "concept_REPLAY_FORWARD_ISOMORPHISM",
+        "concept_MEMORY"
       ]
     },
     {
@@ -7365,8 +7365,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_PERCEPTION",
-        "concept_memoir_audiobook"
+        "concept_memoir_audiobook",
+        "concept_PERCEPTION"
       ]
     },
     {
@@ -7401,9 +7401,9 @@
         "hypothesis"
       ],
       "connections": [
-        "concept_patch_watchdog_0acdf8_pragmatist",
         "concept_patch_watchdog_0acdf8_geek",
-        "concept_patch_watchdog_0acdf8_architect"
+        "concept_patch_watchdog_0acdf8_architect",
+        "concept_patch_watchdog_0acdf8_pragmatist"
       ]
     },
     {
@@ -7421,9 +7421,9 @@
       ],
       "connections": [
         "concept_patch_sentinel_c4dc69_architect",
-        "concept_patch_sentinel_c4dc69_pragmatist",
+        "concept_patch_sentinel_c4dc69_geek",
         "concept_CODE_SENTINEL",
-        "concept_patch_sentinel_c4dc69_geek"
+        "concept_patch_sentinel_c4dc69_pragmatist"
       ]
     },
     {
@@ -7504,8 +7504,8 @@
         "code_patch"
       ],
       "connections": [
-        "concept_verified_mutation_watchdog_0acdf8_architect",
-        "concept_refactor_hypothesis_watchdog_0acdf8"
+        "concept_refactor_hypothesis_watchdog_0acdf8",
+        "concept_verified_mutation_watchdog_0acdf8_architect"
       ]
     },
     {
