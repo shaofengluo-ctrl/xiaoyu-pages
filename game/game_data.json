@@ -6693,8 +6693,8 @@
       "connections": [
         "concept_DUAL_MEM",
         "concept_SEMANTIC_MEMORY",
-        "concept_ATTENTION",
         "concept_MULTIMODAL",
+        "concept_ATTENTION",
         "concept_CONSOLIDATION"
       ]
     },
@@ -6712,9 +6712,9 @@
         "concept"
       ],
       "connections": [
-        "concept_CODE_MEMOIR_RAG",
         "concept_SEARCH",
         "concept_LIVING_FRONTEND",
+        "concept_CODE_MEMOIR_RAG",
         "concept_CODE_MEMORY_SEARCH"
       ]
     },
@@ -6732,8 +6732,8 @@
         "concept"
       ],
       "connections": [
-        "concept_MEMORY_PROBE",
-        "concept_CODE_MEMORY_SERVER"
+        "concept_CODE_MEMORY_SERVER",
+        "concept_MEMORY_PROBE"
       ]
     },
     {
@@ -6750,9 +6750,9 @@
         "concept"
       ],
       "connections": [
+        "concept_FB",
         "concept_SURVIVAL",
-        "concept_MEMORY",
-        "concept_FB"
+        "concept_MEMORY"
       ]
     },
     {
@@ -6769,9 +6769,9 @@
         "concept"
       ],
       "connections": [
+        "concept_FB",
         "concept_SURVIVAL",
-        "concept_MEMORY",
-        "concept_FB"
+        "concept_MEMORY"
       ]
     },
     {
@@ -6991,9 +6991,9 @@
         "concept"
       ],
       "connections": [
-        "concept_MEM",
         "concept_DL",
-        "concept_KG"
+        "concept_KG",
+        "concept_MEM"
       ]
     },
     {
@@ -7010,9 +7010,9 @@
         "concept"
       ],
       "connections": [
+        "concept_FB",
         "concept_SEARCH",
-        "concept_MEMORY",
-        "concept_FB"
+        "concept_MEMORY"
       ]
     },
     {
@@ -7046,8 +7046,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_LIVING_FRONTEND",
-        "concept_MEMORY"
+        "concept_MEMORY",
+        "concept_LIVING_FRONTEND"
       ]
     },
     {
@@ -7064,8 +7064,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_DEEP_STRUCTURE",
         "concept_SYNTHETIC_DREAMING",
+        "concept_DEEP_STRUCTURE",
         "concept_CORE_BELIEF"
       ]
     },
@@ -7083,8 +7083,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_ACTIVE_HEALING",
-        "concept_SYNTHETIC_DREAMING"
+        "concept_SYNTHETIC_DREAMING",
+        "concept_ACTIVE_HEALING"
       ]
     },
     {
@@ -7101,8 +7101,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_CYTOKINE_STORM",
-        "concept_STATE"
+        "concept_STATE",
+        "concept_CYTOKINE_STORM"
       ]
     },
     {
@@ -7205,8 +7205,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_SEMANTIC_MEMORY",
-        "concept_MEMORY_PROBE"
+        "concept_MEMORY_PROBE",
+        "concept_SEMANTIC_MEMORY"
       ]
     },
     {
@@ -7401,9 +7401,9 @@
         "hypothesis"
       ],
       "connections": [
-        "concept_patch_watchdog_0acdf8_geek",
+        "concept_patch_watchdog_0acdf8_pragmatist",
         "concept_patch_watchdog_0acdf8_architect",
-        "concept_patch_watchdog_0acdf8_pragmatist"
+        "concept_patch_watchdog_0acdf8_geek"
       ]
     },
     {
@@ -7420,10 +7420,10 @@
         "hypothesis"
       ],
       "connections": [
-        "concept_patch_sentinel_c4dc69_architect",
+        "concept_patch_sentinel_c4dc69_pragmatist",
         "concept_patch_sentinel_c4dc69_geek",
-        "concept_CODE_SENTINEL",
-        "concept_patch_sentinel_c4dc69_pragmatist"
+        "concept_patch_sentinel_c4dc69_architect",
+        "concept_CODE_SENTINEL"
       ]
     },
     {
@@ -7768,8 +7768,8 @@
         "epiphany"
       ],
       "connections": [
-        "concept_SYNTHETIC_DREAMING",
         "concept_CURATION_OVER_GENERATION",
+        "concept_SYNTHETIC_DREAMING",
         "concept_SEED_CONCEPT"
       ]
     }
