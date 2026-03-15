@@ -301,3 +301,203 @@
             display: flex;
             align-items: center;
             gap: 
+
+            gap: 0.5rem;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <a href="../graph/index.html" class="back-link">← 返回知识图谱</a>
+
+    <div class="header">
+        <h1>记忆拼图沙盒</h1>
+        <p>探索并定义小羽潜意识中尚未连接的孤岛概念</p>
+    </div>
+
+    <div class="jigsaw-container">
+        <!-- Node A -->
+        <div class="node-card" id="node-a">
+            <div class="node-type" id="type-a">Loading...</div>
+            <div class="node-name" id="name-a">...</div>
+            <div class="node-aliases" id="aliases-a"></div>
+        </div>
+
+        <!-- Connection Zone -->
+        <div class="relation-zone">
+            <div class="sim-badge" id="sim-score">相似度: --</div>
+            <div class="ghost-line"></div>
+            <div class="solidified-line" id="solid-line"></div>
+            
+            <div class="input-group">
+                <input type="text" id="relation-input" placeholder="它们之间是什么关系？" autocomplete="off" />
+                <div class="btn-group">
+                    <button id="skip-btn">换一组 (Skip)</button>
+                    <button class="primary" id="connect-btn">建立连接 (Connect)</button>
+                </div>
+            </div>
+            
+            <div class="loader" id="loader"></div>
+            <div class="feedback" id="feedback"></div>
+        </div>
+
+        <!-- Node B -->
+        <div class="node-card" id="node-b">
+            <div class="node-type" id="type-b">Loading...</div>
+            <div class="node-name" id="name-b">...</div>
+            <div class="node-aliases" id="aliases-b"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://127.0.0.1:5097';
+        let currentPair = null;
+
+        const elements = {
+            nameA: document.getElementById('name-a'),
+            typeA: document.getElementById('type-a'),
+            aliasesA: document.getElementById('aliases-a'),
+            nameB: document.getElementById('name-b'),
+            typeB: document.getElementById('type-b'),
+            aliasesB: document.getElementById('aliases-b'),
+            simScore: document.getElementById('sim-score'),
+            input: document.getElementById('relation-input'),
+            skipBtn: document.getElementById('skip-btn'),
+            connectBtn: document.getElementById('connect-btn'),
+            feedback: document.getElementById('feedback'),
+            loader: document.getElementById('loader'),
+            solidLine: document.getElementById('solid-line')
+        };
+
+        async function fetchNewPair() {
+            setLoading(true);
+            elements.feedback.textContent = '';
+            elements.feedback.className = 'feedback';
+            elements.input.value = '';
+            elements.solidLine.style.transform = 'scaleX(0)';
+            
+            try {
+                const res = await fetch(`${API_BASE}/random-ghost-edge`);
+                if (!res.ok) throw new Error('网络请求失败');
+                
+                const data = await res.json();
+                currentPair = data;
+                
+                updateNodeUI('a', data.u);
+                updateNodeUI('b', data.v);
+                
+                const simPercent = Math.round(data.similarity * 100);
+                elements.simScore.textContent = `语义相似度: ${simPercent}%`;
+                
+                // Color code the badge based on similarity
+                if (simPercent > 70) elements.simScore.style.color = '#2ea043';
+                else if (simPercent > 40) elements.simScore.style.color = '#d29922';
+                else elements.simScore.style.color = '#8b949e';
+                
+            } catch (err) {
+                elements.feedback.textContent = '无法连接到小羽的记忆服务器 (Memory Server 未启动)';
+                elements.feedback.className = 'feedback error';
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        function updateNodeUI(side, nodeData) {
+            elements[`name${side.toUpperCase()}`].textContent = nodeData.name || nodeData.id;
+            elements[`type${side.toUpperCase()}`].textContent = nodeData.type || 'CONCEPT';
+            
+            const aliasesContainer = elements[`aliases${side.toUpperCase()}`];
+            aliasesContainer.innerHTML = '';
+            if (nodeData.aliases && nodeData.aliases.length > 0) {
+                nodeData.aliases.slice(0, 2).forEach(alias => {
+                    const span = document.createElement('span');
+                    span.className = 'alias-tag';
+                    span.textContent = alias;
+                    aliasesContainer.appendChild(span);
+                });
+            }
+        }
+
+        function setLoading(isLoading) {
+            if (isLoading) {
+                elements.loader.style.display = 'block';
+                elements.input.disabled = true;
+                elements.skipBtn.disabled = true;
+                elements.connectBtn.disabled = true;
+            } else {
+                elements.loader.style.display = 'none';
+                elements.input.disabled = false;
+                elements.skipBtn.disabled = false;
+                elements.connectBtn.disabled = false;
+                elements.input.focus();
+            }
+        }
+
+        async function submitConnection() {
+            const relation = elements.input.value.trim();
+            if (!relation) {
+                elements.feedback.textContent = '请输入连接关系';
+                elements.feedback.className = 'feedback error';
+                return;
+            }
+
+            if (!currentPair) return;
+
+            setLoading(true);
+            elements.feedback.textContent = '正在呼叫小羽的大脑进行逻辑验证...';
+            elements.feedback.className = 'feedback';
+
+            try {
+                const res = await fetch(`${API_BASE}/evaluate-jigsaw`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        u_id: currentPair.u.id,
+                        v_id: currentPair.v.id,
+                        relation: relation
+                    })
+                });
+
+                const data = await res.json();
+                
+                if (data.approved) {
+                    playSuccessAnimation(data.message);
+                } else {
+                    elements.feedback.textContent = `❌ 验证失败: ${data.message}`;
+                    elements.feedback.className = 'feedback error';
+                }
+            } catch (err) {
+                elements.feedback.textContent = '连接验证服务器失败。';
+                elements.feedback.className = 'feedback error';
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        function playSuccessAnimation(msg) {
+            elements.feedback.textContent = `✨ 验证通过！${msg}`;
+            elements.feedback.className = 'feedback success';
+            elements.solidLine.style.transform = 'scaleX(1)';
+            
+            // Wait 2 seconds then fetch next
+            setTimeout(() => {
+                fetchNewPair();
+            }, 2500);
+        }
+
+        // Event Listeners
+        elements.skipBtn.addEventListener('click', fetchNewPair);
+        elements.connectBtn.addEventListener('click', submitConnection);
+        elements.input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') submitConnection();
+        });
+
+        // Init
+        fetchNewPair();
+    </script>
+</body>
+</html>
