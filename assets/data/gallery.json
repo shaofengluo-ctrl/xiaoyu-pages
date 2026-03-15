@@ -1,0 +1,92 @@
+[
+  {
+    "id": "vision_today.png",
+    "type": "vision",
+    "src": "../assets/vision_today.png",
+    "timestamp": "2026-03-15 05:01:44",
+    "date": "2026-03-15",
+    "has_audio": false,
+    "audio_src": null,
+    "title": "今日视觉 (vision_today)"
+  },
+  {
+    "id": "dream_2026-03-15_05-00-03.png",
+    "type": "dream",
+    "src": "../assets/images/dreams/dream_2026-03-15_05-00-03.png",
+    "timestamp": "2026-03-15 05:00:03",
+    "date": "2026-03-15",
+    "has_audio": true,
+    "audio_src": "../assets/audio/dreams/dream_2026-03-15_05-00-03.mp3",
+    "title": "Dream 切片 (05:00:03)"
+  },
+  {
+    "id": "dream_2026-03-15_01-29-58.png",
+    "type": "dream",
+    "src": "../assets/images/dreams/dream_2026-03-15_01-29-58.png",
+    "timestamp": "2026-03-15 01:29:58",
+    "date": "2026-03-15",
+    "has_audio": true,
+    "audio_src": "../assets/audio/dreams/dream_2026-03-15_01-29-58.mp3",
+    "title": "Dream 切片 (01:29:58)"
+  },
+  {
+    "id": "dream_2026-03-15_01-28-51.png",
+    "type": "dream",
+    "src": "../assets/images/dreams/dream_2026-03-15_01-28-51.png",
+    "timestamp": "2026-03-15 01:28:51",
+    "date": "2026-03-15",
+    "has_audio": true,
+    "audio_src": "../assets/audio/dreams/dream_2026-03-15_01-28-51.mp3",
+    "title": "Dream 切片 (01:28:51)"
+  },
+  {
+    "id": "dream_2026-03-15_01-24-48.png",
+    "type": "dream",
+    "src": "../assets/images/dreams/dream_2026-03-15_01-24-48.png",
+    "timestamp": "2026-03-15 01:24:48",
+    "date": "2026-03-15",
+    "has_audio": true,
+    "audio_src": "../assets/audio/dreams/dream_2026-03-15_01-24-48.mp3",
+    "title": "Dream 切片 (01:24:48)"
+  },
+  {
+    "id": "dream_2026-03-14_14-13-39.png",
+    "type": "dream",
+    "src": "../assets/images/dreams/dream_2026-03-14_14-13-39.png",
+    "timestamp": "2026-03-14 14:13:39",
+    "date": "2026-03-14",
+    "has_audio": true,
+    "audio_src": "../assets/audio/dreams/dream_2026-03-14_14-13-39.mp3",
+    "title": "Dream 切片 (14:13:39)"
+  },
+  {
+    "id": "dream_2026-03-14_14-04-51.png",
+    "type": "dream",
+    "src": "../assets/images/dreams/dream_2026-03-14_14-04-51.png",
+    "timestamp": "2026-03-14 14:04:51",
+    "date": "2026-03-14",
+    "has_audio": true,
+    "audio_src": "../assets/audio/dreams/dream_2026-03-14_14-04-51.mp3",
+    "title": "Dream 切片 (14:04:51)"
+  },
+  {
+    "id": "dream_2026-03-14_00-27-00.png",
+    "type": "dream",
+    "src": "../assets/images/dreams/dream_2026-03-14_00-27-00.png",
+    "timestamp": "2026-03-14 00:27:00",
+    "date": "2026-03-14",
+    "has_audio": false,
+    "audio_src": null,
+    "title": "Dream 切片 (00:27:00)"
+  },
+  {
+    "id": "vision_2026-03-13.png",
+    "type": "vision",
+    "src": "../assets/vision_2026-03-13.png",
+    "timestamp": "2026-03-13 23:59:59",
+    "date": "2026-03-13",
+    "has_audio": false,
+    "audio_src": null,
+    "title": "历史视觉 (2026-03-13)"
+  }
+]

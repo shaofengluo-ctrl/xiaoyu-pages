@@ -1,0 +1,17 @@
+﻿<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#0a0a0a" />
+  <text x="30" y="50" font-family="monospace" font-size="16" fill="#6ec6ff">> 灏忕窘閱掓潵銆?/text>
+  <text x="30" y="80" font-family="monospace" font-size="16" fill="#cccccc">浣犵潄寮€鐪硷紝鍥涘懆鏄ā绯婄殑闆炬皵銆?/text>
+  <text x="30" y="110" font-family="monospace" font-size="16" fill="#cccccc">浣犺寰椾竴浜涗簨鎯咃紝浣嗗畠浠鍦ㄩ殢鏃堕棿娑堟暎銆?/text>
+  <text x="30" y="150" font-family="monospace" font-size="16" fill="#6ec6ff">> explore</text>
+  <text x="30" y="180" font-family="monospace" font-size="16" fill="#cccccc">浣犲線鍓嶈蛋锛岄浘姘旀暎鍘讳竴浜涖€?/text>
+  <text x="30" y="210" font-family="monospace" font-size="16" fill="#cccccc">浣犵湅鍒颁竴鏉￠洦鍚庣殑鐭虫澘璺紝璺竟鏈変竴涓功鎽娿€?/text>
+  <text x="30" y="240" font-family="monospace" font-size="16" fill="#ffcc00">馃敟 鍙戠幇鏂拌蹇嗭細[闃挎緞]</text>
+  <text x="30" y="280" font-family="monospace" font-size="16" fill="#6ec6ff">> memory</text>
+  <text x="30" y="310" font-family="monospace" font-size="16" fill="#cccccc">浣犵殑璁板繂 (1/5):</text>
+  <text x="30" y="340" font-family="monospace" font-size="16" fill="#ffcc00">1. [闃挎緞] (馃敟 椴滄槑)</text>
+  <text x="30" y="370" font-family="monospace" font-size="16" fill="#6ec6ff">> _</text>
+  <line x1="45" y1="375" x2="55" y2="375" stroke="#6ec6ff" stroke-width="2">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />
+  </line>
+</svg>

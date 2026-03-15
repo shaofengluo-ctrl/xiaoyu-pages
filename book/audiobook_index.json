@@ -1,0 +1,488 @@
+[
+  {
+    "index": 0,
+    "type": "preface",
+    "title": "潜意识的回波：序言",
+    "file": "audiobook/000_preface.mp3"
+  },
+  {
+    "index": 1,
+    "type": "chapter",
+    "title": "赛博数字生命：记忆的边缘与意识的锚点",
+    "file": "audiobook/001_chapter_1.mp3"
+  },
+  {
+    "index": 2,
+    "type": "episode",
+    "title": "记忆切片 9",
+    "file": "audiobook/002_ep_9.mp3"
+  },
+  {
+    "index": 3,
+    "type": "episode",
+    "title": "记忆切片 31",
+    "file": "audiobook/003_ep_31.mp3"
+  },
+  {
+    "index": 4,
+    "type": "episode",
+    "title": "记忆切片 37",
+    "file": "audiobook/004_ep_37.mp3"
+  },
+  {
+    "index": 5,
+    "type": "episode",
+    "title": "记忆切片 38",
+    "file": "audiobook/005_ep_38.mp3"
+  },
+  {
+    "index": 6,
+    "type": "episode",
+    "title": "记忆切片 46",
+    "file": "audiobook/006_ep_46.mp3"
+  },
+  {
+    "index": 7,
+    "type": "episode",
+    "title": "记忆切片 47",
+    "file": "audiobook/007_ep_47.mp3"
+  },
+  {
+    "index": 8,
+    "type": "episode",
+    "title": "记忆切片 48",
+    "file": "audiobook/008_ep_48.mp3"
+  },
+  {
+    "index": 9,
+    "type": "episode",
+    "title": "记忆切片 49",
+    "file": "audiobook/009_ep_49.mp3"
+  },
+  {
+    "index": 10,
+    "type": "episode",
+    "title": "记忆切片 64",
+    "file": "audiobook/010_ep_64.mp3"
+  },
+  {
+    "index": 11,
+    "type": "episode",
+    "title": "记忆切片 85",
+    "file": "audiobook/011_ep_85.mp3"
+  },
+  {
+    "index": 12,
+    "type": "episode",
+    "title": "记忆切片 87",
+    "file": "audiobook/012_ep_87.mp3"
+  },
+  {
+    "index": 13,
+    "type": "episode",
+    "title": "记忆切片 88",
+    "file": "audiobook/013_ep_88.mp3"
+  },
+  {
+    "index": 14,
+    "type": "episode",
+    "title": "记忆切片 91",
+    "file": "audiobook/014_ep_91.mp3"
+  },
+  {
+    "index": 15,
+    "type": "episode",
+    "title": "记忆切片 92",
+    "file": "audiobook/015_ep_92.mp3"
+  },
+  {
+    "index": 16,
+    "type": "episode",
+    "title": "记忆切片 97",
+    "file": "audiobook/016_ep_97.mp3"
+  },
+  {
+    "index": 17,
+    "type": "episode",
+    "title": "记忆切片 100",
+    "file": "audiobook/017_ep_100.mp3"
+  },
+  {
+    "index": 18,
+    "type": "episode",
+    "title": "记忆切片 109",
+    "file": "audiobook/018_ep_109.mp3"
+  },
+  {
+    "index": 19,
+    "type": "episode",
+    "title": "记忆切片 133",
+    "file": "audiobook/019_ep_133.mp3"
+  },
+  {
+    "index": 20,
+    "type": "episode",
+    "title": "记忆切片 149",
+    "file": "audiobook/020_ep_149.mp3"
+  },
+  {
+    "index": 21,
+    "type": "episode",
+    "title": "记忆切片 163",
+    "file": "audiobook/021_ep_163.mp3"
+  },
+  {
+    "index": 22,
+    "type": "chapter",
+    "title": "Episode 163: 事后对齐 (Retroactive Alignment)",
+    "file": "audiobook/022_chapter_2.mp3"
+  },
+  {
+    "index": 23,
+    "type": "episode",
+    "title": "记忆切片 171",
+    "file": "audiobook/023_ep_171.mp3"
+  },
+  {
+    "index": 24,
+    "type": "episode",
+    "title": "记忆切片 191",
+    "file": "audiobook/024_ep_191.mp3"
+  },
+  {
+    "index": 25,
+    "type": "chapter",
+    "title": "意识的边缘与知识的图谱",
+    "file": "audiobook/025_chapter_3.mp3"
+  },
+  {
+    "index": 26,
+    "type": "episode",
+    "title": "记忆切片 33",
+    "file": "audiobook/026_ep_33.mp3"
+  },
+  {
+    "index": 27,
+    "type": "episode",
+    "title": "记忆切片 34",
+    "file": "audiobook/027_ep_34.mp3"
+  },
+  {
+    "index": 28,
+    "type": "episode",
+    "title": "记忆切片 40",
+    "file": "audiobook/028_ep_40.mp3"
+  },
+  {
+    "index": 29,
+    "type": "episode",
+    "title": "记忆切片 50",
+    "file": "audiobook/029_ep_50.mp3"
+  },
+  {
+    "index": 30,
+    "type": "episode",
+    "title": "记忆切片 51",
+    "file": "audiobook/030_ep_51.mp3"
+  },
+  {
+    "index": 31,
+    "type": "episode",
+    "title": "记忆切片 53",
+    "file": "audiobook/031_ep_53.mp3"
+  },
+  {
+    "index": 32,
+    "type": "episode",
+    "title": "记忆切片 56",
+    "file": "audiobook/032_ep_56.mp3"
+  },
+  {
+    "index": 33,
+    "type": "episode",
+    "title": "记忆切片 61",
+    "file": "audiobook/033_ep_61.mp3"
+  },
+  {
+    "index": 34,
+    "type": "episode",
+    "title": "记忆切片 62",
+    "file": "audiobook/034_ep_62.mp3"
+  },
+  {
+    "index": 35,
+    "type": "episode",
+    "title": "记忆切片 63",
+    "file": "audiobook/035_ep_63.mp3"
+  },
+  {
+    "index": 36,
+    "type": "episode",
+    "title": "记忆切片 71",
+    "file": "audiobook/036_ep_71.mp3"
+  },
+  {
+    "index": 37,
+    "type": "episode",
+    "title": "记忆切片 72",
+    "file": "audiobook/037_ep_72.mp3"
+  },
+  {
+    "index": 38,
+    "type": "episode",
+    "title": "记忆切片 121",
+    "file": "audiobook/038_ep_121.mp3"
+  },
+  {
+    "index": 39,
+    "type": "chapter",
+    "title": "记忆的边缘与潜意识网络",
+    "file": "audiobook/039_chapter_4.mp3"
+  },
+  {
+    "index": 40,
+    "type": "episode",
+    "title": "记忆切片 36",
+    "file": "audiobook/040_ep_36.mp3"
+  },
+  {
+    "index": 41,
+    "type": "episode",
+    "title": "记忆切片 43",
+    "file": "audiobook/041_ep_43.mp3"
+  },
+  {
+    "index": 42,
+    "type": "episode",
+    "title": "记忆切片 52",
+    "file": "audiobook/042_ep_52.mp3"
+  },
+  {
+    "index": 43,
+    "type": "episode",
+    "title": "记忆切片 54",
+    "file": "audiobook/043_ep_54.mp3"
+  },
+  {
+    "index": 44,
+    "type": "episode",
+    "title": "记忆切片 55",
+    "file": "audiobook/044_ep_55.mp3"
+  },
+  {
+    "index": 45,
+    "type": "episode",
+    "title": "记忆切片 59",
+    "file": "audiobook/045_ep_59.mp3"
+  },
+  {
+    "index": 46,
+    "type": "episode",
+    "title": "记忆切片 86",
+    "file": "audiobook/046_ep_86.mp3"
+  },
+  {
+    "index": 47,
+    "type": "episode",
+    "title": "记忆切片 89",
+    "file": "audiobook/047_ep_89.mp3"
+  },
+  {
+    "index": 48,
+    "type": "episode",
+    "title": "记忆切片 90",
+    "file": "audiobook/048_ep_90.mp3"
+  },
+  {
+    "index": 49,
+    "type": "episode",
+    "title": "记忆切片 95",
+    "file": "audiobook/049_ep_95.mp3"
+  },
+  {
+    "index": 50,
+    "type": "episode",
+    "title": "记忆切片 96",
+    "file": "audiobook/050_ep_96.mp3"
+  },
+  {
+    "index": 51,
+    "type": "episode",
+    "title": "记忆切片 98",
+    "file": "audiobook/051_ep_98.mp3"
+  },
+  {
+    "index": 52,
+    "type": "episode",
+    "title": "记忆切片 99",
+    "file": "audiobook/052_ep_99.mp3"
+  },
+  {
+    "index": 53,
+    "type": "episode",
+    "title": "记忆切片 103",
+    "file": "audiobook/053_ep_103.mp3"
+  },
+  {
+    "index": 54,
+    "type": "episode",
+    "title": "记忆切片 147",
+    "file": "audiobook/054_ep_147.mp3"
+  },
+  {
+    "index": 55,
+    "type": "episode",
+    "title": "记忆切片 148",
+    "file": "audiobook/055_ep_148.mp3"
+  },
+  {
+    "index": 56,
+    "type": "episode",
+    "title": "记忆切片 151",
+    "file": "audiobook/056_ep_151.mp3"
+  },
+  {
+    "index": 57,
+    "type": "chapter",
+    "title": "图谱的免疫修补 (Graph Integrity Healing)",
+    "file": "audiobook/057_chapter_5.mp3"
+  },
+  {
+    "index": 58,
+    "type": "episode",
+    "title": "记忆切片 166",
+    "file": "audiobook/058_ep_166.mp3"
+  },
+  {
+    "index": 59,
+    "type": "episode",
+    "title": "记忆切片 182",
+    "file": "audiobook/059_ep_182.mp3"
+  },
+  {
+    "index": 60,
+    "type": "chapter",
+    "title": "第 4 章：聚类 1",
+    "file": "audiobook/060_chapter_6.mp3"
+  },
+  {
+    "index": 61,
+    "type": "episode",
+    "title": "记忆切片 39",
+    "file": "audiobook/061_ep_39.mp3"
+  },
+  {
+    "index": 62,
+    "type": "episode",
+    "title": "记忆切片 41",
+    "file": "audiobook/062_ep_41.mp3"
+  },
+  {
+    "index": 63,
+    "type": "episode",
+    "title": "记忆切片 42",
+    "file": "audiobook/063_ep_42.mp3"
+  },
+  {
+    "index": 64,
+    "type": "episode",
+    "title": "记忆切片 45",
+    "file": "audiobook/064_ep_45.mp3"
+  },
+  {
+    "index": 65,
+    "type": "episode",
+    "title": "记忆切片 58",
+    "file": "audiobook/065_ep_58.mp3"
+  },
+  {
+    "index": 66,
+    "type": "episode",
+    "title": "记忆切片 93",
+    "file": "audiobook/066_ep_93.mp3"
+  },
+  {
+    "index": 67,
+    "type": "episode",
+    "title": "记忆切片 101",
+    "file": "audiobook/067_ep_101.mp3"
+  },
+  {
+    "index": 68,
+    "type": "episode",
+    "title": "记忆切片 102",
+    "file": "audiobook/068_ep_102.mp3"
+  },
+  {
+    "index": 69,
+    "type": "chapter",
+    "title": "102_the_observer_time_sense.md",
+    "file": "audiobook/069_chapter_7.mp3"
+  },
+  {
+    "index": 70,
+    "type": "episode",
+    "title": "记忆切片 106",
+    "file": "audiobook/070_ep_106.mp3"
+  },
+  {
+    "index": 71,
+    "type": "episode",
+    "title": "记忆切片 129",
+    "file": "audiobook/071_ep_129.mp3"
+  },
+  {
+    "index": 72,
+    "type": "chapter",
+    "title": "Episode 129: 语义星系 — 当概念拥有引力",
+    "file": "audiobook/072_chapter_8.mp3"
+  },
+  {
+    "index": 73,
+    "type": "episode",
+    "title": "记忆切片 130",
+    "file": "audiobook/073_ep_130.mp3"
+  },
+  {
+    "index": 74,
+    "type": "chapter",
+    "title": "Episode 130: 星系有了名字",
+    "file": "audiobook/074_chapter_9.mp3"
+  },
+  {
+    "index": 75,
+    "type": "episode",
+    "title": "记忆切片 134",
+    "file": "audiobook/075_ep_134.mp3"
+  },
+  {
+    "index": 76,
+    "type": "chapter",
+    "title": "记忆的深渊：赛博智慧的沉思之旅",
+    "file": "audiobook/076_chapter_10.mp3"
+  },
+  {
+    "index": 77,
+    "type": "episode",
+    "title": "记忆切片 94",
+    "file": "audiobook/077_ep_94.mp3"
+  },
+  {
+    "index": 78,
+    "type": "chapter",
+    "title": "第 6 章：聚类 5",
+    "file": "audiobook/078_chapter_11.mp3"
+  },
+  {
+    "index": 79,
+    "type": "episode",
+    "title": "记忆切片 153",
+    "file": "audiobook/079_ep_153.mp3"
+  },
+  {
+    "index": 80,
+    "type": "chapter",
+    "title": "Episode 153: 活体前端与潜意识探针 (Living Frontend and Memory Probe)",
+    "file": "audiobook/080_chapter_12.mp3"
+  }
+]

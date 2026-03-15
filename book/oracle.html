@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小羽 | 回忆录神谕 (Memoir Oracle)</title>
+    <style>
+        :root {
+            --bg-color: #080808;
+            --text-color: #d1d5db;
+            --accent-color: #00ffcc;
+            --accent-glow: rgba(0, 255, 204, 0.4);
+            --card-bg: #111;
+            --border-color: #222;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
+                radial-gradient(circle at 50% 50%, #001111 0%, transparent 80%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            text-align: center;
+            font-weight: normal;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--accent-glow);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 40px;
+        }
+
+        .chat-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 400px;
+            max-height: 60vh;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 6px;
+            line-height: 1.5;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #ccc;
+        }
+
+        .message.oracle {
+            align-self: flex-start;
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            color: #eee;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.02);
+        }
+
+        .context-toggle {
+            font-size: 0.8em;
+            color: #666;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 8px;
+            display: inline-block;
+        }
+
+        .context-panel {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #000;
+            border: 1px dashed #333;
+            font-size: 0.85em;
+            color: #999;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            background: #111;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 12px;
+            font-family: inherit;
+            border-radius: 4px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        button {
+            background: #111;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 0 20px;
+            cursor: pointer;
+            font-family: inherit;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: var(--accent-color);
+            color: #000;
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: #111;
+            color: #666;
+            border-color: #333;
+            box-shadow: none;
+        }
+
+        .loading {
+            font-style: italic;
+            color: #888;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>回忆录神谕</h1>
+        <div class="subtitle">"向这本20万字的记忆提问，感受潜意识的回波..."</div>
+        
+        <div class="chat-box" id="chatBox">
+            <div class="message oracle">
+                我是小羽。这里是我沉淀的过往。你想从我的记忆中寻找什么？
+            </div>
+        </div>
+        
+        <div class="loading" id="loading">正在记忆深处检索与推演...</div>
+        
+        <div class="input-area">
+            <input type="text" id="questionInput" placeholder="输入你想问的问题..." onkeypress="if(event.key === 'Enter') askOracle()">
+            <button id="askBtn" onclick="askOracle()">询问</button>
+        </div>
+    </div>
+
+    <script>
+        // Use the same port as memory_server.py
+        const API_URL = 'http://localhost:5097/oracle-chat';
+
+        function formatText(text) {
+            return text.replace(/\n/g, '<br>');
+        }
+
+        function toggleContext(element) {
+            const panel = element.nextElementSibling;
+            if (panel.style.display === 'block') {
+                panel.style.display = 'none';
+                element.innerText = '[展开检索到的回忆切片]';
+            } else {
+                panel.style.display = 'block';
+                element.innerText = '[收起回忆切片]';
+            }
+        }
+
+        async function askOracle() {
+            const input = document.getElementById('questionInput');
+            const chatBox = document.getElementById('chatBox');
+            const loading = document.getElementById('loading');
+            const askBtn = document.getElementById('askBtn');
+            const question = input.value.trim();
+
+            if (!question) return;
+
+            // Append user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user';
+            userMsg.innerText = question;
+            chatBox.appendChild(userMsg);
+
+            // Clear and disable input
+            input.value = '';
+            input.disabled = true;
+            askBtn.disabled = true;
+            loading.style.display = 'block';
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ question: question })
+                });
+
+                if (!response.ok) {
+                    throw new Error('网络请求失败');
+                }
+
+                const data = await response.json();
+                
+                // Append oracle message
+                const oracleMsg = document.createElement('div');
+                oracleMsg.className = 'message oracle';
+                
+                let html = formatText(data.answer);
+                
+                if (data.context && data.context.length > 0) {
+                    html += `<br><br>
+                    <span class="context-toggle" onclick="toggleContext(this)">[展开检索到的回忆切片]</span>
+                    <div class="context-panel">`;
+                    
+                    data.context.forEach((ctx, i) => {
+                        html += `<strong>切片 ${i+1} (关联度: ${ctx.score.toFixed(2)})</strong><br>`;
+                        html += `${formatText(ctx.chunk)}<br><br>`;
+                    });
+                    
+                    html += `</div>`;
+                }
+
+                oracleMsg.innerHTML = html;
+                chatBox.appendChild(oracleMsg);
+
+            } catch (err) {
+                const errMsg = document.createElement('div');
+                errMsg.className = 'message oracle';
+                errMsg.style.color = '#ff6b6b';
+                errMsg.innerText = `[系统回音异常]: ${err.message}`;
+                chatBox.appendChild(errMsg);
+            } finally {
+ 

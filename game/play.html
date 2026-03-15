@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <title>记忆碎片 — Memory Fragments</title>
+
+  <!-- jQuery Terminal CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.41.1/css/jquery.terminal.min.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; background: #0a0a0a; overflow: hidden; touch-action: manipulation; }
+
+    #terminal {
+      width: 100%;
+      height: 100%;
+      font-family: 'Courier New', 'Source Code Pro', 'Noto Sans Mono CJK SC', monospace;
+      font-size: 15px;
+    }
+
+    /* jQuery Terminal overrides */
+    .terminal { background: #0a0a0a !important; padding-bottom: 20px !important; }
+    .terminal .terminal-output > div > div { padding: 1px 0; }
+    .cmd .cursor { background: #6ec6ff; }
+    .terminal .cmd .prompt { color: #6ec6ff; }
+
+    /* Subtle scanline effect */
+    #terminal::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.05) 0px,
+        rgba(0, 0, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+    }
+
+    /* Loading overlay */
+    #loading {
+      position: fixed;
+      inset: 0;
+      background: #0a0a0a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6ec6ff;
+      font-family: monospace;
+      font-size: 18px;
+      z-index: 9999;
+      transition: opacity 0.5s;
+    }
+    #loading.hidden { opacity: 0; pointer-events: none; }
+
+    /* Mobile keyboard optimizations */
+    @media screen and (max-width: 768px) {
+      #terminal {
+        font-size: 14px;
+      }
+      .terminal .terminal-output > div > div {
+        line-height: 1.4;
+        padding-bottom: 2px;
+      }
+      .terminal {
+        padding-bottom: env(safe-area-inset-bottom, 50px) !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading">正在加载记忆碎片……</div>
+  <div id="terminal"></div>
+
+  <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <!-- jQuery Terminal -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.41.1/js/jquery.terminal.min.js"></script>
+  <!-- html-midi-player web component for MIDI playback -->
+  <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.77,npm/@magenta/music@1.23.1/es6/core.js,npm/html-midi-player@1.5.0"></script>
+
+  <script type="module">
+    import { initGame, handleCommand } from './ui.js';
+
+    $(async function() {
+      // Force scroll to bottom on mobile virtual keyboard popup
+      window.addEventListener('resize', () => {
+        if(document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA' || $('.cmd .clipboard').is(':focus')) {
+          window.setTimeout(() => {
+            const terminalContainer = document.querySelector('.terminal-wrapper') || document.querySelector('.terminal');
+            if (terminalContainer) {
+              terminalContainer.scrollTop = terminalContainer.scrollHeight;
+            }
+          }, 100);
+        }
+      });
+
+      const $term = $('#terminal').terminal(async function(cmd) {
+        await handleCommand(cmd, this);
+      }, {
+        greetings: false,
+        prompt: '',
+        scrollOnEcho: true,
+        height: '100%',
+        completion: ['e', 'n', 's', 'r', 'd', 'f', 'i', 'w', 'm', 'x', 'h', 'q'],
+        checkArity: false,
+        processArguments: false,
+        historySize: 50,
+        name: 'memory_fragments',
+        keymap: {
+          'CTRL+D': function() { return false; },
+          'CTRL+C': function() { return false; }
+        }
+      });
+
+      try {
+        await initGame($term);
+      } catch (err) {
+        $term.echo(`[[b;red;]加载失败: ${err.message}]`);
+        console.error(err);
+      }
+      document.getElementById('loading').classList.add('hidden');
+    });
+  </script>
+</body>
+</html>

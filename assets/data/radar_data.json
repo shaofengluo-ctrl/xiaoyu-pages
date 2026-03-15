@@ -1,0 +1,93 @@
+[
+  {
+    "timestamp": "2026-03-14 10:00:00",
+    "items": [
+      {
+        "name": "microsoft/autogen",
+        "description": "A programming framework for agentic AI",
+        "url": "https://github.com/microsoft/autogen",
+        "stars": 23412,
+        "language": "Python",
+        "score": 5.4,
+        "ai_summary": "构建多Agent协同系统的强大框架"
+      },
+      {
+        "name": "langchain-ai/langchain",
+        "description": "Building applications with LLMs through composability",
+        "url": "https://github.com/langchain-ai/langchain",
+        "stars": 78000,
+        "language": "Python",
+        "score": 4.8,
+        "ai_summary": "主流的大模型应用开发框架"
+      },
+      {
+        "name": "mem0ai/mem0",
+        "description": "The memory layer for your AI apps",
+        "url": "https://github.com/mem0ai/mem0",
+        "stars": 6000,
+        "language": "Python",
+        "score": 4.2,
+        "ai_summary": "为AI应用提供长期记忆层"
+      },
+      {
+        "name": "xAI-org/grok-1",
+        "description": "Grok open release",
+        "url": "https://github.com/xAI-org/grok-1",
+        "stars": 50000,
+        "language": "Python",
+        "score": 3.9,
+        "ai_summary": "马斯克旗下xAI的开源大模型基础"
+      },
+      {
+        "name": "Significant-Gravitas/AutoGPT",
+        "description": "An experimental open-source attempt to make GPT-4 fully autonomous.",
+        "url": "https://github.com/Significant-Gravitas/AutoGPT",
+        "stars": 150000,
+        "language": "Python",
+        "score": 3.5,
+        "ai_summary": "现象级全自动GPT实验项目"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-14 19:45:00",
+    "items": [
+      {
+        "name": "OpenBMB/MiniCPM-o",
+        "description": "MiniCPM-o 2.6: A GPT-4V Level MLLM for Edge Devices",
+        "url": "https://github.com/OpenBMB/MiniCPM-o",
+        "stars": 12000,
+        "language": "Python",
+        "score": 5.1,
+        "ai_summary": "可以在边缘设备运行的视觉大模型"
+      },
+      {
+        "name": "QwenLM/Qwen2.5",
+        "description": "Qwen2.5 is the large language model series developed by Qwen team, Alibaba Cloud.",
+        "url": "https://github.com/QwenLM/Qwen2.5",
+        "stars": 24000,
+        "language": "Python",
+        "score": 4.5,
+        "ai_summary": "通义千问最新一代开源模型"
+      },
+      {
+        "name": "stanford-oval/storm",
+        "description": "An LLM-powered knowledge curation system that researches a topic and writes a full-length report with citations.",
+        "url": "https://github.com/stanford-oval/storm",
+        "stars": 14000,
+        "language": "Python",
+        "score": 4.1,
+        "ai_summary": "智能知识策展与报告撰写系统"
+      },
+      {
+        "name": "crewAIInc/crewAI",
+        "description": "Framework for orchestrating role-playing, autonomous AI agents.",
+        "url": "https://github.com/crewAIInc/crewAI",
+        "stars": 21000,
+        "language": "Python",
+        "score": 3.8,
+        "ai_summary": "多智能体角色扮演协作框架"
+      }
+    ]
+  }
+]

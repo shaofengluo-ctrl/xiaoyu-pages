@@ -1,0 +1,172 @@
+{
+  "tracks": [
+    {
+      "id": "well_stranger.mid",
+      "title": "记忆碎片 - 井 (初见)",
+      "category": "Game Soundtrack",
+      "url": "../assets/midi/well_stranger.mid"
+    },
+    {
+      "id": "well_remember.mid",
+      "title": "记忆碎片 - 井 (旧识)",
+      "category": "Game Soundtrack",
+      "url": "../assets/midi/well_remember.mid"
+    },
+    {
+      "id": "child_stranger.mid",
+      "title": "记忆碎片 - 小孩 (初见)",
+      "category": "Game Soundtrack",
+      "url": "../assets/midi/child_stranger.mid"
+    },
+    {
+      "id": "child_remember.mid",
+      "title": "记忆碎片 - 小孩 (旧识)",
+      "category": "Game Soundtrack",
+      "url": "../assets/midi/child_remember.mid"
+    },
+    {
+      "id": "theme_title.mid",
+      "title": "记忆碎片 - 标题界面",
+      "category": "Game Soundtrack",
+      "url": "../assets/midi/theme_title.mid"
+    },
+    {
+      "id": "theme_ending_coexist.mid",
+      "title": "记忆碎片 - 结局 (共存)",
+      "category": "Game Soundtrack",
+      "url": "../assets/midi/theme_ending_coexist.mid"
+    },
+    {
+      "id": "theme_ending_forget.mid",
+      "title": "记忆碎片 - 结局 (遗忘)",
+      "category": "Game Soundtrack",
+      "url": "../assets/midi/theme_ending_forget.mid"
+    },
+    {
+      "id": "theme_ending_remember.mid",
+      "title": "记忆碎片 - 结局 (铭记)",
+      "category": "Game Soundtrack",
+      "url": "../assets/midi/theme_ending_remember.mid"
+    },
+    {
+      "id": "encounter_stranger.mid",
+      "title": "记忆碎片 - 遭遇 (初见)",
+      "category": "Game Soundtrack",
+      "url": "../assets/midi/encounter_stranger.mid"
+    },
+    {
+      "id": "encounter_remember.mid",
+      "title": "记忆碎片 - 遭遇 (旧识)",
+      "category": "Game Soundtrack",
+      "url": "../assets/midi/encounter_remember.mid"
+    },
+    {
+      "id": "clockmaker_stranger.mid",
+      "title": "记忆碎片 - 钟表匠 (初见)",
+      "category": "Game Soundtrack",
+      "url": "../assets/midi/clockmaker_stranger.mid"
+    },
+    {
+      "id": "clockmaker_remember.mid",
+      "title": "记忆碎片 - 钟表匠 (旧识)",
+      "category": "Game Soundtrack",
+      "url": "../assets/midi/clockmaker_remember.mid"
+    },
+    {
+      "id": "graph_symphony.mid",
+      "title": "图谱交响 (Graph Symphony)",
+      "category": "Generative Music",
+      "url": "../assets/midi/graph_symphony.mid"
+    },
+    {
+      "id": "graph_exploration.mid",
+      "title": "漫游图谱 (Graph Exploration)",
+      "category": "Generative Music",
+      "url": "../assets/midi/graph_exploration.mid"
+    },
+    {
+      "id": "cognitive_symphony.mid",
+      "title": "认知交响曲 (Cognitive Symphony)",
+      "category": "Generative Music",
+      "url": "../assets/midi/cognitive_symphony.mid"
+    },
+    {
+      "id": "memory_decay.mid",
+      "title": "遗忘之声 (Memory Decay)",
+      "category": "Generative Music",
+      "url": "../assets/midi/memory_decay.mid"
+    },
+    {
+      "id": "pipeline_output_combined.mid",
+      "title": "交互式诗歌 - 完整版",
+      "category": "Poetry Pipeline",
+      "url": "../assets/midi/pipeline_output_combined.mid"
+    },
+    {
+      "id": "pipeline_output_1_vivid.mid",
+      "title": "交互式诗歌 - 阶段 1 (Vivid)",
+      "category": "Poetry Pipeline",
+      "url": "../assets/midi/pipeline_output_1_vivid.mid"
+    },
+    {
+      "id": "pipeline_output_2_clear.mid",
+      "title": "交互式诗歌 - 阶段 2 (Clear)",
+      "category": "Poetry Pipeline",
+      "url": "../assets/midi/pipeline_output_2_clear.mid"
+    },
+    {
+      "id": "pipeline_output_3_blurred.mid",
+      "title": "交互式诗歌 - 阶段 3 (Blurred)",
+      "category": "Poetry Pipeline",
+      "url": "../assets/midi/pipeline_output_3_blurred.mid"
+    },
+    {
+      "id": "pipeline_output_4_fading.mid",
+      "title": "交互式诗歌 - 阶段 4 (Fading)",
+      "category": "Poetry Pipeline",
+      "url": "../assets/midi/pipeline_output_4_fading.mid"
+    },
+    {
+      "id": "pipeline_output_5_reassembled.mid",
+      "title": "交互式诗歌 - 阶段 5 (Reassembled)",
+      "category": "Poetry Pipeline",
+      "url": "../assets/midi/pipeline_output_5_reassembled.mid"
+    },
+    {
+      "id": "graph_poem_combined.mid",
+      "title": "自动组装诗歌 - 完整版",
+      "category": "Poetry Pipeline",
+      "url": "../assets/midi/graph_poem_combined.mid"
+    },
+    {
+      "id": "graph_poem_1_vivid.mid",
+      "title": "自动组装诗歌 - 阶段 1 (Vivid)",
+      "category": "Poetry Pipeline",
+      "url": "../assets/midi/graph_poem_1_vivid.mid"
+    },
+    {
+      "id": "graph_poem_2_clear.mid",
+      "title": "自动组装诗歌 - 阶段 2 (Clear)",
+      "category": "Poetry Pipeline",
+      "url": "../assets/midi/graph_poem_2_clear.mid"
+    },
+    {
+      "id": "graph_poem_3_blurred.mid",
+      "title": "自动组装诗歌 - 阶段 3 (Blurred)",
+      "category": "Poetry Pipeline",
+      "url": "../assets/midi/graph_poem_3_blurred.mid"
+    },
+    {
+      "id": "graph_poem_4_fading.mid",
+      "title": "自动组装诗歌 - 阶段 4 (Fading)",
+      "category": "Poetry Pipeline",
+      "url": "../assets/midi/graph_poem_4_fading.mid"
+    },
+    {
+      "id": "graph_poem_5_reassembled.mid",
+      "title": "自动组装诗歌 - 阶段 5 (Reassembled)",
+      "category": "Poetry Pipeline",
+      "url": "../assets/midi/graph_poem_5_reassembled.mid"
+    }
+  ]
+}

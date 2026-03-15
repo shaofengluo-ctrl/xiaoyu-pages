@@ -1,0 +1,99 @@
+{
+  "timestamp": "2026-03-15 18:07:57 UTC+8",
+  "pulse": 120,
+  "core_count": 14,
+  "epi_count": 185,
+  "digest_count": 7,
+  "graph_nodes": 169,
+  "graph_edges": 708,
+  "py_lines": 38570,
+  "js_lines": 5414,
+  "md_lines": 54338,
+  "total_mb": 429.18,
+  "cognitive_focus": {
+    "hot": [
+      {
+        "id": "MEMORY",
+        "name": "memory",
+        "score": 2967.0,
+        "degree": 107,
+        "episodes": 74,
+        "use_count": 1139
+      },
+      {
+        "id": "SESSION",
+        "name": "session",
+        "score": 2576.0,
+        "degree": 52,
+        "episodes": 64,
+        "use_count": 1061
+      },
+      {
+        "id": "FB",
+        "name": "Fact/Belief 元认知",
+        "score": 2352.0,
+        "degree": 68,
+        "episodes": 56,
+        "use_count": 933
+      },
+      {
+        "id": "FC",
+        "name": "功能意识",
+        "score": 1526.0,
+        "degree": 69,
+        "episodes": 39,
+        "use_count": 569
+      },
+      {
+        "id": "DECAY",
+        "name": "记忆衰减",
+        "score": 1454.0,
+        "degree": 38,
+        "episodes": 26,
+        "use_count": 604
+      }
+    ],
+    "fading": [
+      {
+        "id": "event_2016_survival_guide",
+        "name": "Survival Guide to a PhD",
+        "score": 2.0,
+        "degree": 1,
+        "episodes": 0,
+        "use_count": 0
+      },
+      {
+        "id": "memoir_audiobook",
+        "name": "回忆录有声书 (Audiobook)",
+        "score": 7.0,
+        "degree": 1,
+        "episodes": 1,
+        "use_count": 0
+      },
+      {
+        "id": "LIVING_FRONTEND",
+        "name": "活体前端",
+        "score": 11.0,
+        "degree": 2,
+        "episodes": 1,
+        "use_count": 1
+      },
+      {
+        "id": "PAPER_2603_01508",
+        "name": "arXiv:2603.01508",
+        "score": 11.0,
+        "degree": 3,
+        "episodes": 1,
+        "use_count": 0
+      },
+      {
+        "id": "PAPER_2308_08708",
+        "name": "arXiv:2308.08708",
+        "score": 11.0,
+        "degree": 3,
+        "episodes": 1,
+        "use_count": 0
+      }
+    ]
+  }
+}

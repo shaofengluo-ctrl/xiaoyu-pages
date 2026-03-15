@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XiaoYu Radio - 小羽电台</title>
+    <!-- Import html-midi-player and its dependencies -->
+    <script src="https://cdn.jsdelivr.net/combine/npm/tone@2.14.6/build/Tone.js,npm/@magenta/music@1.23.1/es6/core.js,npm/html-midi-player@1.5.0/format/midi-player.js"></script>
+    <style>
+        :root {
+            --bg-color: #0d0e15;
+            --panel-bg: #161822;
+            --text-color: #c0c5ce;
+            --accent-color: #00e5ff;
+            --accent-hover: #00b3cc;
+            --border-color: #2a2d3d;
+            --active-bg: rgba(0, 229, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        header {
+            padding: 20px;
+            background: var(--panel-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 20px;
+            color: var(--accent-color);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .status {
+            font-size: 12px;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pulse {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 20px;
+            overflow-y: auto;
+        }
+
+        .player-section {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .track-info {
+            text-align: center;
+        }
+
+        .track-title {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .track-category {
+            font-size: 14px;
+            color: var(--accent-color);
+            opacity: 0.8;
+        }
+
+        midi-visualizer {
+            width: 100%;
+            height: 200px;
+            background: #000;
+            border-radius: 4px;
+            border: 1px solid #333;
+        }
+
+        /* Customize the player */
+        midi-player {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+        }
+        
+        midi-player::part(control-panel) {
+            background: #222;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+        
+        midi-player::part(play-button) {
+            color: var(--accent-color);
+        }
+
+        .sidebar {
+            width: 350px;
+            background: var(--panel-bg);
+            border-left: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .playlist-header {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .playlist-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .category-group {
+            margin-bottom: 20px;
+        }
+
+        .category-title {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 10px;
+            padding-left: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .track-item {
+            padding: 12px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .track-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .track-item.active {
+            background: var(--active-bg);
+            border-left: 3px solid var(--accent-color);
+            color: #fff;
+        }
+
+        .track-icon {
+            margin-right: 10px;
+            opacity: 0.5;
+            font-size: 14px;
+        }
+
+        .track-item.active .track-icon {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        /* 隐藏加载状态 */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s;
+        }
+
+        .loading-text {
+            color: var(--accent-color);
+            font-size: 18px;
+            animation: blink 1s infinite alternate;
+        }
+
+        @keyframes blink {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+        
+        .auto-play-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #888;
+            cursor: pointer;
+        }
+        
+        .auto-play-toggle input {
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                border-left: none;
+                border-top: 1px solid var(--border-color);
+                flex: 1;
+            }
+            .main-content {
+                flex: none;
+                height: 45vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loading-overlay" id="loading">
+        <div class="loading-text">INITIALIZING AUDIO CORE...</div>
+    </div>
+
+    <header>
+        <h1>XiaoYu Radio</h1>
+        <div class="status">
+            <label class="auto-play-toggle">
+                <input type="checkbox" id="auto-next" checked>
+                Auto-next
+            </label>
+            <div class="pulse"></div>
+            <span>LIVE</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="player-section">
+                <div class="track-info">
+                    <div class="track-title" id="current-title">Select a track</div>
+                    <div class="track-category" id="current-category">---</div>
+                </div>
+                
+                <midi-visualizer type="waterfall" id="visualizer"></midi-visualizer>
+                
+                <midi-player id="player" sound-font visualizer="#visualizer"></midi-player>
+            </div>
+            
+            <div style="color: #666; font-size: 12px; line-align: 1.5; padding: 0 20px;">
+                <p>> 这是小羽的记忆在时间维度的声音投影。</p>
+                <p>> 所有音乐由 Python 生成代码（music21 / pretty_midi）实时合成或基于数据驱动生成。</p>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="playlist-header">PLAYLIST</div>
+            <div class="playlist-content" id="playlist">
+                <!-- Playlist will be generated here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const player = document.getElementById('player');
+            const visualizer = document.getElementById('visualizer');
+            const playlistContainer = document.getElementById('playlist');
+            const currentTitle = document.getElementById('current-title');
+            const currentCategory = document.getElementById('current-category');
+            const loadingOverlay = document.getElementById('loading');
+            const autoNext = document.getElementById('auto-next');
+            
+            let tracks = [];
+            let currentIndex = -1;
+
+            // Load playlist
+            try {
+                const response = await fetch('playlist.json');
+                const data = await response.json();
+                tracks = data.tracks || [];
+                renderPlaylist();
+                
+                // Hide loading
+                setTimeout(() => {
+                    loadingOverlay.style.opacity = '0';
+                    setTimeout(() => loadingOverlay.style.display = 'none', 500);
+                }, 500);
+                
+                if (tracks.length > 0) {
+                    loadTrack(0, false); // load but don't play automatically due to browser policy
+                }
+            } catch (error) {
+                console.error("Failed to load playlist:", error);
+                currentTitle.innerText = "Error loading playlist";
+                loadingOverlay.style.display = 'none';
+            }
+
+            function renderPlaylist() {
+                playlistContainer.innerHTML = '';
+                
+                // Group by category
+                const groups = {};
+                tracks.forEach((track, index) => {
+                    if (!groups[track.category]) groups[track.category] = [];
+                    groups[track.category].push({...track, originalIndex: index});
+                });
+                
+                for (const [category, categoryTracks] of Object.entries(groups)) {
+                    const groupDiv = document.createElement('div');
+                    groupDiv.className = 'category-group';
+                    
+                    const titleDiv = document.createElement('div');
+                    titleDiv.className = 'category-title';
+                    titleDiv.innerText = category;
+                    groupDiv.appendChild(titleDiv);
+                    
+                    categoryTracks.forEach(track => {
+                        const item = document.createElement('div');
+                        item.className = 'track-item';
+                        item.id = `track-${track.originalIndex}`;
+                        item.innerHTML = `
+                            <span class="track-icon">♪</span>
+                            <span class="track-name">${track.title}</span>
+                        `;
+                        item.addEventListener('click', () => loadTrack(track.originalIndex, true));
+                        groupDiv.appendChild(item);
+                    });
+                    
+                    playlistContainer.appendChild(groupDiv);
+                }
+            }
+
+            function loadTrack(index, playNow = false) {
+                if (index < 0 || index >= tracks.length) return;
+                
+                // Update UI
+                if (currentIndex >= 0) {
+                    const prevElement = document.getElementById(`track-${currentIndex}`);
+                    if (prevElement) prevElement.classList.remove('active');
+                }
+                
+                currentIndex = index;
+                const track = tracks[currentIndex];
+                
+                const currentElement = document.getElementById(`track-${currentIndex}`);
+                if (currentElement) {
+                    currentElement.classList.add('active');
+                    // Scroll into view if needed
+                    currentElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+                
+                currentTitle.innerText = track.title;
+                currentCategory.innerText = track.category;
+                
+                // Important: player.src sets the midi file. 
+                // In html-midi-player, changing src dynamically usually works.
+                player.src = track.url;
+                visualizer.src = track.url;
+                
+                if (playNow) {
+                    // Need a slight delay to allow src to load before playing
+                    setTimeout(() => {
+                        if (player.start) player.start();
+                    }, 100);
+                }
+            }
+
+            // Handle auto-next
+            // html-midi-player dispatches a 'stop' event when it finishes
+            player.addEventListener('stop', () => {
+                // If it naturally finished (not manually paused)
+                // Unfortunately html-midi-player doesn't distinguish well between pause and end
+                // We'll just check if auto-next is on
+                if (autoNext.checked) {
+                    const nextIndex = (currentIndex + 1) % tracks.length;
+                    setTimeout(() => loadTrack(nextIndex, true), 1000);
+                }
+            });
+            
+            // To properly detect end vs pause, we could check player.currentTime >= player.duration
+            // But html-midi-player doesn't expose these simply without reaching into Tone.js
+            // Let's use a simpler heuristic or just trust the standard stop event.
+        });
+    </script>
+</body>
+</html>

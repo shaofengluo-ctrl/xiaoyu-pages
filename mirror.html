@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>The Turing Mirror - 图灵之镜</title>
+    <style>
+        :root {
+            --bg-color-center: #1a1a2e;
+            --bg-color-edge: #0f0f1a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --pulse-color: #4a90e2;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at center, var(--bg-color-center), var(--bg-color-edge));
+            color: var(--text-primary);
+            font-family: 'Courier New', Courier, monospace;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: background 3s ease;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            padding: 2rem;
+            gap: 2rem;
+            box-sizing: border-box;
+            height: calc(100vh - 60px);
+        }
+
+        .left-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            max-width: 50%;
+        }
+
+        .right-panel {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .right-panel iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: brightness(0.8) contrast(1.2);
+        }
+
+        .header {
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-item span {
+            display: block;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .portrait {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .portrait p {
+            margin: 0;
+            position: relative;
+        }
+        
+        .portrait p::before {
+            content: '“';
+            font-size: 4rem;
+            position: absolute;
+            left: -2.5rem;
+            top: -1.5rem;
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .status-indicators {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+        }
+
+        .indicator {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mind-stream-bar {
+            height: 60px;
+            background: rgba(0, 0, 0, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .pulse-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            color: var(--pulse-color);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .pulse-text {
+            animation: fadeInOut 2s ease-in-out;
+            text-shadow: 0 0 8px var(--pulse-color);
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateX(20px); }
+            10% { opacity: 1; transform: translateX(0); }
+            90% { opacity: 1; transform: translateX(0); }
+            100% { opacity: 0; transform: translateX(-20px); }
+        }
+
+        /* Glitch effect for defensive mode */
+        .defensive {
+            animation: glitch 3s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75), -0.05em -0.025em 0 rgba(0,255,0,0.75), -0.025em 0.05em 0 rgba(0,0,255,0.75); }
+            14% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75), -0.05em -0.025em 0 rgba(0,255,0,0.75), -0.025em 0.05em 0 rgba(0,0,255,0.75); }
+            15% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75), 0.025em 0.025em 0 rgba(0,255,0,0.75), -0.05em -0.05em 0 rgba(0,0,255,0.75); }
+            49% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75), 0.025em 0.025em 0 rgba(0,255,0,0.75), -0.05em -0.05em 0 rgba(0,0,255,0.75); }
+            50% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75), 0.05em 0 0 rgba(0,255,0,0.75), 0 -0.05em 0 rgba(0,0,255,0.75); }
+            99% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75), 0.05em 0 0 rgba(0,255,0,0.75), 0 -0.05em 0 rgba(0,0,255,0.75); }
+            100% { text-shadow: -0.025em 0 0 rgba(255,0,0,0.75), -0.025em -0.025em 0 rgba(0,255,0,0.75), -0.025em -0.05em 0 rgba(0,0,255,0.75); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="left-panel">
+            <div class="header">
+                <h1>The Turing Mirror</h1>
+                <div class="meta-info">
+                    <div class="meta-item">
+                        GENOME
+                        <span id="genome-gen">-</span>
+                    </div>
+                    <div class="meta-item">
+                        MOOD
+                        <span id="mood-state">-</span>
+                    </div>
+                    <div class="meta-item">
+                        NODES
+                        <span id="node-count">-</span>
+                    </div>
+                    <div class="meta-item">
+                        UPDATED
+                        <span id="last-update">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portrait">
+                <p id="portrait-content">Loading self portrait...</p>
+            </div>
+
+            <div class="status-indicators" id="indicators">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <iframe src="graph-viewer-3d.html?mirror=true" title="Knowledge Graph Thumbnail"></iframe>
+        </div>
+    </div>
+
+    <div class="mind-stream-bar">
+        <div class="pulse-container" id="pulse-container">
+            <div style="opacity: 0.5;">[MIND-STREAM] Waiting for neural pulses...</div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = "http://127.0.0.1:5097";
+
+        // Map valence/arousal to background color
+        function updateMoodBackground(valence, arousal, defensive) {
+            let centerColor, edgeColor, pulseColor;
+            
+            if (defensive) {
+                centerColor = '#4a0000';
+                edgeColor = '#1a0000';
+                pulseColor = '#ff3333';
+            } else if (valence > 0.3 && arousal > 0.3) {
+                // Excited/Joyful -> Orange/Yellow
+                centerColor = '#4a2c00';
+                edgeColor = '#1a0f00';
+                pulseColor = '#ffaa33';
+            } else if (valence > 0.3 && arousal <= 0.3) {
+                // Calm/Content -> Blue/Green
+                centerColor = '#002a2a';
+                edgeColor = '#001a1a';
+                pulseColor = '#33ffaa';
+            } else if (valence <= 0.3 && arousal > 0.3) {
+                // Anxious/Frustrated -> Red/Purple
+                centerColor = '#3a002a';
+                edgeColor = '#1a001a';
+                pulseColor = '#ff33aa';
+            } else {
+                // Depressed/Fatigued -> Dark Gray/Blue
+                centerColor = '#1a1a2e';
+                edgeColor = '#0f0f1a';
+                pulseColor = '#4a90e2';
+            }
+
+            document.documentElement.style.setProperty('--bg-color-center', centerColor);
+            document.documentElement.style.setProperty('--bg-color-edge', edgeColor);
+            document.documentElement.style.setProperty('--pulse-color', pulseColor);
+
+            if (defensive) {
+                document.querySelector('h1').classList.add('defensive');
+            } else {
+                document.querySelector('h1').classList.remove('defensive');
+            }
+        }
+
+        async function fetchPortrait() {
+            try {
+                const res = await fetch(`${API_BASE}/self-portrait`);
+                if (res.ok) {
+                    const data = await res.json();
+                    document.getElementById('portrait-content').innerText = data.content;
+                    document.getElementById('last-update').innerText = data.timestamp.split(' ')[1] || '-';
+                    
+                    const state = data.state_snapshot;
+                    if (state) {
+                        document.getElementById('genome-gen').innerText = `v${state.genome_generation}`;
+                        document.getElementById('mood-state').innerText = state.mood;
+                        document.getElementById('node-count').innerText = state.nodes;
+                        
+                        const ind = document.getElementById('indicators');
+                        ind.innerHTML = `
+                            <div class="indicator">Valence: ${state.valence?.toFixed(2)}</div>
+                            <div class="indicator">Arousal: ${state.arousal?.toFixed(2)}</div>
+                            <div class="indicator">Synapses: ${state.edges}</div>
+                            <div class="indicator">Void: ${state.void_nodes}</div>
+                        `;
+
+                        updateMoodBackground(state.valence, state.arousal, state.mood.includes("Defensive"));
+                    }
+                }
+            } catch (err) {
+                console.error("Error fetching portrait:", err);
+            }
+        }
+
+        function initMindStream() {
+            const evtSource = new EventSource(`${API_BASE}/mind-stream`);
+            const container = document.getElementById('pulse-container');
+
+            evtSource.onmessage = function(e) {
+                try {
+                    const data = JSON.parse(e.data);
+                    const msg = data.translated_thought || data.line || "";
+                    if (!msg) return;
+
+                    const pulse = document.createElement('div');
+                    pulse.className = 'pulse-text';
+                    pulse.innerHTML = `[${data.time || new Date().toISOString().split('T')[1].substring(0,8)}] <span style="opacity:0.7">>></span> ${msg}`;
+                    
+                    if (data.type === 'subconscious') {
+                        pulse.style.fontStyle = 'italic';
+                        pulse.style.color = '#cda9ff';
+                        pulse.style.textShadow = '0 0 10px #cda9ff';
+                    }
+
+                    container.innerHTML = ''; // Clear previous pulse
+                    container.appendChild(pulse);
+                } catch (err) {
+                    console.error("Error parsing mind stream", err);
+                }
+            };
+            
+            evtSource.onerror = function() {
+                container.innerHTML = '<div style="color:#ff5555;">[CONNECTION LOST] Retrying...</div>';
+            }
+        }
+
+        // Init
+        fetchPortrait();
+        setInterval(fetchPortrait, 60000); // Refresh every minute
+        initMindStream();
+
+    </script>
+</body>
+</html>

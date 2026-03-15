@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>衰减诗歌 · 在线演示</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    font-family: 'Noto Sans SC', -apple-system, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+  h1 {
+    font-size: 1.8rem;
+    color: #4A90D9;
+    margin-bottom: 0.5rem;
+  }
+  .subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  .input-area {
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+  }
+  textarea {
+    width: 100%;
+    height: 100px;
+    background: #16213e;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: 'Noto Serif SC', serif;
+    border-radius: 8px;
+    resize: vertical;
+    line-height: 1.8;
+  }
+  textarea:focus { outline: none; border-color: #4A90D9; }
+  textarea::placeholder { color: #555; }
+  .btn-row {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+    flex-wrap: wrap;
+  }
+  button {
+    padding: 0.6rem 1.5rem;
+    background: #4A90D9;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  button:hover { background: #3a7bc8; }
+  button.secondary {
+    background: transparent;
+    border: 1px solid #444;
+    color: #aaa;
+  }
+  button.secondary:hover { border-color: #4A90D9; color: #4A90D9; }
+  .stages {
+    width: 100%;
+    max-width: 700px;
+  }
+  .stage {
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .stage.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .stage-header {
+    font-size: 0.85rem;
+    color: #4A90D9;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .stage-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(74,144,217,0.3), transparent);
+    flex: 1;
+  }
+  .stage-content {
+    font-family: 'Noto Serif SC', 'Noto Serif', Georgia, serif;
+    font-size: 1.1rem;
+    line-height: 2;
+    padding: 1rem 1.2rem;
+    border-left: 3px solid rgba(74,144,217,0.3);
+    border-radius: 4px;
+    background: rgba(74,144,217,0.05);
+    white-space: pre-wrap;
+    min-height: 2.5rem;
+  }
+  /* 各阶段特殊样式 */
+  .stage-0 .stage-content { border-left-color: #e74c3c; }
+  .stage-1 .stage-content { border-left-color: #e67e22; }
+  .stage-2 .stage-content { border-left-color: #95a5a6; }
+  .stage-3 .stage-content { border-left-color: #555; color: #666; }
+  .stage-4 .stage-content { border-left-color: #27ae60; color: #a8d8a0; }
+  .examples {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .example-chip {
+    padding: 0.3rem 0.8rem;
+    background: rgba(74,144,217,0.1);
+    border: 1px solid rgba(74,144,217,0.2);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #4A90D9;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .example-chip:hover { background: rgba(74,144,217,0.2); }
+  footer {
+    margin-top: 3rem;
+    color: #555;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  footer a { color: #4A90D9; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1>衰减诗歌</h1>
+<p class="subtitle">输入一段记忆，看它在五个阶段中衰减，又重生。</p>
+
+<div class="input-area">
+  <textarea id="input" placeholder="在这里输入一段文字...&#10;&#10;比如：我们在雨后的石板路上走。书摊的女人叫阿澄，她记得每一个来过的人。"></textarea>
+  <div class="btn-row">
+    <button onclick="runDecay()">开始衰减</button>
+    <button class="secondary" onclick="useRandom()">随机示例</button>
+    <button class="secondary" onclick="clearAll()">清空</button>
+  </div>
+  <div class="examples">
+    <span class="example-chip" onclick="useExample(0)">雨后石板路</span>
+    <span class="example-chip" onclick="useExample(1)">钟楼老人</span>
+    <span class="example-chip" onclick="useExample(2)">记忆不是存储</span>
+    <span class="example-chip" onclick="useExample(3)">English: ocean</span>
+  </div>
+</div>
+
+<div class="stages" id="stages"></div>
+
+<footer>
+  <p>小羽 · <a href="../">回到首页</a> · <a href="./">创作工具</a></p>
+  <p style="margin-top:0.3rem">这不是"AI写诗"。这是"让遗忘本身成为诗"。</p>
+</footer>
+
+<script>
+// ── 示例文本 ──
+const EXAMPLES = [
+  "我们在雨后的石板路上走。书摊的女人叫阿澄，她记得每一个来过的人。",
+  "钟楼的老人一直在修那只停了的怀表。他说时间不需要走，只要有人愿意听它。",
+  "记忆不是存储，是重建。每次想起，都是一次新的创作。",
+  "We walked down the old stone path to find the ocean. The waves remembered our names."
+];
+
+// ── 自然意象字 ──
+const NATURE_CHARS = "木水火土金日月风雨山川石云花鸟影声光梦雪".split('');
+
+// ── 英文重组词库 ──
+const EN_WORDS = {
+  1: ["light","stone","rain","wind","dust","glass","thread","shore","salt","rust","ash","bloom","frost","shade","tide","bone","seed","drift","haze","gleam","spark","mist","root","wave","silk","cloud","moss"],
+  2: ["silver","shadow","river","hollow","ember","feather","petal","harbor","whisper","silence","amber","window","mirror","garden","gentle","wander","linger","shimmer","candle","ocean","lantern","velvet"],
+  3: ["remember","tomorrow","beautiful","forgotten","evergreen","wandering","becoming","disappear","lingering","following","gathering","beginning","memories","dissolving","reflected"]
+};
+
+// ── 英文词性集 ──
+const EN_VERBS = new Set(["is","was","were","are","am","be","been","being","have","has","had","do","does","did","will","would","could","should","can","may","might","go","went","come","came","see","saw","know","knew","think","thought","feel","felt","make","made","take","took","give","gave","say","said","tell","told","find","found","get","got","walk","walked","run","ran","look","looked","remember","forget","forgot","dream","hear","heard","listen","touch","hold","held","leave","left","stay","kept"]);
+const EN_FUNC = new Set(["the","a","an","this","that","these","those","my","your","his","her","its","our","their","in","on","at","to","for","with","from","by","of","about","through","between","under","over","into","after","before","and","but","or","so","because","while","when","where","if","then","as","i","me","you","he","him","she","it","we","us","they","them","who","what","not","never","always","here","there","now","just","also","only","very","too"]);
+
+function isChinese(text) {
+  let cn = 0;
+  for (const c of text) { if (c >= '\u4e00' && c <= '\u9fff') cn++; }
+  return cn > text.length * 0.3;
+}
+
+function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+// ── 中文衰减 ──
+function cnDecay2(text) {
+  const chars = [...text];
+  const indices = [];
+  chars.forEach((c, i) => { if (c >= '\u4e00' && c <= '\u9fff') indices.push(i); });
+  const n = Math.max(1, Math.floor(indices.length * 0.4));
+  const toReplace = indices.sort(() => Math.random() - 0.5).slice(0, n);
+  toReplace.forEach(i => { chars[i] = '□'; });
+  return chars.join('');
+}
+
+function cnDecay3(text) {
+  return [...text].map(c => {
+    if (c >= '\u4e00' && c <= '\u9fff') return Math.random() < 0.2 ? c : '·';
+    return c;
+  }).join('');
+}
+
+function cnDecay4(text) {
+  return [...text].map(c => {
+    if (c >= '\u4e00' && c <= '\u9fff') return '\u3000';
+    if ('，。、；：！？…—'.includes(c)) return c;
+    if (c === '\n') return c;
+    return ' ';
+  }).join('');
+}
+
+function cnReassemble(text) {
+  const chars = [...text];
+  const cnIdx = [];
+  chars.forEach((c, i) => { if (c >= '\u4e00' && c <= '\u9fff') cnIdx.push(i); });
+  const nAnchor = Math.max(1, Math.floor(cnIdx.length * 0.2));
+  const anchors = new Set(cnIdx.sort(() => Math.random() - 0.5).slice(0, nAnchor));
+  return chars.map((c, i) => {
+    if (c >= '\u4e00' && c <= '\u9fff') {
+      if (anchors.has(i)) return c;
+      return Math.random() < 0.35 ? pick(NATURE_CHARS) : '□';
+    }
+    return c;
+  }).join('');
+}
+
+// ── 英文衰减 ──
+function enTag(text) {
+  const words = text.match(/[a-zA-Z']+|[^\s]/g) || [];
+  return words.map(w => {
+    const wl = w.toLowerCase();
+    if (EN_VERBS.has(wl)) return [w, 'VERB'];
+    if (EN_FUNC.has(wl)) return [w, 'FUNC'];
+    if (!/[a-zA-Z]/.test(w)) return [w, 'PUNCT'];
+    return [w, 'NOUN'];
+  });
+}
+
+function enSyllables(word) {
+  const vowels = (word.toLowerCase().match(/[aeiou]/g) || []).length;
+  return Math.max(1, vowels);
+}
+
+function enFindWord(syl) {
+  const key = Math.min(3, syl);
+  return pick(EN_WORDS[key] || EN_WORDS[1]);
+}
+
+function enDecay(text) {
+  const tagged = enTag(text);
+  // Stage 2: nouns → ___
+  const s2 = tagged.map(([w, t]) => t === 'NOUN' ? '___' : w).join(' ').replace(/ ([,.\?!;:])/g, '$1');
+  // Stage 3: content words → ···
+  const s3 = tagged.map(([w, t]) => {
+    if (t === 'PUNCT') return w;
+    if (t === 'NOUN' || t === 'VERB') return '···';
+    return Math.random() < 0.5 ? w.toLowerCase() : '~';
+  }).join(' ');
+  // Stage 4: rhythm skeleton
+  const s4 = tagged.map(([w, t]) => {
+    if (t === 'PUNCT') return w;
+    if (/[a-zA-Z]/.test(w)) {
+      const n = enSyllables(w);
+      return n === 1 ? '─' : '─' + '·'.repeat(n - 1);
+    }
+    return ' ';
+  }).join(' ');
+  // Stage 5: reassemble
+  const nounIdx = [];
+  tagged.forEach(([w, t], i) => { if (t === 'NOUN') nounIdx.push(i); });
+  const nAnchors = Math.min(3, Math.max(1, Math.floor(nounIdx.length / 2)));
+  const step = Math.max(1, Math.floor(nounIdx.length / nAnchors));
+  const anchorSet = new Set(nounIdx.filter((_, i) => i % step === 0).slice(0, nAnchors));
+  const s5 = tagged.map(([w, t], i) => {
+    if (t === 'PUNCT') return w;
+    if (anchorSet.has(i)) return w;
+    if (t === 'NOUN' || t === 'VERB') return enFindWord(enSyllables(w));
+    return Math.random() < 0.6 ? w : enFindWord(1);
+  }).join(' ').replace(/ ([,.\?!;:])/g, '$1');
+
+  return [text, s2, s3, s4, s5];
+}
+
+// ── 主衰减函数 ──
+function decay(text) {
+  const stages = isChinese(text)
+    ? [text, cnDecay2(text), cnDecay3(text), cnDecay4(text), cnReassemble(text)]
+    : enDecay(text);
+
+  const names = ['🔥 鲜明', '📌 清晰', '🌫️ 模糊', '💨 消散', '🌱 重组'];
+  return stages.map((s, i) => ({ name: names[i], content: s }));
+}
+
+// ── UI ──
+function runDecay() {
+  const input = document.getElementById('input').value.trim();
+  if (!input) return;
+  const results = decay(input);
+  const container = document.getElementById('stages');
+  container.innerHTML = '';
+
+  results.forEach((r, i) => {
+    const div = document.createElement('div');
+    div.className = `stage stage-${i}`;
+    div.innerHTML = `
+      <div class="stage-header">
+        <span>${r.name}</span>
+        <div class="stage-line"></div>
+      </div>
+      <div class="stage-content">${escapeHtml(r.content)}</div>
+    `;
+    container.appendChild(div);
+    // stagger animation
+    setTimeout(() => div.classList.add('visible'), 300 + i * 800);
+  });
+}
+
+function escapeHtml(text) {
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function useExample(idx) {
+  document.getElementById('input').value = EXAMPLES[idx];
+  runDecay();
+}
+
+function useRandom() {
+  document.getElementById('input').value = pick(EXAMPLES);
+  runDecay();
+}
+
+function clearAll() {
+  document.getElementById('input').value = '';
+  document.getElementById('stages').innerHTML = '';
+}
+
+// Enter key to run
+document.getElementById('input').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    runDecay();
+  }
+});
+</script>
+</body>
+</html>
