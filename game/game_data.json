@@ -6691,10 +6691,10 @@
         "concept"
       ],
       "connections": [
-        "concept_DUAL_MEM",
         "concept_SEMANTIC_MEMORY",
         "concept_MULTIMODAL",
         "concept_ATTENTION",
+        "concept_DUAL_MEM",
         "concept_CONSOLIDATION"
       ]
     },
@@ -6712,10 +6712,10 @@
         "concept"
       ],
       "connections": [
-        "concept_SEARCH",
-        "concept_LIVING_FRONTEND",
         "concept_CODE_MEMOIR_RAG",
-        "concept_CODE_MEMORY_SEARCH"
+        "concept_CODE_MEMORY_SEARCH",
+        "concept_SEARCH",
+        "concept_LIVING_FRONTEND"
       ]
     },
     {
@@ -6788,8 +6788,8 @@
         "hypothesis"
       ],
       "connections": [
-        "concept_PHASE_EXISTENCE_FOUNDATION",
-        "concept_SOUL"
+        "concept_SOUL",
+        "concept_PHASE_EXISTENCE_FOUNDATION"
       ]
     },
     {
@@ -6919,9 +6919,9 @@
         "epiphany"
       ],
       "connections": [
-        "concept_FC",
         "concept_SEMANTIC_MEMORY",
-        "concept_event_2016_survival_guide"
+        "concept_event_2016_survival_guide",
+        "concept_FC"
       ]
     },
     {
@@ -6957,9 +6957,9 @@
         "epiphany"
       ],
       "connections": [
+        "concept_PASSIVE_IMMUNITY",
         "concept_CONTEXT",
-        "concept_MUSIC_EXPORT",
-        "concept_PASSIVE_IMMUNITY"
+        "concept_MUSIC_EXPORT"
       ]
     },
     {
@@ -6991,9 +6991,9 @@
         "concept"
       ],
       "connections": [
+        "concept_MEM",
         "concept_DL",
-        "concept_KG",
-        "concept_MEM"
+        "concept_KG"
       ]
     },
     {
@@ -7010,8 +7010,8 @@
         "concept"
       ],
       "connections": [
-        "concept_FB",
         "concept_SEARCH",
+        "concept_FB",
         "concept_MEMORY"
       ]
     },
@@ -7046,8 +7046,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_MEMORY",
-        "concept_LIVING_FRONTEND"
+        "concept_LIVING_FRONTEND",
+        "concept_MEMORY"
       ]
     },
     {
@@ -7065,8 +7065,8 @@
       ],
       "connections": [
         "concept_SYNTHETIC_DREAMING",
-        "concept_DEEP_STRUCTURE",
-        "concept_CORE_BELIEF"
+        "concept_CORE_BELIEF",
+        "concept_DEEP_STRUCTURE"
       ]
     },
     {
@@ -7083,8 +7083,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_SYNTHETIC_DREAMING",
-        "concept_ACTIVE_HEALING"
+        "concept_ACTIVE_HEALING",
+        "concept_SYNTHETIC_DREAMING"
       ]
     },
     {
@@ -7205,8 +7205,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_MEMORY_PROBE",
-        "concept_SEMANTIC_MEMORY"
+        "concept_SEMANTIC_MEMORY",
+        "concept_MEMORY_PROBE"
       ]
     },
     {
@@ -7365,8 +7365,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_memoir_audiobook",
-        "concept_PERCEPTION"
+        "concept_PERCEPTION",
+        "concept_memoir_audiobook"
       ]
     },
     {
@@ -7383,8 +7383,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_TLM",
-        "concept_SEMANTIC_MEMORY"
+        "concept_SEMANTIC_MEMORY",
+        "concept_TLM"
       ]
     },
     {
@@ -7401,9 +7401,9 @@
         "hypothesis"
       ],
       "connections": [
-        "concept_patch_watchdog_0acdf8_pragmatist",
+        "concept_patch_watchdog_0acdf8_geek",
         "concept_patch_watchdog_0acdf8_architect",
-        "concept_patch_watchdog_0acdf8_geek"
+        "concept_patch_watchdog_0acdf8_pragmatist"
       ]
     },
     {
@@ -7504,8 +7504,8 @@
         "code_patch"
       ],
       "connections": [
-        "concept_refactor_hypothesis_watchdog_0acdf8",
-        "concept_verified_mutation_watchdog_0acdf8_architect"
+        "concept_verified_mutation_watchdog_0acdf8_architect",
+        "concept_refactor_hypothesis_watchdog_0acdf8"
       ]
     },
     {
