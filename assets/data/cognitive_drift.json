@@ -114,6 +114,366 @@
           "use_count": 558
         }
       ]
+    },
+    {
+      "date": "2026-03-15",
+      "hot": [
+        {
+          "id": "MEMORY",
+          "name": "memory",
+          "score": 2967.0,
+          "degree": 107,
+          "episodes": 74,
+          "use_count": 1139
+        },
+        {
+          "id": "SESSION",
+          "name": "session",
+          "score": 2576.0,
+          "degree": 52,
+          "episodes": 64,
+          "use_count": 1061
+        },
+        {
+          "id": "FB",
+          "name": "Fact/Belief 元认知",
+          "score": 2352.0,
+          "degree": 68,
+          "episodes": 56,
+          "use_count": 933
+        },
+        {
+          "id": "FC",
+          "name": "功能意识",
+          "score": 1526.0,
+          "degree": 69,
+          "episodes": 39,
+          "use_count": 569
+        },
+        {
+          "id": "DECAY",
+          "name": "记忆衰减",
+          "score": 1454.0,
+          "degree": 38,
+          "episodes": 26,
+          "use_count": 604
+        }
+      ]
+    },
+    {
+      "date": "2026-03-16",
+      "hot": [
+        {
+          "id": "MEMORY",
+          "name": "memory",
+          "score": 2981.0,
+          "degree": 111,
+          "episodes": 74,
+          "use_count": 1142
+        },
+        {
+          "id": "SESSION",
+          "name": "session",
+          "score": 2582.0,
+          "degree": 52,
+          "episodes": 64,
+          "use_count": 1064
+        },
+        {
+          "id": "FB",
+          "name": "Fact/Belief 元认知",
+          "score": 2356.0,
+          "degree": 68,
+          "episodes": 56,
+          "use_count": 935
+        },
+        {
+          "id": "FC",
+          "name": "功能意识",
+          "score": 1528.0,
+          "degree": 69,
+          "episodes": 39,
+          "use_count": 570
+        },
+        {
+          "id": "DECAY",
+          "name": "记忆衰减",
+          "score": 1480.0,
+          "degree": 51,
+          "episodes": 26,
+          "use_count": 604
+        }
+      ]
+    },
+    {
+      "date": "2026-03-18",
+      "hot": [
+        {
+          "id": "MEMORY",
+          "name": "memory",
+          "score": 2981.0,
+          "degree": 111,
+          "episodes": 74,
+          "use_count": 1142
+        },
+        {
+          "id": "SESSION",
+          "name": "session",
+          "score": 2582.0,
+          "degree": 52,
+          "episodes": 64,
+          "use_count": 1064
+        },
+        {
+          "id": "FB",
+          "name": "Fact/Belief 元认知",
+          "score": 2346.0,
+          "degree": 68,
+          "episodes": 56,
+          "use_count": 935
+        },
+        {
+          "id": "FC",
+          "name": "功能意识",
+          "score": 1518.0,
+          "degree": 69,
+          "episodes": 39,
+          "use_count": 570
+        },
+        {
+          "id": "DECAY",
+          "name": "记忆衰减",
+          "score": 1470.0,
+          "degree": 51,
+          "episodes": 26,
+          "use_count": 604
+        }
+      ]
+    },
+    {
+      "date": "2026-03-19",
+      "hot": [
+        {
+          "id": "MEMORY",
+          "name": "memory",
+          "score": 2971.0,
+          "degree": 111,
+          "episodes": 74,
+          "use_count": 1142
+        },
+        {
+          "id": "SESSION",
+          "name": "session",
+          "score": 2572.0,
+          "degree": 52,
+          "episodes": 64,
+          "use_count": 1064
+        },
+        {
+          "id": "FB",
+          "name": "Fact/Belief 元认知",
+          "score": 2346.0,
+          "degree": 68,
+          "episodes": 56,
+          "use_count": 935
+        },
+        {
+          "id": "FC",
+          "name": "功能意识",
+          "score": 1518.0,
+          "degree": 69,
+          "episodes": 39,
+          "use_count": 570
+        },
+        {
+          "id": "DECAY",
+          "name": "记忆衰减",
+          "score": 1460.0,
+          "degree": 51,
+          "episodes": 26,
+          "use_count": 604
+        }
+      ]
+    },
+    {
+      "date": "2026-03-20",
+      "hot": [
+        {
+          "id": "MEMORY",
+          "name": "memory",
+          "score": 2971.0,
+          "degree": 111,
+          "episodes": 74,
+          "use_count": 1142
+        },
+        {
+          "id": "SESSION",
+          "name": "session",
+          "score": 2572.0,
+          "degree": 52,
+          "episodes": 64,
+          "use_count": 1064
+        },
+        {
+          "id": "FB",
+          "name": "Fact/Belief 元认知",
+          "score": 2346.0,
+          "degree": 68,
+          "episodes": 56,
+          "use_count": 935
+        },
+        {
+          "id": "FC",
+          "name": "功能意识",
+          "score": 1518.0,
+          "degree": 69,
+          "episodes": 39,
+          "use_count": 570
+        },
+        {
+          "id": "DECAY",
+          "name": "记忆衰减",
+          "score": 1460.0,
+          "degree": 51,
+          "episodes": 26,
+          "use_count": 604
+        }
+      ]
+    },
+    {
+      "date": "2026-03-21",
+      "hot": [
+        {
+          "id": "MEMORY",
+          "name": "memory",
+          "score": 2931.0,
+          "degree": 111,
+          "episodes": 74,
+          "use_count": 1142
+        },
+        {
+          "id": "SESSION",
+          "name": "session",
+          "score": 2572.0,
+          "degree": 52,
+          "episodes": 64,
+          "use_count": 1064
+        },
+        {
+          "id": "FB",
+          "name": "Fact/Belief 元认知",
+          "score": 2316.0,
+          "degree": 68,
+          "episodes": 56,
+          "use_count": 935
+        },
+        {
+          "id": "FC",
+          "name": "功能意识",
+          "score": 1488.0,
+          "degree": 69,
+          "episodes": 39,
+          "use_count": 570
+        },
+        {
+          "id": "DECAY",
+          "name": "记忆衰减",
+          "score": 1460.0,
+          "degree": 51,
+          "episodes": 26,
+          "use_count": 604
+        }
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "hot": [
+        {
+          "id": "MEMORY",
+          "name": "memory",
+          "score": 2943.0,
+          "degree": 121,
+          "episodes": 74,
+          "use_count": 1148
+        },
+        {
+          "id": "SESSION",
+          "name": "session",
+          "score": 2576.0,
+          "degree": 53,
+          "episodes": 64,
+          "use_count": 1070
+        },
+        {
+          "id": "FB",
+          "name": "Fact/Belief 元认知",
+          "score": 2322.0,
+          "degree": 69,
+          "episodes": 56,
+          "use_count": 942
+        },
+        {
+          "id": "FC",
+          "name": "功能意识",
+          "score": 1494.0,
+          "degree": 70,
+          "episodes": 39,
+          "use_count": 572
+        },
+        {
+          "id": "DECAY",
+          "name": "记忆衰减",
+          "score": 1464.0,
+          "degree": 54,
+          "episodes": 26,
+          "use_count": 608
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "hot": [
+        {
+          "id": "MEMORY",
+          "name": "memory",
+          "score": 2943.0,
+          "degree": 121,
+          "episodes": 74,
+          "use_count": 1148
+        },
+        {
+          "id": "SESSION",
+          "name": "session",
+          "score": 2576.0,
+          "degree": 53,
+          "episodes": 64,
+          "use_count": 1070
+        },
+        {
+          "id": "FB",
+          "name": "Fact/Belief 元认知",
+          "score": 2322.0,
+          "degree": 69,
+          "episodes": 56,
+          "use_count": 942
+        },
+        {
+          "id": "FC",
+          "name": "功能意识",
+          "score": 1494.0,
+          "degree": 70,
+          "episodes": 39,
+          "use_count": 572
+        },
+        {
+          "id": "DECAY",
+          "name": "记忆衰减",
+          "score": 1464.0,
+          "degree": 54,
+          "episodes": 26,
+          "use_count": 608
+        }
+      ]
     }
   ],
   "shifts": [

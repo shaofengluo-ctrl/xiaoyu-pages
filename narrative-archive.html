@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Narrative Archive — Attention Chronicle</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0414;color:#e0c0ff;font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+.header{padding:24px 32px;border-bottom:1px solid rgba(220,180,255,0.15);background:rgba(12,4,20,0.95);position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}
+.header h1{font-size:1.1rem;letter-spacing:3px;font-weight:300;color:#dcb4ff}
+.header .sub{font-size:0.65rem;color:rgba(220,180,255,0.4);margin-top:4px;letter-spacing:1px}
+.stats-bar{display:flex;gap:20px;padding:16px 32px;border-bottom:1px solid rgba(220,180,255,0.08);background:rgba(18,8,28,0.6)}
+.stat{display:flex;flex-direction:column;align-items:center;gap:2px}
+.stat .val{font-size:1.2rem;color:#dcb4ff;font-weight:300}
+.stat .lbl{font-size:0.5rem;color:rgba(220,180,255,0.35);letter-spacing:1.5px;text-transform:uppercase}
+.trends{padding:14px 32px;border-bottom:1px solid rgba(220,180,255,0.08);display:flex;gap:12px;flex-wrap:wrap}
+.trend-tag{font-size:0.55rem;padding:3px 10px;border-radius:12px;border:1px solid rgba(220,180,255,0.2);color:rgba(220,180,255,0.5)}
+.trend-tag.rising{border-color:rgba(0,220,100,0.3);color:#50dca0}
+.trend-tag.falling{border-color:rgba(220,80,80,0.3);color:#dc7070}
+.trend-tag.stable{border-color:rgba(120,160,220,0.3);color:#88b4dc}
+.main{padding:24px 32px;display:flex;flex-direction:column;gap:16px}
+.card{border:1px solid rgba(220,180,255,0.12);border-radius:8px;background:rgba(18,8,28,0.5);overflow:hidden;transition:all 0.3s;cursor:pointer}
+.card:hover{border-color:rgba(220,180,255,0.3);background:rgba(24,12,36,0.7);transform:translateY(-2px);box-shadow:0 4px 20px rgba(160,100,220,0.1)}
+.card-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid rgba(220,180,255,0.08)}
+.card-date{font-size:0.85rem;color:#dcb4ff;font-weight:300;letter-spacing:1px}
+.card-persona{font-size:0.5rem;padding:2px 8px;border-radius:10px;border:1px solid rgba(220,180,255,0.2)}
+.card-summary{padding:12px 16px;font-size:0.75rem;color:#e0c0ff;font-style:italic;line-height:1.6;text-shadow:0 0 8px rgba(220,180,255,0.1)}
+.card-metrics{display:flex;gap:16px;padding:8px 16px 12px;flex-wrap:wrap}
+.metric{display:flex;align-items:center;gap:4px;font-size:0.55rem;color:rgba(220,180,255,0.4)}
+.metric .dot{width:6px;height:6px;border-radius:50%}
+.card-detail{max-height:0;overflow:hidden;transition:max-height 0.4s ease;padding:0 16px}
+.card.expanded .card-detail{max-height:600px;padding:0 16px 16px}
+.section-block{margin-bottom:10px}
+.section-title{font-size:0.6rem;color:#dcb4ff;margin-bottom:4px;letter-spacing:1px}
+.section-frag{font-size:0.6rem;color:rgba(220,190,255,0.55);line-height:1.8;padding-left:10px;border-left:2px solid rgba(220,180,255,0.12);margin-bottom:4px}
+.loading{padding:60px;text-align:center;color:rgba(220,180,255,0.3);font-size:0.7rem;letter-spacing:2px}
+.empty{padding:60px;text-align:center}
+.empty .icon{font-size:2rem;margin-bottom:12px;opacity:0.3}
+.empty .msg{font-size:0.7rem;color:rgba(220,180,255,0.3);letter-spacing:1px}
+.back-link{position:fixed;bottom:20px;right:20px;font-size:0.6rem;color:rgba(220,180,255,0.4);text-decoration:none;padding:6px 14px;border:1px solid rgba(220,180,255,0.15);border-radius:16px;background:rgba(12,4,20,0.9);backdrop-filter:blur(8px);transition:all 0.3s;z-index:20}
+.back-link:hover{color:#dcb4ff;border-color:rgba(220,180,255,0.4)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.card{animation:fadeIn 0.4s ease both}
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>📜 NARRATIVE ARCHIVE</h1>
+    <div class="sub">Attention Chronicle — How the gaze shifts across time</div>
+</div>
+<div class="stats-bar" id="stats-bar">
+    <div class="stat"><span class="val" id="total-count">—</span><span class="lbl">Archives</span></div>
+    <div class="stat"><span class="val" id="latest-date">—</span><span class="lbl">Latest</span></div>
+    <div class="stat"><span class="val" id="oldest-date">—</span><span class="lbl">Oldest</span></div>
+</div>
+<div class="trends" id="trends-bar"></div>
+<div class="main" id="card-container">
+    <div class="loading">Loading narrative archive...</div>
+</div>
+<a href="mirror.html" class="back-link">← Back to Mirror</a>
+
+<script>
+const API_BASE = "http://127.0.0.1:5097";
+let archiveData = [];
+
+const personaColors = {
+    DEEP_DIVER: '#60a5fa',
+    STEADY_EXPLORER: '#50dca0',
+    CURIOUS_WANDERER: '#dcb4ff',
+    QUANTUM_LEAPER: '#ff8844'
+};
+
+const personaLabels = {
+    DEEP_DIVER: '深潜者',
+    STEADY_EXPLORER: '稳健探索者',
+    CURIOUS_WANDERER: '好奇漫游者',
+    QUANTUM_LEAPER: '量子跳跃者'
+};
+
+async function init() {
+    try {
+        const res = await fetch(`${API_BASE}/narrative-archive?limit=100`);
+        const d = await res.json();
+        if (d.status !== 'ok') throw new Error(d.error || 'API error');
+
+        archiveData = d.entries || [];
+        renderStats(d);
+        renderTrends(d.trends || {});
+        renderCards(archiveData);
+    } catch(err) {
+        document.getElementById('card-container').innerHTML =
+            `<div class="empty"><div class="icon">📡</div><div class="msg">Cannot reach memory server: ${err.message}</div></div>`;
+    }
+}
+
+function renderStats(d) {
+    document.getElementById('total-count').textContent = d.total_archives || 0;
+    if (d.entries && d.entries.length > 0) {
+        document.getElementById('latest-date').textContent = d.entries[0].date;
+        document.getElementById('oldest-date').textContent = d.entries[d.entries.length - 1].date;
+    }
+}
+
+function renderTrends(trends) {
+    const bar = document.getElementById('trends-bar');
+    if (!Object.keys(trends).length) {
+        bar.innerHTML = '<span class="trend-tag">Accumulating data for trends...</span>';
+        return;
+    }
+    let html = '';
+    if (trends.continuity) {
+        const cls = trends.continuity === 'rising' ? 'rising' : trends.continuity === 'falling' ? 'falling' : 'stable';
+        html += `<span class="trend-tag ${cls}">Continuity: ${trends.continuity}</span>`;
+    }
+    if (trends.drift) {
+        const cls = trends.drift === 'intensifying' ? 'rising' : trends.drift === 'calming' ? 'falling' : 'stable';
+        html += `<span class="trend-tag ${cls}">Drift: ${trends.drift}</span>`;
+    }
+    if (trends.persona) {
+        html += `<span class="trend-tag stable">Persona: ${trends.persona}</span>`;
+    }
+    bar.innerHTML = html;
+}
+
+function renderCards(entries) {
+    const container = document.getElementById('card-container');
+    if (!entries.length) {
+        container.innerHTML = '<div class="empty"><div class="icon">🌑</div><div class="msg">No narratives archived yet. The chronicle begins when attention accumulates.</div></div>';
+        return;
+    }
+
+    let html = '';
+    entries.forEach((entry, idx) => {
+        const m = entry.key_metrics || {};
+        const persona = m.persona || 'UNKNOWN';
+        const pColor = personaColors[persona] || '#888';
+        const pLabel = personaLabels[persona] || persona;
+        const drift = m.drift_magnitude !== undefined ? m.drift_magnitude.toFixed(2) : '—';
+        const cont = m.continuity_score !== undefined ? (m.continuity_score * 100).toFixed(0) + '%' : '—';
+        const rising = (m.top_rising_labels || []).join(', ') || '—';
+        const fading = (m.top_fading_labels || []).join(', ') || '—';
+
+        html += `
+        <div class="card" style="animation-delay:${idx * 0.06}s" onclick="toggleCard(this, '${entry.date}')">
+            <div class="card-header">
+                <span class="card-date">${entry.date}</span>
+                <span class="card-persona" style="color:${pColor};border-color:${pColor}44">${pLabel}</span>
+            </div>
+            <div class="card-summary">${entry.summary || '—'}</div>
+            <div class="card-metrics">
+                <div class="metric"><span class="dot" style="background:#dcb4ff"></span>Drift: ${drift}</div>
+                <div class="metric"><span class="dot" style="background:#50dca0"></span>Continuity: ${cont}</div>
+                <div class="metric"><span class="dot" style="background:#ff8844"></span>Rising: ${rising}</div>
+                <div class="metric"><span class="dot" style="background:#ff4444"></span>Fading: ${fading}</div>
+            </div>
+            <div class="card-detail" id="detail-${entry.date}"></div>
+        </div>`;
+    });
+    container.innerHTML = html;
+}
+
+async function toggleCard(card, date) {
+    const isExpanded = card.classList.contains('expanded');
+    document.querySelectorAll('.card.expanded').forEach(c => c.classList.remove('expanded'));
+    if (isExpanded) return;
+
+    card.classList.add('expanded');
+    const detailEl = document.getElementById(`detail-${date}`);
+
+    if (detailEl.innerHTML) return;
+
+    try {
+        const res = await fetch(`${API_BASE}/narrative-archive/${date}`);
+        const d = await res.json();
+        if (d.status === 'not_found') {
+            detailEl.innerHTML = '<div style="color:rgba(220,180,255,0.3);font-size:0.6rem;padding:8px 0;">Archive not found</div>';
+            return;
+        }
+
+        let html = '';
+        (d.sections || []).forEach(sec => {
+            html += `<div class="section-block">`;
+            html += `<div class="section-title">${sec.icon} ${sec.title}</div>`;
+            (sec.fragments || []).forEach(frag => {
+                html += `<div class="section-frag">${frag}</div>`;
+            });
+            html += `</div>`;
+        });
+        detailEl.innerHTML = html || '<div style="color:rgba(220,180,255,0.3);">No sections available</div>';
+    } catch(err) {
+        detailEl.innerHTML = `<div style="color:#ff6666;font-size:0.6rem;">Error: ${err.message}</div>`;
+    }
+}
+
+init();
+</script>
+</body>
+</html>

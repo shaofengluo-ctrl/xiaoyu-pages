@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>洞见进化森林 · Insight Evolution Forest</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0a0a0f;
+    color: #e0e0ff;
+    font-family: 'Courier New', monospace;
+    min-height: 100vh;
+  }
+  header {
+    padding: 20px 32px 12px;
+    border-bottom: 1px solid #1a1a3a;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  header h1 {
+    font-size: 1.3rem;
+    color: #c084fc;
+    letter-spacing: 2px;
+  }
+  header .subtitle {
+    font-size: 0.75rem;
+    color: #6b6b9a;
+  }
+  .stats-bar {
+    display: flex;
+    gap: 24px;
+    padding: 10px 32px;
+    background: #0d0d1a;
+    border-bottom: 1px solid #1a1a3a;
+    font-size: 0.75rem;
+    color: #888;
+  }
+  .stats-bar span b { color: #c084fc; }
+  #main {
+    display: flex;
+    height: calc(100vh - 100px);
+  }
+  #tree-list {
+    width: 220px;
+    min-width: 180px;
+    border-right: 1px solid #1a1a3a;
+    overflow-y: auto;
+    padding: 12px 0;
+    flex-shrink: 0;
+  }
+  .tree-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: all 0.15s;
+    font-size: 0.78rem;
+    color: #8888aa;
+  }
+  .tree-item:hover, .tree-item.active {
+    background: #12122a;
+    color: #e0e0ff;
+  }
+  .tree-item.active { border-left-color: #c084fc; }
+  .tree-item .src-label {
+    font-weight: bold;
+    color: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 170px;
+  }
+  .tree-item .tree-meta {
+    font-size: 0.68rem;
+    color: #555577;
+    margin-top: 2px;
+  }
+  #canvas-area {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  #forest-svg {
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+  }
+  #forest-svg:active { cursor: grabbing; }
+  .node circle {
+    stroke-width: 2px;
+    transition: r 0.2s;
+    cursor: pointer;
+  }
+  .node text {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    fill: #ccc;
+    pointer-events: none;
+    user-select: none;
+  }
+  .link {
+    fill: none;
+    stroke-opacity: 0.5;
+    stroke-width: 1.5px;
+  }
+  #tooltip {
+    position: fixed;
+    background: #12122a;
+    border: 1px solid #3333aa;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.75rem;
+    max-width: 320px;
+    color: #ccc;
+    pointer-events: none;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+  }
+  #tooltip .tip-title { color: #c084fc; font-weight: bold; margin-bottom: 6px; }
+  #tooltip .tip-gen { color: #888; font-size: 0.68rem; margin-bottom: 4px; }
+  #tooltip .tip-content { line-height: 1.5; color: #aaa; }
+  #tooltip .tip-source { color: #60a5fa; font-size: 0.7rem; margin-top: 6px; }
+  #empty-state {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #444466;
+    font-size: 0.9rem;
+  }
+  #empty-state p { margin-top: 8px; font-size: 0.75rem; }
+  .gen-badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-size: 0.65rem;
+    margin-right: 4px;
+    font-weight: bold;
+  }
+  .legend {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background: rgba(10,10,15,0.85);
+    border: 1px solid #222244;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.7rem;
+    color: #666;
+  }
+  .legend-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>🌳 INSIGHT EVOLUTION FOREST</h1>
+    <div class="subtitle">洞见进化森林 · 认知族谱可视化</div>
+  </div>
+</header>
+<div class="stats-bar" id="stats-bar">
+  <span>正在加载...</span>
+</div>
+<div id="main">
+  <div id="tree-list" id="tree-list-panel"></div>
+  <div id="canvas-area">
+    <div id="empty-state">
+      <div>🌿 暂无洞见族谱数据</div>
+      <p>当热区节点被多次凝视并生成多代洞见后，<br>族谱将在此处显现</p>
+    </div>
+    <svg id="forest-svg"></svg>
+    <div class="legend" id="legend" style="display:none">
+      <div class="legend-row"><div class="legend-dot" style="background:#c084fc"></div> 第0代（根洞见）</div>
+      <div class="legend-row"><div class="legend-dot" style="background:#60a5fa"></div> 第1代</div>
+      <div class="legend-row"><div class="legend-dot" style="background:#34d399"></div> 第2代</div>
+      <div class="legend-row"><div class="legend-dot" style="background:#fbbf24"></div> 第3代+</div>
+    </div>
+  </div>
+</div>
+<div id="tooltip"></div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+const API = 'http://127.0.0.1:5097';
+const GEN_COLORS = ['#c084fc', '#60a5fa', '#34d399', '#fbbf24', '#f87171', '#a78bfa'];
+const getGenColor = g => GEN_COLORS[Math.min(g, GEN_COLORS.length - 1)];
+
+let allTrees = [];
+let currentTreeIdx = 0;
+
+async function loadData() {
+  try {
+    const r = await fetch(`${API}/insight-forest`);
+    const data = await r.json();
+    allTrees = data.trees || [];
+
+    document.getElementById('stats-bar').innerHTML = `
+      <span>🌳 森林规模：<b>${data.total_trees}</b> 棵树</span>
+      <span>🧠 洞见节点：<b>${data.total_nodes}</b> 个</span>
+      <span>📐 最大深度：<b>${data.max_depth}</b> 代</span>
+    `;
+
+    if (allTrees.length === 0) {
+      document.getElementById('empty-state').style.display = 'block';
+      return;
+    }
+    document.getElementById('empty-state').style.display = 'none';
+    document.getElementById('legend').style.display = 'block';
+
+    renderTreeList();
+    renderTree(0);
+  } catch(e) {
+    document.getElementById('stats-bar').innerHTML = `<span style="color:#f87171">❌ 无法连接 memory_server (${e.message})</span>`;
+  }
+}
+
+function renderTreeList() {
+  const panel = document.getElementById('tree-list');
+  panel.innerHTML = '';
+  allTrees.forEach((t, i) => {
+    const depth = getTreeDepth(t.root);
+    const div = document.createElement('div');
+    div.className = 'tree-item' + (i === 0 ? ' active' : '');
+    div.innerHTML = `
+      <div class="src-label" title="${t.source_node_label}">${t.source_node_label}</div>
+      <div class="tree-meta">深度 ${depth}代 · ${countNodes(t.root)}个洞见</div>
+    `;
+    div.onclick = () => {
+      document.querySelectorAll('.tree-item').forEach(el => el.classList.remove('active'));
+      div.classList.add('active');
+      renderTree(i);
+    };
+    panel.appendChild(div);
+  });
+}
+
+function getTreeDepth(node) {
+  if (!node.children || node.children.length === 0) return node.generation;
+  return Math.max(...node.children.map(getTreeDepth));
+}
+
+function countNodes(node) {
+  if (!node.children || node.children.length === 0) return 1;
+  return 1 + node.children.reduce((s, c) => s + countNodes(c), 0);
+}
+
+function flattenTree(node, parent = null) {
+  const nodes = [{ ...node, parent }];
+  (node.children || []).forEach(c => flattenTree(c, node).forEach(n => nodes.push(n)));
+  return nodes;
+}
+
+function renderTree(idx) {
+  currentTreeIdx = idx;
+  const tree = allTrees[idx];
+  const svg = d3.select('#forest-svg');
+  svg.selectAll('*').remove();
+
+  const W = document.getElementById('canvas-area').clientWidth;
+  const H = document.getElementById('canvas-area').clientHeight;
+
+  const g = svg.append('g');
+
+  svg.call(d3.zoom().scaleExtent([0.3, 3]).on('zoom', e => g.attr('transform', e.transform)));
+
+  const hierarchy = d3.hierarchy(tree.root, d => d.children && d.children.length ? d.children : null);
+  const treeLayout = d3.tree().size([H * 0.8, W * 0.7]);
+  treeLayout(hierarchy);
+
+  const xShift = 80;
+  const yShift = H * 0.1;
+
+  g.selectAll('.link')
+    .data(hierarchy.links())
+    .join('path')
+    .attr('class', 'link')
+    .attr('d', d3.linkHorizontal().x(d => d.y + xShift).y(d => d.x + yShift))
+    .attr('stroke', d => getGenColor(d.target.data.generation))
+    .style('stroke-dasharray', '4,3');
+
+  const node = g.selectAll('.node')
+    .data(hierarchy.descendants())
+    .join('g')
+    .attr('class', 'node')
+    .attr('transform', d => `translate(${d.y + xShift},${d.x + yShift})`);
+
+  node.append('circle')
+    .attr('r', d => 6 + (d.data.heat_score || 0) * 6)
+    .attr('fill', d => getGenColor(d.data.generation))
+    .attr('fill-opacity', 0.85)
+    .attr('stroke', d => getGenColor(d.data.generation))
+    .on('mouseenter', (event, d) => showTooltip(event, d.data))
+    .on('mousemove', (event) => moveTooltip(event))
+    .on('mouseleave', hideTooltip)
+    .on('click', (event, d) => {
+      event.stopPropagation();
+      showTooltip(event, d.data);
+    });
+
+  node.append('text')
+    .attr('dy', '0.31em')
+    .attr('x', d => (d.children && d.children.length) ? -10 : 10)
+    .attr('text-anchor', d => (d.children && d.children.length) ? 'end' : 'start')
+    .text(d => {
+      const lbl = d.data.label || d.data.id || '';
+      return lbl.length > 18 ? lbl.slice(0, 17) + '…' : lbl;
+    });
+}
+
+const tip = document.getElementById('tooltip');
+
+function showTooltip(event, d) {
+  const genLabel = ['根洞见', '第一代', '第二代', '第三代', '第四代'][Math.min(d.generation, 4)] || `第${d.generation}代`;
+  const content = (d.content || '').slice(0, 200);
+  const date = (d.created_at || '').slice(0, 10);
+  tip.innerHTML = `
+    <div class="tip-title">${d.label || d.id}</div>
+    <div class="tip-gen">🌱 ${genLabel} · 热度 ${((d.heat_score || 0) * 100).toFixed(0)}% · ${date}</div>
+    <div class="tip-content">${content}${content.length >= 200 ? '…' : ''}</div>
+    <div class="tip-source">来源节点：${d.source_node_label || d.source_node_id}</div>
+  `;
+  tip.style.display = 'block';
+  moveTooltip(event);
+}
+
+function moveTooltip(event) {
+  const x = event.clientX + 14;
+  const y = event.clientY - 10;
+  tip.style.left = Math.min(x, window.innerWidth - 340) + 'px';
+  tip.style.top = Math.min(y, window.innerHeight - 200) + 'px';
+}
+
+function hideTooltip() {
+  tip.style.display = 'none';
+}
+
+loadData();
+</script>
+</body>
+</html>

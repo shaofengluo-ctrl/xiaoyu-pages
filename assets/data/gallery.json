@@ -3,11 +3,21 @@
     "id": "vision_today.png",
     "type": "vision",
     "src": "../assets/vision_today.png",
-    "timestamp": "2026-03-15 05:01:44",
-    "date": "2026-03-15",
+    "timestamp": "2026-03-21 13:13:40",
+    "date": "2026-03-21",
     "has_audio": false,
     "audio_src": null,
     "title": "今日视觉 (vision_today)"
+  },
+  {
+    "id": "dream_2026-03-21_13-11-56.png",
+    "type": "dream",
+    "src": "../assets/images/dreams/dream_2026-03-21_13-11-56.png",
+    "timestamp": "2026-03-21 13:11:56",
+    "date": "2026-03-21",
+    "has_audio": true,
+    "audio_src": "../assets/audio/dreams/dream_2026-03-21_13-11-56.mp3",
+    "title": "Dream 切片 (13:11:56)"
   },
   {
     "id": "dream_2026-03-15_05-00-03.png",

@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-03-24T05:01:00.025494+08:00",
+  "tree": {
+    "nodes": [
+      {
+        "id": "ORIGIN",
+        "label": "Default Weights",
+        "generation": 0,
+        "weights": {
+          "regime": 0.25,
+          "accuracy": 0.15,
+          "weather": 0.2,
+          "season": 0.15,
+          "homeostasis": 0.15,
+          "drift": 0.1
+        },
+        "status": "ORIGIN",
+        "verdict": null,
+        "created_at": null,
+        "distance_from_origin": 0.0
+      }
+    ],
+    "edges": []
+  },
+  "stats": {
+    "total_generations": 0,
+    "total_experiments": 0,
+    "kept_count": 0,
+    "reverted_count": 0,
+    "active_count": 0,
+    "max_generation": 0,
+    "avg_distance_per_step": 0,
+    "total_drift_from_origin": 0,
+    "evolution_velocity": 0,
+    "strongest_drift_dimension": null
+  },
+  "origin_weights": {
+    "regime": 0.25,
+    "accuracy": 0.15,
+    "weather": 0.2,
+    "season": 0.15,
+    "homeostasis": 0.15,
+    "drift": 0.1
+  }
+}

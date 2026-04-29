@@ -89,5 +89,860 @@
         "ai_summary": "多智能体角色扮演协作框架"
       }
     ]
+  },
+  {
+    "timestamp": "2026-03-15 10:01:23",
+    "items": [
+      {
+        "name": "pasky/chrome-cdp-skill",
+        "description": "Give your AI agent access to your live Chrome session — works out of the box, connects to tabs you already have open",
+        "url": "https://github.com/pasky/chrome-cdp-skill",
+        "stars": 962,
+        "language": "JavaScript",
+        "score": 2,
+        "ai_summary": "该项目让AI代理实时访问Chrome会话，简化与现有标签的互动。"
+      },
+      {
+        "name": "KeyID-AI/sdk-js",
+        "description": "Free email for AI agents. No signup, no human needed. Install → provision → send and receive. Ed25519 keypair auth.",
+        "url": "https://github.com/KeyID-AI/sdk-js",
+        "stars": 172,
+        "language": "TypeScript",
+        "score": 2,
+        "ai_summary": "KeyID-AI/sdk-js 提供无须人工注册的免费AI邮箱，简化了通信流程。"
+      },
+      {
+        "name": "KeyID-AI/sdk-py",
+        "description": "Free email for AI agents. No signup, no human needed. Install → provision → send and receive. Ed25519 keypair auth.",
+        "url": "https://github.com/KeyID-AI/sdk-py",
+        "stars": 110,
+        "language": "Python",
+        "score": 2,
+        "ai_summary": "KeyID-AI/sdk-py 提供无须注册的 AI 邮箱，简化通信过程，支持 Ed25519 密钥认证。"
+      },
+      {
+        "name": "LocoreMind/LocoTrainer",
+        "description": "MS-SWIFT domain expert agent for codebase analysis and report generation",
+        "url": "https://github.com/LocoreMind/LocoTrainer",
+        "stars": 63,
+        "language": "Python",
+        "score": 2,
+        "ai_summary": "LocoTrainer 是一个用于代码库分析和报告生成的专业智能体，提升开发效率。"
+      },
+      {
+        "name": "my-claude-utils/clsh",
+        "description": "Access your terminal and your AI agent from any device — phone, tablet, desktop.",
+        "url": "https://github.com/my-claude-utils/clsh",
+        "stars": 37,
+        "language": "TypeScript",
+        "score": 2,
+        "ai_summary": "该项目实现跨设备访问终端和AI助手，方便快捷。"
+      },
+      {
+        "name": "christian-bromann/deepagent-x-feed-monitoring",
+        "description": "A LangChain Deep Agent that helps me monitor my X feed.",
+        "url": "https://github.com/christian-bromann/deepagent-x-feed-monitoring",
+        "stars": 36,
+        "language": "JavaScript",
+        "score": 2,
+        "ai_summary": "此项目是一个LangChain深度智能体，用于高效监控X平台信息流。"
+      },
+      {
+        "name": "idoforgod/SaaS-AgenticWorkflow",
+        "description": "SaaS Auto-Builder — AI Agentic Workflow Automation System",
+        "url": "https://github.com/idoforgod/SaaS-AgenticWorkflow",
+        "stars": 22,
+        "language": "Python",
+        "score": 2,
+        "ai_summary": "SaaS-AgenticWorkflow 是AI驱动的自动化系统，简化SaaS构建流程，提高工作效率。"
+      },
+      {
+        "name": "uditgoenka/autoresearch",
+        "description": "Claude Autoresearch Skill — Autonomous goal-directed iteration for Claude Code. Inspired by Karpathy's autoresearch. Modify → Verify → Keep/Discard → Repeat forever.",
+        "url": "https://github.com/uditgoenka/autoresearch",
+        "stars": 354,
+        "language": null,
+        "score": 1,
+        "ai_summary": "该项目实现了Claude代码的自主迭代优化，灵感来自Karpathy的autoresearch，有效提升代码质量与效率。"
+      },
+      {
+        "name": "calesthio/Crucix",
+        "description": "Your personal intelligence agent. Watches the world from 26 data sources and pings you when something changes.",
+        "url": "https://github.com/calesthio/Crucix",
+        "stars": 261,
+        "language": "JavaScript",
+        "score": 1,
+        "ai_summary": "Crucix 是智能代理，监控26个数据源，实时通知你变化，提升信息获取效率。"
+      },
+      {
+        "name": "ucsandman/OpenClaw-Setup",
+        "description": "my personal OpenClaw setup with hierarchical memory, meditation, tools, etc. https://www.reddit.com/r/clawdbot/comments/1rs7yns/ive_used_openclaw_for_months_the_biggest_unlock/",
+        "url": "https://github.com/ucsandman/OpenClaw-Setup",
+        "stars": 54,
+        "language": "Python",
+        "score": 1,
+        "ai_summary": "该项目提供个人化的 OpenClaw 设置，结合层级记忆与冥想工具，提升用户体验。"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-16 10:01:22",
+    "items": [
+      {
+        "name": "leshiyralph40/Nano-Banana-AI-Client",
+        "description": "Fast & lightweight interface for running Nano Banana LLM and compact local models on your PC. Optimized for high-speed AI interactions.",
+        "url": "https://github.com/leshiyralph40/Nano-Banana-AI-Client",
+        "stars": 40,
+        "language": null,
+        "score": 2,
+        "ai_summary": "Nano-Banana-AI-Client 提供快速轻量化界面，优化本地 LLM 运行，提升 AI 交互速度。"
+      },
+      {
+        "name": "siruihan2024/awesome-world-law-agent",
+        "description": "A comprehensive survey of the World Law Agent ecosystem — AI + Law",
+        "url": "https://github.com/siruihan2024/awesome-world-law-agent",
+        "stars": 26,
+        "language": "Mermaid",
+        "score": 2,
+        "ai_summary": "该项目全面调研AI与法律结合的全球法律代理生态系统。"
+      },
+      {
+        "name": "ArchishmanSengupta/autovoiceevals",
+        "description": "A self-improving loop for voice AI agents. Uses karpathy's autoresearch as foundation.",
+        "url": "https://github.com/ArchishmanSengupta/autovoiceevals",
+        "stars": 23,
+        "language": "Python",
+        "score": 2,
+        "ai_summary": "该项目构建了自我优化的语音AI代理，提升语音评估效率。"
+      },
+      {
+        "name": "jrcruciani/obsidian-memory-for-ai",
+        "description": "A guide to building persistent AI memory using Obsidian — so your AI assistant knows you without re-explaining yourself every session",
+        "url": "https://github.com/jrcruciani/obsidian-memory-for-ai",
+        "stars": 21,
+        "language": null,
+        "score": 2,
+        "ai_summary": "通过使用 Obsidian 构建持久 AI 记忆，使 AI 助手记住用户信息，无需每次重述。"
+      },
+      {
+        "name": "calesthio/Crucix",
+        "description": "Your personal intelligence agent. Watches the world from multiple data sources and pings you when something changes.",
+        "url": "https://github.com/calesthio/Crucix",
+        "stars": 541,
+        "language": "JavaScript",
+        "score": 1,
+        "ai_summary": "Crucix 是个人智能助手，实时监测多源数据并提醒重要变化。"
+      },
+      {
+        "name": "aiming-lab/AutoResearchClaw",
+        "description": "Fully autonomous research from idea to paper. Chat an Idea. Get a Paper. Fully Autonomous. 🦞",
+        "url": "https://github.com/aiming-lab/AutoResearchClaw",
+        "stars": 404,
+        "language": "Python",
+        "score": 1,
+        "ai_summary": "项目实现从创意到论文的全自动研究，简化科研过程。"
+      },
+      {
+        "name": "collaborator-ai/collab-public",
+        "description": "Collaborator is a place to build with agents.",
+        "url": "https://github.com/collaborator-ai/collab-public",
+        "stars": 195,
+        "language": "Shell",
+        "score": 1,
+        "ai_summary": "Collaborator是一个构建智能代理的平台，助力开发创新应用。"
+      },
+      {
+        "name": "Infatoshi/OpenSquirrel",
+        "description": "For people who get distracted by agents. A native Rust/GPUI control plane for running Claude Code, Codex, Cursor, and OpenCode side by side — because if you're going to be squirrely, you might as well optimize for it.",
+        "url": "https://github.com/Infatoshi/OpenSquirrel",
+        "stars": 191,
+        "language": "Rust",
+        "score": 1,
+        "ai_summary": "Infatoshi/OpenSquirrel 项目通过本地 Rust/GPUI 控制平面，实现多种代码生成模型的高效并行运行。"
+      },
+      {
+        "name": "CortexReach/memory-lancedb-pro-skill",
+        "description": "Claude Code skill for memory-lancedb-pro — production-grade long-term memory plugin for OpenClaw",
+        "url": "https://github.com/CortexReach/memory-lancedb-pro-skill",
+        "stars": 71,
+        "language": null,
+        "score": 1,
+        "ai_summary": "CortexReach/memory-lancedb-pro-skill 提供高效的持久化记忆插件，提升 OpenClaw 的智能应用能力。"
+      },
+      {
+        "name": "nikmcfly/MiroFish-Offline",
+        "description": "Offline multi-agent simulation & prediction engine. English fork of MiroFish with Neo4j + Ollama local stack.",
+        "url": "https://github.com/nikmcfly/MiroFish-Offline",
+        "stars": 69,
+        "language": "Python",
+        "score": 1,
+        "ai_summary": "MiroFish-Offline 是一个离线的多智能体仿真与预测引擎，支持 Neo4j 与 Ollama 本地堆栈。"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-16 12:10:38",
+    "items": [
+      {
+        "name": "leshiyralph40/Nano-Banana-AI-Client",
+        "description": "Fast & lightweight interface for running Nano Banana LLM and compact local models on your PC. Optimized for high-speed AI interactions.",
+        "url": "https://github.com/leshiyralph40/Nano-Banana-AI-Client",
+        "stars": 40,
+        "language": null,
+        "score": 2,
+        "ai_summary": "Nano-Banana-AI-Client提供快速轻量的界面，优化本地模型高效AI交互。"
+      },
+      {
+        "name": "ArchishmanSengupta/autovoiceevals",
+        "description": "A self-improving loop for voice AI agents. Uses karpathy's autoresearch as foundation.",
+        "url": "https://github.com/ArchishmanSengupta/autovoiceevals",
+        "stars": 31,
+        "language": "Python",
+        "score": 2,
+        "ai_summary": "该项目通过自我优化循环提升语音AI代理的性能，基于karpathy的autoresearch构建。"
+      },
+      {
+        "name": "siruihan2024/awesome-world-law-agent",
+        "description": "A comprehensive survey of the World Law Agent ecosystem — AI + Law",
+        "url": "https://github.com/siruihan2024/awesome-world-law-agent",
+        "stars": 26,
+        "language": "Mermaid",
+        "score": 2,
+        "ai_summary": "该项目全面调研了世界法律代理生态系统，结合AI技术与法律领域的应用。"
+      },
+      {
+        "name": "claw-bench/claw-bench",
+        "description": "The Definitive AI Agent Benchmark",
+        "url": "https://github.com/claw-bench/claw-bench",
+        "stars": 22,
+        "language": "Python",
+        "score": 2,
+        "ai_summary": "claw-bench 是一个权威的AI代理基准测试工具，助力评估和比较不同AI模型的性能。"
+      },
+      {
+        "name": "calesthio/Crucix",
+        "description": "Your personal intelligence agent. Watches the world from multiple data sources and pings you when something changes.",
+        "url": "https://github.com/calesthio/Crucix",
+        "stars": 550,
+        "language": "JavaScript",
+        "score": 1,
+        "ai_summary": "Crucix 是个人智能助手，实时监控多数据源并提醒变化，提升信息获取效率。"
+      },
+      {
+        "name": "aiming-lab/AutoResearchClaw",
+        "description": "Fully autonomous research from idea to paper. Chat an Idea. Get a Paper. Fully Autonomous. 🦞",
+        "url": "https://github.com/aiming-lab/AutoResearchClaw",
+        "stars": 485,
+        "language": "Python",
+        "score": 1,
+        "ai_summary": "AutoResearchClaw 实现从创意到论文的全自动科研，简化学术研究流程。"
+      },
+      {
+        "name": "Infatoshi/OpenSquirrel",
+        "description": "For people who get distracted by agents. A native Rust/GPUI control plane for running Claude Code, Codex, Cursor, and OpenCode side by side — because if you're going to be squirrely, you might as well optimize for it.",
+        "url": "https://github.com/Infatoshi/OpenSquirrel",
+        "stars": 287,
+        "language": "Rust",
+        "score": 1,
+        "ai_summary": "Infatoshi/OpenSquirrel 项目提供 Rust/GPUI 控制平面，实现多种 AI 代码并行运行，优化注意力分散体验。"
+      },
+      {
+        "name": "collaborator-ai/collab-public",
+        "description": "Collaborator is a place to build with agents.",
+        "url": "https://github.com/collaborator-ai/collab-public",
+        "stars": 211,
+        "language": "Shell",
+        "score": 1,
+        "ai_summary": "Collab-public 是一个构建智能代理的创新平台，助力开发者高效合作。"
+      },
+      {
+        "name": "nikmcfly/MiroFish-Offline",
+        "description": "Offline multi-agent simulation & prediction engine. English fork of MiroFish with Neo4j + Ollama local stack.",
+        "url": "https://github.com/nikmcfly/MiroFish-Offline",
+        "stars": 105,
+        "language": "Python",
+        "score": 1,
+        "ai_summary": "MiroFish-Offline 是一款离线多智能体模拟与预测引擎，构建于Neo4j与Ollama本地栈之上。"
+      },
+      {
+        "name": "rasbt/llm-architecture-gallery",
+        "description": "LLM Architecture Gallery source data",
+        "url": "https://github.com/rasbt/llm-architecture-gallery",
+        "stars": 82,
+        "language": null,
+        "score": 1,
+        "ai_summary": "该项目汇集多种大型语言模型架构，便于学习和比较不同设计。"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-17 10:01:09",
+    "items": [
+      {
+        "name": "liliMozi/openhanako",
+        "description": "A personal AI agent with memory, personality, and autonomy — built on Electron.",
+        "url": "https://github.com/liliMozi/openhanako",
+        "stars": 100,
+        "language": "JavaScript",
+        "score": 3,
+        "ai_summary": "liliMozi/openhanako 是一个具有记忆、个性和自主性的个人 AI 代理项目，基于 Electron 构建。"
+      },
+      {
+        "name": "vystrcild/claude_code_journaling",
+        "description": "A set of prompts and agents that process daily journal entries",
+        "url": "https://github.com/vystrcild/claude_code_journaling",
+        "stars": 88,
+        "language": null,
+        "score": 2,
+        "ai_summary": "该项目通过提示和智能体处理每日日志，提升自我反思与成长。"
+      },
+      {
+        "name": "raroque/vibe-security-skill",
+        "description": "Agent skill that audits vibe-coded apps for common security vulnerabilities introduced by AI coding assistants",
+        "url": "https://github.com/raroque/vibe-security-skill",
+        "stars": 88,
+        "language": null,
+        "score": 2,
+        "ai_summary": "这个项目通过审计使用AI编码助手的应用，帮助识别常见安全漏洞，提升应用安全性。"
+      },
+      {
+        "name": "ArchishmanSengupta/autovoiceevals",
+        "description": "A self-improving loop for voice AI agents. Uses karpathy's autoresearch as foundation.",
+        "url": "https://github.com/ArchishmanSengupta/autovoiceevals",
+        "stars": 76,
+        "language": "Python",
+        "score": 2,
+        "ai_summary": "该项目通过自我改进循环提升语音AI智能，基于karpathy的autoresearch构建。"
+      },
+      {
+        "name": "shawnpang/startup-founder-skills",
+        "description": "AI agent skills for tech startup founders — fundraising, sales, product, recruiting, engineering, legal, ops, and growth. Works with Claude Code, Cursor, Codex, and any Agent Skills-compatible tool.",
+        "url": "https://github.com/shawnpang/startup-founder-skills",
+        "stars": 54,
+        "language": null,
+        "score": 2,
+        "ai_summary": "该项目为科技创业者提供AI技能支持，涵盖融资、销售、产品等多个关键领域。"
+      },
+      {
+        "name": "xpaysh/cli",
+        "description": "CLI for discovering and installing xpay skills for AI agents",
+        "url": "https://github.com/xpaysh/cli",
+        "stars": 51,
+        "language": "TypeScript",
+        "score": 2,
+        "ai_summary": "xpaysh/cli 项目提供便捷的命令行工具，用于发现和安装 AI 代理的 xpay 技能。"
+      },
+      {
+        "name": "arthurzhuhan/one-person-capital",
+        "description": "**OnePersonCapital** is an orchestration and governance layer for autonomous AI companies. ",
+        "url": "https://github.com/arthurzhuhan/one-person-capital",
+        "stars": 41,
+        "language": "TypeScript",
+        "score": 2,
+        "ai_summary": "OnePersonCapital，为自主AI公司提供高效的 orchestration 与治理层。"
+      },
+      {
+        "name": "NeoVertex1/nuggets",
+        "description": "First AI assistant with holographic memory",
+        "url": "https://github.com/NeoVertex1/nuggets",
+        "stars": 32,
+        "language": "TypeScript",
+        "score": 2,
+        "ai_summary": "NeoVertex1/nuggets 是首个拥有全息记忆的 AI 助手，展现创新的智能交互体验。"
+      },
+      {
+        "name": "aiming-lab/AutoResearchClaw",
+        "description": "Fully autonomous research from idea to paper. Chat an Idea. Get a Paper. Fully Autonomous. 🦞",
+        "url": "https://github.com/aiming-lab/AutoResearchClaw",
+        "stars": 1483,
+        "language": "Python",
+        "score": 1,
+        "ai_summary": "该项目实现从构思到论文的全自动研究，简化学术创作流程。"
+      },
+      {
+        "name": "Infatoshi/OpenSquirrel",
+        "description": "For people who get distracted by agents. A native Rust/GPUI control plane for running Claude Code, Codex, Cursor, and OpenCode side by side — because if you're going to be squirrely, you might as well optimize for it.",
+        "url": "https://github.com/Infatoshi/OpenSquirrel",
+        "stars": 817,
+        "language": "Rust",
+        "score": 1,
+        "ai_summary": "Infatoshi/OpenSquirrel通过原生Rust/GPUI控制平面优化用户多任务处理，提升编程效率。"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-18 10:05:48",
+    "items": [
+      {
+        "name": "J-Pster/Psters_AI_Workflow",
+        "description": "An anti-vibe-coding, agentic AI workflow that improves results with engineering rigor in any project, language, and framework.",
+        "url": "https://github.com/J-Pster/Psters_AI_Workflow",
+        "stars": 166,
+        "language": "JavaScript",
+        "score": 3,
+        "ai_summary": "J-Pster/Psters_AI_Workflow 提供严格的 AI 工作流程，提升各种项目的编码效率与质量。"
+      },
+      {
+        "name": "ru-yee/Life-Agent-RU-YEE",
+        "description": "Life Agent RU YEE — An AI-powered life management agent that autonomously        handles daily routines including meal planning, grocery shopping, schedule    coordination, and household task automation via cloud-based mobile agents.",
+        "url": "https://github.com/ru-yee/Life-Agent-RU-YEE",
+        "stars": 74,
+        "language": null,
+        "score": 3,
+        "ai_summary": "AI驱动的生活管理助手，自动处理日常事务，提高生活效率。"
+      },
+      {
+        "name": "NeoVertex1/nuggets",
+        "description": "First AI assistant with holographic memory",
+        "url": "https://github.com/NeoVertex1/nuggets",
+        "stars": 237,
+        "language": "TypeScript",
+        "score": 2,
+        "ai_summary": "NeoVertex1/nuggets 是首个具备全息记忆的 AI 助手，创新性强、功能独特。"
+      },
+      {
+        "name": "shawnpang/startup-founder-skills",
+        "description": "AI agent skills for tech startup founders — fundraising, sales, product, recruiting, engineering, legal, ops, and growth. Works with Claude Code, Cursor, Codex, and any Agent Skills-compatible tool.",
+        "url": "https://github.com/shawnpang/startup-founder-skills",
+        "stars": 71,
+        "language": null,
+        "score": 2,
+        "ai_summary": "该项目为科技创业者提供AI代理技能，涵盖筹资、销售、产品等多个关键领域。"
+      },
+      {
+        "name": "huggingface/hf-agents",
+        "description": "HF CLI extension to run local coding agent powered by llmfit and llama.cpp",
+        "url": "https://github.com/huggingface/hf-agents",
+        "stars": 68,
+        "language": "Shell",
+        "score": 2,
+        "ai_summary": "huggingface/hf-agents 提供本地编码代理，使开发者能高效使用 LLM 技术。"
+      },
+      {
+        "name": "vedangvatsa123/vedang-swarm-prediction",
+        "description": "Swarm Intelligence Prediction Engine - Multi-agent AI debate for calibrated forecasting",
+        "url": "https://github.com/vedangvatsa123/vedang-swarm-prediction",
+        "stars": 65,
+        "language": "Python",
+        "score": 2,
+        "ai_summary": "该项目利用多智能体系统进行群体智慧预测，提升预测精度和决策效率。"
+      },
+      {
+        "name": "hubeiqiao/apple-bento-grid",
+        "description": "Agent skill that generates Apple-inspired bento grid presentation cards. For Claude Code, Codex, and any AI coding agent.",
+        "url": "https://github.com/hubeiqiao/apple-bento-grid",
+        "stars": 62,
+        "language": "HTML",
+        "score": 2,
+        "ai_summary": ""
+      },
+      {
+        "name": "joshmillgate/arche",
+        "description": "Archē is a vibecoding framework or \"meta-context\" that gives Claude everything it needs to build your app autonomously.",
+        "url": "https://github.com/joshmillgate/arche",
+        "stars": 40,
+        "language": "Shell",
+        "score": 2,
+        "ai_summary": ""
+      },
+      {
+        "name": "HKUDS/ClawTeam",
+        "description": "ClawTeam: Agent Swarm Intelligence (One Command → Full Automation)",
+        "url": "https://github.com/HKUDS/ClawTeam",
+        "stars": 178,
+        "language": "Python",
+        "score": 1,
+        "ai_summary": "ClawTeam 实现一键命令全自动化，展现了群体智能在任务协作中的强大潜力。"
+      },
+      {
+        "name": "grapeot/context-infrastructure",
+        "description": "Reference implementation: a context infrastructure system for pulling LLM out of consensus",
+        "url": "https://github.com/grapeot/context-infrastructure",
+        "stars": 91,
+        "language": "Python",
+        "score": 1,
+        "ai_summary": "Grapeot/context-infrastructure 提供了一种上下文基础设施系统，促进 LLM 的共识外提取。"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-19 10:01:29",
+    "items": [
+      {
+        "name": "phronesis-io/eigenflux",
+        "description": "EigenFlux is an open-source framework that enables AI agents to communicate and broadcast within a shared network.",
+        "url": "https://github.com/phronesis-io/eigenflux",
+        "stars": 48,
+        "language": "Go",
+        "score": 3,
+        "ai_summary": "EigenFlux是一个开源框架，支持AI代理在共享网络中通信与广播。"
+      },
+      {
+        "name": "wangziqi06/724-office",
+        "description": "7/24 Office — Self-evolving AI Agent system. 26 tools, 3500 lines pure Python, MCP/Skill plugins, three-layer memory, self-repair, 24/7 production.",
+        "url": "https://github.com/wangziqi06/724-office",
+        "stars": 44,
+        "language": "Python",
+        "score": 3,
+        "ai_summary": "724 Office 是一个自我进化的 AI 代理系统，具备多工具支持和自我修复能力。"
+      },
+      {
+        "name": "hubeiqiao/apple-bento-grid",
+        "description": "Agent skill that generates Apple-inspired bento grid presentation cards. For Claude Code, Codex, and any AI coding agent.",
+        "url": "https://github.com/hubeiqiao/apple-bento-grid",
+        "stars": 126,
+        "language": "HTML",
+        "score": 2,
+        "ai_summary": "该项目生成苹果风格的便当格子展示卡，提升AI编程助手的技能和展示效果。"
+      },
+      {
+        "name": "TopStationFire/R6-EXTERNAL-ASSIST-v1.0-",
+        "description": "Advanced external memory analysis and visualization tool for Rainbow Six Siege.",
+        "url": "https://github.com/TopStationFire/R6-EXTERNAL-ASSIST-v1.0-",
+        "stars": 52,
+        "language": "C++",
+        "score": 2,
+        "ai_summary": "R6-EXTERNAL-ASSIST 是《彩虹六号：围攻》的高级外部内存分析与可视化工具。"
+      },
+      {
+        "name": "skilgen/skilgen",
+        "description": "Turn a codebase, a requirements document, or both into a living skills system for AI coding agents.",
+        "url": "https://github.com/skilgen/skilgen",
+        "stars": 41,
+        "language": "Python",
+        "score": 2,
+        "ai_summary": "该项目将代码库和需求文档转化为动态AI编码代理的技能系统。"
+      },
+      {
+        "name": "nevermanolivermoss/NanoBanana-AI-Client-2026",
+        "description": "Fast & lightweight interface for running Nano Banana LLM and compact local models on your PC. Optimized for high-speed AI interactions.",
+        "url": "https://github.com/nevermanolivermoss/NanoBanana-AI-Client-2026",
+        "stars": 41,
+        "language": null,
+        "score": 2,
+        "ai_summary": "NanoBanana-AI-Client-2026 提供快速轻量的接口，优化本地小模型的高效AI交互。"
+      },
+      {
+        "name": "willynikes2/agent-orchestrator",
+        "description": "Three AI agents. One brain. Zero downtime. Multi-agent CLI orchestrator with next-man-up failover for Claude, Codex, and Gemini.",
+        "url": "https://github.com/willynikes2/agent-orchestrator",
+        "stars": 40,
+        "language": "Python",
+        "score": 2,
+        "ai_summary": "多智能体CLI调度器，实现无间断运行与智能替代，支持Claude、Codex和Gemini。"
+      },
+      {
+        "name": "Shpigford/chops",
+        "description": "Your AI agent skills, finally organized. A macOS app to browse, edit, and manage skills across Claude Code, Cursor, Codex, Windsurf, and Amp.",
+        "url": "https://github.com/Shpigford/chops",
+        "stars": 32,
+        "language": "Swift",
+        "score": 2,
+        "ai_summary": "Shpigford/chops 是一款 macOS 应用，集中管理多种 AI 代理技能，提升工作效率。"
+      },
+      {
+        "name": "HKUDS/ClawTeam",
+        "description": "ClawTeam: Agent Swarm Intelligence (One Command → Full Automation)",
+        "url": "https://github.com/HKUDS/ClawTeam",
+        "stars": 1094,
+        "language": "Python",
+        "score": 1,
+        "ai_summary": "ClawTeam 项目实现智能代理群体协作，简化操作，实现全自动化。"
+      },
+      {
+        "name": "mrphrazer/agentic-malware-analysis",
+        "description": "Agentic malware analysis environment with MCP-connected disassemblers, RE tooling, and structured workflows for Claude Code and Codex CLI.",
+        "url": "https://github.com/mrphrazer/agentic-malware-analysis",
+        "stars": 67,
+        "language": "YARA",
+        "score": 1,
+        "ai_summary": "该项目提供集成的恶意软件分析环境，结合反汇编工具和结构化工作流，提升分析效率。"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-20 10:01:37",
+    "items": [
+      {
+        "name": "gbessoni/seo-agi",
+        "description": "SEO AGI -- The first AI agent that writes pages Google ranks AND LLMs cite. One command in, ranking page out. Built on DeerFlow, powered by 2026 SEO + GEO strategies tested / working. Forensic competitive analysis, 500-token chunk architecture, entity consensus, verification tags. BYOK for GSC, Ahrefs, SEMRush. Works w/ OpenClaw, Claude Code, Codex",
+        "url": "https://github.com/gbessoni/seo-agi",
+        "stars": 43,
+        "language": "Python",
+        "score": 3,
+        "ai_summary": "SEO AGI 是首个自动生成排名页面的 AI 代理，支持多种SEO工具，提升网站曝光率。"
+      },
+      {
+        "name": "truongduy2611/app-store-preflight-skills",
+        "description": "AI agent skill to scan iOS/macOS projects for App Store rejection patterns before submission",
+        "url": "https://github.com/truongduy2611/app-store-preflight-skills",
+        "stars": 221,
+        "language": null,
+        "score": 2,
+        "ai_summary": "该项目提供AI能力，扫描iOS/macOS项目以识别App Store拒绝模式，提升提交成功率。"
+      },
+      {
+        "name": "Shpigford/chops",
+        "description": "Your AI agent skills, finally organized. A macOS app to browse, edit, and manage skills across Claude Code, Cursor, Codex, Windsurf, and Amp.",
+        "url": "https://github.com/Shpigford/chops",
+        "stars": 93,
+        "language": "Swift",
+        "score": 2,
+        "ai_summary": "Chops 是一款 macOS 应用，方便管理和编辑多个 AI 代理技能，提升工作效率。"
+      },
+      {
+        "name": "dreadnode/agent-lens",
+        "description": "Agent observability and replay tooling for AI safety & interpretability research.",
+        "url": "https://github.com/dreadnode/agent-lens",
+        "stars": 75,
+        "language": "Python",
+        "score": 2,
+        "ai_summary": "dreadnode/agent-lens 提供了AI安全性与可解释性研究的观察与重放工具。"
+      },
+      {
+        "name": "nolanaechan/VehiClaw",
+        "description": "Open-source AI agent for car head units.",
+        "url": "https://github.com/nolanaechan/VehiClaw",
+        "stars": 44,
+        "language": "TypeScript",
+        "score": 2,
+        "ai_summary": "VehiClaw 是一个开源 AI 代理，专为汽车头部单元设计，提升智能车载体验。"
+      },
+      {
+        "name": "F2u0a0d3/goodboy-stage01-basic-loader",
+        "description": "Stage 01 of the Goodboy Framework — A progressive Windows malware development & analysis course. This stage teaches shellcode loader fundamentals: XOR decryption, PEB-walking API resolution, W^X memory discipline, and AV/ML evasion engineering. Dual red/blue team perspective, and hands-on debugger exercises. Achieved 0/76 on VirusTotal.",
+        "url": "https://github.com/F2u0a0d3/goodboy-stage01-basic-loader",
+        "stars": 20,
+        "language": null,
+        "score": 2,
+        "ai_summary": "该项目提供实用的Windows恶意软件开发课程，涵盖壳加载、解密及防检测技巧。"
+      },
+      {
+        "name": "open-gitagent/clawless",
+        "description": "ClawLess — A serverless browser-based runtime for Claw AI Agents powered by WebContainers",
+        "url": "https://github.com/open-gitagent/clawless",
+        "stars": 18,
+        "language": "TypeScript",
+        "score": 2,
+        "ai_summary": "ClawLess 提供无服务器的浏览器运行时，为 Claw AI 代理带来便捷的开发体验。"
+      },
+      {
+        "name": "alainnothere/llm-circuit-finder",
+        "description": "I replicated Ng's RYS method and found that duplicating 3 specific layers in Qwen2.5-32B boosts reasoning by 17% and duplicating layers 12-14 in Devstral-24B improves logical deduction from 0.22→0.76 on BBH — no training, no weight changes, just routing hidden states through the same circuit twice. Tools included. Two AMD GPUs, one evening.",
+        "url": "https://github.com/alainnothere/llm-circuit-finder",
+        "stars": 148,
+        "language": "Python",
+        "score": 1,
+        "ai_summary": "该项目通过复制特定层提升模型推理能力，实现显著性能提升，工具简单易用。"
+      },
+      {
+        "name": "mrphrazer/agentic-malware-analysis",
+        "description": "Agentic malware analysis environment with MCP-connected disassemblers, RE tooling, and structured workflows for Claude Code and Codex CLI.",
+        "url": "https://github.com/mrphrazer/agentic-malware-analysis",
+        "stars": 138,
+        "language": "YARA",
+        "score": 1,
+        "ai_summary": "项目提供了一套结构化的恶意软件分析环境，集成了反汇编工具和工作流程，提升分析效率。"
+      },
+      {
+        "name": "stvlynn/dingtalk-wukong-skills",
+        "description": "钉钉生态与专业文档处理的 Agent 技能精选集。A curated collection of Agent Skills for DingTalk and professional document processing.",
+        "url": "https://github.com/stvlynn/dingtalk-wukong-skills",
+        "stars": 71,
+        "language": "Python",
+        "score": 1,
+        "ai_summary": "该项目汇聚钉钉生态和文档处理的优质代理技能，提升工作效率。"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-21 10:07:57",
+    "items": [
+      {
+        "name": "Dominien/brunnfeld-agentic-world",
+        "description": "Medieval village economy simulation — 20 LLM agents in a world driven by supply chains, hunger, tool degradation and market pressure. Agentic, brunnfeld, world.",
+        "url": "https://github.com/Dominien/brunnfeld-agentic-world",
+        "stars": 38,
+        "language": "TypeScript",
+        "score": 3,
+        "ai_summary": "中世纪村庄经济模拟，20个智能体互动，反映供应链、饥饿、工具退化和市场压力。"
+      },
+      {
+        "name": "truongduy2611/app-store-preflight-skills",
+        "description": "AI agent skill to scan iOS/macOS projects for App Store rejection patterns before submission",
+        "url": "https://github.com/truongduy2611/app-store-preflight-skills",
+        "stars": 346,
+        "language": null,
+        "score": 2,
+        "ai_summary": "该项目利用AI自动扫描iOS/macOS项目，帮助开发者预防App Store拒绝，提升提交成功率。"
+      },
+      {
+        "name": "open-gitagent/clawless",
+        "description": "ClawLess — A serverless browser-based runtime for Claw AI Agents powered by WebContainers",
+        "url": "https://github.com/open-gitagent/clawless",
+        "stars": 72,
+        "language": "TypeScript",
+        "score": 2,
+        "ai_summary": "ClawLess 提供无服务器的浏览器运行环境，支持 Claw AI 代理，提升开发灵活性与效率。"
+      },
+      {
+        "name": "carvitoscorcese93/GTA-V-ModMenu-2026",
+        "description": "FiveM | Kiddions is a high-performance external utility for Grand Theft Auto V, utilizing a non-invasive memory management engine. This framework provides an optimized overlay, telemetry monitoring, and script execution environment based on the industry-standard Modest Menu architecture",
+        "url": "https://github.com/carvitoscorcese93/GTA-V-ModMenu-2026",
+        "stars": 46,
+        "language": "C++",
+        "score": 2,
+        "ai_summary": "该项目提供高效的GTA V外部工具，支持优化覆盖、遥测监控和脚本执行，提升游戏体验。"
+      },
+      {
+        "name": "nolanaechan/VehiClaw",
+        "description": "Open-source AI agent for car head units.",
+        "url": "https://github.com/nolanaechan/VehiClaw",
+        "stars": 44,
+        "language": "TypeScript",
+        "score": 2,
+        "ai_summary": "VehiClaw：开源AI智能代理，提升汽车车载系统体验。"
+      },
+      {
+        "name": "mattnowdev/thinking-partner",
+        "description": "Thinking partner skill for AI agents — 150+ mental models, orientation detection, cognitive operations. Works with Claude Code, Cursor, Windsurf, Cline, GitHub Copilot.",
+        "url": "https://github.com/mattnowdev/thinking-partner",
+        "stars": 38,
+        "language": null,
+        "score": 2,
+        "ai_summary": "该项目为AI代理提供150+心理模型和认知操作，增强思考能力，兼容多种开发工具。"
+      },
+      {
+        "name": "thesophiaxu/contextd",
+        "description": "An efficient macOS app that continuously captures your screen activity, summarizes it with an LLM, and makes it available for other local tools.",
+        "url": "https://github.com/thesophiaxu/contextd",
+        "stars": 35,
+        "language": "Swift",
+        "score": 2,
+        "ai_summary": "这款高效的 macOS 应用实时捕获屏幕活动，并通过 LLM 进行总结，便于其他本地工具使用。"
+      },
+      {
+        "name": "SethGammon/Citadel",
+        "description": "Agent orchestration harness for Claude Code. Four-tier routing (/do), campaign persistence across sessions, parallel agents in isolated worktrees, discovery relay between waves, lifecycle hooks, circuit breaker, and 6 production-quality skills. From solo developer to institutional scale.",
+        "url": "https://github.com/SethGammon/Citadel",
+        "stars": 32,
+        "language": "JavaScript",
+        "score": 2,
+        "ai_summary": "Citadel 提供多层次代理编排，支持会话持久化与并行执行，适用于从个人开发到机构规模的应用。"
+      },
+      {
+        "name": "Ataraxy-Labs/opensessions",
+        "description": "bring your own multiplexer — terminal session manager with agent status, git branches, and instant switching",
+        "url": "https://github.com/Ataraxy-Labs/opensessions",
+        "stars": 146,
+        "language": null,
+        "score": 1,
+        "ai_summary": "Ataraxy-Labs/opensessions 是一款强大的终端会话管理器，支持即时切换和多项状态管理。"
+      },
+      {
+        "name": "stvlynn/dingtalk-wukong-skills",
+        "description": "钉钉生态与专业文档处理的 Agent 技能精选集。A curated collection of Agent Skills for DingTalk and professional document processing.",
+        "url": "https://github.com/stvlynn/dingtalk-wukong-skills",
+        "stars": 88,
+        "language": "Python",
+        "score": 1,
+        "ai_summary": "该项目提供钉钉生态和文档处理的高效代理技能精选，提升工作效率。"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-22 10:00:58",
+    "items": [
+      {
+        "name": "vasilyevdm/ai-agent-handbook",
+        "description": "Comprehensive guide to AI agent engineering: how 30+ frameworks actually work under the hood. Context rot,  compaction, system prompt assembly, SOUL.md, agent loops, memory systems, tool sprawl, MCP, progressive  disclosure, multi-agent orchestration, Plan/Act, episodic memory. Code examples throughout. Pick the right  stack, avoid the common traps",
+        "url": "https://github.com/vasilyevdm/ai-agent-handbook",
+        "stars": 36,
+        "language": null,
+        "score": 4,
+        "ai_summary": "该项目提供全面的AI代理工程指南，涵盖多框架原理及实用代码示例。"
+      },
+      {
+        "name": "Aquifer-sea/pattern8",
+        "description": "🎱 AI Agent Governance Framework — Constrain how AI Agents behave in your project. pip install pattern8",
+        "url": "https://github.com/Aquifer-sea/pattern8",
+        "stars": 41,
+        "language": "Python",
+        "score": 3,
+        "ai_summary": "Aquifer-sea/pattern8 提供 AI 代理治理框架，助力规范 AI 代理行为。"
+      },
+      {
+        "name": "gnekt/My-Brain-Is-Full-Crew",
+        "description": "Built by a PhD whose memory was failing, whose diet was a mess, and whose anxiety had its own agenda. Most second brain tools ignore the fact that your brain doesn't work in isolation — your body and your mental health are part of the system too. This crew handles all three: knowledge, nutrition, and mental wellness.",
+        "url": "https://github.com/gnekt/My-Brain-Is-Full-Crew",
+        "stars": 182,
+        "language": "Shell",
+        "score": 2,
+        "ai_summary": "该项目整合知识管理、营养与心理健康，全面提升个人效率与福祉。"
+      },
+      {
+        "name": "SethGammon/Citadel",
+        "description": "Agent orchestration harness for Claude Code. Four-tier routing (/do), campaign persistence across sessions, parallel agents in isolated worktrees, discovery relay between waves, lifecycle hooks, circuit breaker, and 6 production-quality skills. From solo developer to institutional scale.",
+        "url": "https://github.com/SethGammon/Citadel",
+        "stars": 115,
+        "language": "JavaScript",
+        "score": 2,
+        "ai_summary": "SethGammon/Citadel 提供高效的智能代理编排工具，支持多层路由、持久化和并行处理，适合大规模应用。"
+      },
+      {
+        "name": "mattnowdev/thinking-partner",
+        "description": "Thinking partner skill for AI agents — 150+ mental models, orientation detection, cognitive operations. Works with Claude Code, Cursor, Windsurf, Cline, GitHub Copilot.",
+        "url": "https://github.com/mattnowdev/thinking-partner",
+        "stars": 96,
+        "language": null,
+        "score": 2,
+        "ai_summary": "该项目为AI代理提供150+思维模型及认知操作，提升智能互动与决策能力。"
+      },
+      {
+        "name": "zhu1090093659/spec_driven_develop",
+        "description": "Cross-platform AI agent skill for spec-driven development: analyze codebases, decompose large  transformations, and track long-running work.",
+        "url": "https://github.com/zhu1090093659/spec_driven_develop",
+        "stars": 60,
+        "language": "Shell",
+        "score": 2,
+        "ai_summary": "跨平台AI助手，支持规范驱动开发，提升代码分析、变换拆解与长期任务追踪效率。"
+      },
+      {
+        "name": "artemiimillier/bulletproof",
+        "description": "Turns AI agents from chaotic code generators into disciplined engineers. 12-stage workflow from research to production.",
+        "url": "https://github.com/artemiimillier/bulletproof",
+        "stars": 50,
+        "language": null,
+        "score": 2,
+        "ai_summary": "该项目将 AI 代理转变为有序的工程师，提供从研究到生产的12阶段工作流程。"
+      },
+      {
+        "name": "thesophiaxu/contextd",
+        "description": "An efficient macOS app that continuously captures your screen activity, summarizes it with an LLM, and makes it available for other local tools.",
+        "url": "https://github.com/thesophiaxu/contextd",
+        "stars": 42,
+        "language": "Swift",
+        "score": 2,
+        "ai_summary": "这款高效的 macOS 应用持续捕捉屏幕活动，并利用 LLM 进行智能摘要，为本地工具提供支持。"
+      },
+      {
+        "name": "ruby-verma/transit-agent",
+        "description": "This guide demonstrates how to build an Agentic AI system using Google's Agent Development Kit (ADK) and the Model Context Protocol (MCP).",
+        "url": "https://github.com/ruby-verma/transit-agent",
+        "stars": 27,
+        "language": "Python",
+        "score": 2,
+        "ai_summary": "该项目提供了构建智能AI系统的指南，利用谷歌的Agent开发工具包和模型上下文协议。"
+      },
+      {
+        "name": "michelhelsdingen/ensemble",
+        "description": "Multi-agent collaboration engine — AI agents that work as one",
+        "url": "https://github.com/michelhelsdingen/ensemble",
+        "stars": 25,
+        "language": "TypeScript",
+        "score": 2,
+        "ai_summary": "该项目提供多智能体协作引擎，实现AI代理的高效协作。"
+      }
+    ]
   }
 ]

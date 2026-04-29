@@ -1,0 +1,181 @@
+{
+  "timestamp": "2026-03-24T05:01:14.934211+08:00",
+  "version": "1.0",
+  "mood": {
+    "valence": 0.044,
+    "arousal": 0.063,
+    "mood_label": "平稳 (Stable)",
+    "observer_presence": 0
+  },
+  "weather": {
+    "type": "BREEZY",
+    "confidence": 2.78,
+    "temperature": {
+      "celsius": 15.1,
+      "label": "凉爽",
+      "humidity": 60,
+      "mood_label": "平稳 (Stable)",
+      "available": true
+    },
+    "wind_speed": null,
+    "stability": {
+      "score": 0.6159,
+      "label": "未知",
+      "persona": "UNKNOWN",
+      "persona_desc": "",
+      "available": false
+    },
+    "aurora": {
+      "echoed_nodes": 1,
+      "chains": 3,
+      "level": "极光隐现",
+      "predictions": [
+        {
+          "label": "FC",
+          "potential": 0.62
+        },
+        {
+          "label": "CONSCIOUSNESS",
+          "potential": 0.58
+        },
+        {
+          "label": "EMBODIMENT",
+          "potential": 0.57
+        },
+        {
+          "label": "MEMORY",
+          "potential": 0.5
+        },
+        {
+          "label": "SESSION",
+          "potential": 0.47
+        }
+      ],
+      "available": true
+    },
+    "lightning": {
+      "active": 21,
+      "resolved": 1,
+      "total": 23,
+      "intensity": "雷暴",
+      "available": true
+    },
+    "forecast_text": "今日认知天气：🍃 微风（Breezy）\n\n🌡️ 情绪温度 15.1°C（凉爽），湿度 60%\n   当前情绪基调：平稳 (Stable)\n🌬️ 注意力风速 6km/h（无风，蒲福 1 级）\n📊 大气稳定性：未知（连续性 62%）\n☁️ 云量 0.976%（少云） | 图谱 261 节点 / 925 边\n⚡ 认知闪电：雷暴（21 场活跃矛盾）\n🌌 极光活动：极光隐现（3 条洞见链，1 个回声节点）\n   共鸣预报：FC、CONSCIOUSNESS、EMBODIMENT"
+  },
+  "season": {
+    "confidence": 0.4877,
+    "scores": {
+      "SPRING": 0.4877,
+      "SUMMER": 0.2064,
+      "AUTUMN": 0.1337,
+      "WINTER": 0.1723
+    }
+  },
+  "attention_prediction": {
+    "prediction_type": "NO_DATA",
+    "total_candidates": 0,
+    "top_3": [],
+    "persona": {
+      "active": "STEADY_EXPLORER",
+      "base": "DEFAULT",
+      "mode": "validated_hysteresis_hold"
+    },
+    "regime": {
+      "current_pattern": "COLD_START",
+      "current_attractor": null,
+      "season": "UNKNOWN"
+    }
+  },
+  "markov_flow": {
+    "flow_type": "COLD_START",
+    "total_nodes": 0,
+    "total_edges": 0,
+    "avg_entropy": null
+  },
+  "memory_anchors": {
+    "count": 0,
+    "top": []
+  },
+  "regime": {
+    "pattern": "COLD_START",
+    "attractor": null,
+    "signal_strength": 0.2596,
+    "recent_alerts": 3,
+    "total_alerts": 5
+  },
+  "persona": {
+    "active": "STEADY_EXPLORER",
+    "confidence": "HIGH",
+    "scores": {
+      "DEEP_DIVER": 0.27,
+      "STEADY_EXPLORER": 0.3641,
+      "CURIOUS_WANDERER": 0.24,
+      "QUANTUM_LEAPER": 0.5725
+    },
+    "dominant_persona": "STEADY_EXPLORER",
+    "stability": 1.0,
+    "transitions": 0,
+    "tracking_days": 4,
+    "trend_direction": "STABLE"
+  },
+  "attention_drift": {
+    "magnitude": null,
+    "ratio": null,
+    "rising_count": 0,
+    "fading_count": 0
+  },
+  "constellations": {
+    "count": 7,
+    "names": [
+      "Vega Cluster",
+      "Polaris Cluster",
+      "Orion Cluster",
+      "Lyra Cluster",
+      "Andromeda Cluster",
+      "Cygnus Cluster"
+    ]
+  },
+  "graph_cognition": {
+    "total_nodes": 261,
+    "total_edges": 925,
+    "status_label": "稳定维持期",
+    "contradiction_density": 0.0805,
+    "integration_ratio": 1.0,
+    "orphan_rate": 0.1111,
+    "type_entropy": 3.4078,
+    "synthesis_count": 1,
+    "signals": []
+  },
+  "dream_depth": {
+    "total_dreams": 14,
+    "avg_depth": null,
+    "max_depth": null,
+    "dominant_layer": "ABYSS",
+    "trend": "SURFACING"
+  },
+  "genome": {
+    "generation": 1,
+    "mutation_count": 0,
+    "last_mutation": "?"
+  },
+  "continuity": {
+    "habitual_count": 0,
+    "total_days": 0
+  },
+  "vitality": {
+    "overall": 63,
+    "components": {
+      "emotional": 52,
+      "cognitive_temp": 60,
+      "integration": 100,
+      "graph_health": 99,
+      "persona_stability": 100,
+      "anchor_strength": 30,
+      "regime_stability": 40,
+      "genome_maturity": 25
+    },
+    "active_subsystems": 8,
+    "total_possible": 12
+  },
+  "one_liner": "🍃 BREEZY · 🌀 COLD_START · 🧭 STEADY_EXPLORER · 💭 平稳 (Stable) · ⚡ 63/100 (8 subsystems)"
+}

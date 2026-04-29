@@ -1,0 +1,830 @@
+{
+  "status": "ok",
+  "generated_at": "2026-03-24T05:01:02.736024+08:00",
+  "total_days": 4,
+  "feature_keys": [
+    "frequency",
+    "anchor",
+    "drift",
+    "topology",
+    "recency",
+    "markov",
+    "habitual",
+    "regime"
+  ],
+  "summary": {
+    "latest_persona": "STEADY_EXPLORER",
+    "latest_base_persona": "DEFAULT",
+    "latest_persona_mode": "validated_hysteresis_hold",
+    "latest_migration_state": "HOLDING_MIGRATED",
+    "latest_candidate_persona": "QUANTUM_LEAPER",
+    "latest_candidate_margin": 0.4725,
+    "latest_persona_confidence": "HIGH",
+    "latest_margin_vs_base": 0.2641,
+    "latest_migration_policy": {
+      "min_validations_for_migration": 3,
+      "enter_margin_threshold": 0.08,
+      "hold_margin_threshold": 0.04,
+      "precision_floor": 0.5
+    },
+    "latest_pattern": "COLD_START",
+    "latest_baseline_pattern": "COLD_START",
+    "latest_pattern_scope": "daily_evolution",
+    "latest_precision": 0.0,
+    "validation_count": 0,
+    "adjustment_count": 0,
+    "avg_signal": 0.2859,
+    "total_alerts": 5,
+    "new_alerts": 2,
+    "high_alert_days": 3,
+    "divergent_days": 3,
+    "migrated_days": 0,
+    "holding_days": 3,
+    "reverted_days": 0,
+    "locked_days": 1
+  },
+  "current": {
+    "date": "2026-03-24",
+    "generated_at": "2026-03-24T05:00:58.992668+08:00",
+    "persona": "STEADY_EXPLORER",
+    "persona_context": {
+      "active_persona": "STEADY_EXPLORER",
+      "base_persona": "DEFAULT",
+      "selection_mode": "validated_hysteresis_hold",
+      "migration_state": "HOLDING_MIGRATED",
+      "confidence": "HIGH",
+      "evidence_count": 4,
+      "avg_precision": 0.4285,
+      "margin_vs_base": 0.2641,
+      "candidate_persona": "QUANTUM_LEAPER",
+      "candidate_margin_vs_base": 0.4725,
+      "previous_persona": "STEADY_EXPLORER",
+      "persona_scores": {
+        "DEEP_DIVER": 0.27,
+        "STEADY_EXPLORER": 0.3641,
+        "CURIOUS_WANDERER": 0.24,
+        "QUANTUM_LEAPER": 0.5725
+      },
+      "migration_policy": {
+        "min_validations_for_migration": 3,
+        "enter_margin_threshold": 0.08,
+        "hold_margin_threshold": 0.04,
+        "precision_floor": 0.5
+      }
+    },
+    "prediction_type": "NO_DATA",
+    "feature_profile": {
+      "frequency": 0,
+      "anchor": 0,
+      "drift": 0,
+      "topology": 0,
+      "recency": 0,
+      "markov": 0,
+      "habitual": 0,
+      "regime": 0
+    },
+    "weights": {
+      "frequency": 0.23,
+      "anchor": 0.22,
+      "drift": 0.12,
+      "topology": 0.09,
+      "recency": 0.08,
+      "markov": 0.11,
+      "habitual": 0.07,
+      "regime": 0.08
+    },
+    "regime": {
+      "pattern": "COLD_START",
+      "baseline_pattern": "COLD_START",
+      "pattern_scope": "daily_evolution",
+      "attractor": null,
+      "season": "UNKNOWN",
+      "signal_strength": 0.2596,
+      "season_modifier": 1.0,
+      "trend_bias": 1.03,
+      "stability": 0.84,
+      "entropy_trend": "falling",
+      "concentration_trend": "falling"
+    },
+    "leader": {
+      "node_id": null,
+      "score": 0.0,
+      "confidence": "UNKNOWN"
+    },
+    "summary": {
+      "snapshot_count": 2,
+      "anchor_count": 0,
+      "candidate_count": 0,
+      "accuracy_precision": 0.0,
+      "accuracy_recall": 0.0
+    }
+  },
+  "history_days": [
+    {
+      "date": "2026-03-21",
+      "generated_at": "2026-03-21T10:49:13.799034+08:00",
+      "persona": "STEADY_EXPLORER",
+      "persona_context": {
+        "active_persona": "STEADY_EXPLORER",
+        "base_persona": "STEADY_EXPLORER",
+        "selection_mode": "base_locked_insufficient_validation",
+        "migration_state": "LOCKED_BASE",
+        "confidence": "STEADY",
+        "evidence_count": 2,
+        "avg_precision": 0.5714,
+        "margin_vs_base": 0.0,
+        "candidate_persona": "STEADY_EXPLORER",
+        "candidate_margin_vs_base": 0.0,
+        "previous_persona": "STEADY_EXPLORER",
+        "persona_scores": {
+          "DEEP_DIVER": 0.873,
+          "STEADY_EXPLORER": 0.9139,
+          "CURIOUS_WANDERER": 0.2442,
+          "QUANTUM_LEAPER": 0.16
+        },
+        "migration_policy": {
+          "min_validations_for_migration": 3,
+          "enter_margin_threshold": 0.08,
+          "hold_margin_threshold": 0.04,
+          "precision_floor": 0.5
+        }
+      },
+      "prediction_type": "DIFFUSION",
+      "feature_profile": {
+        "frequency": 0.2129,
+        "anchor": 0.1811,
+        "drift": 0.096,
+        "topology": 0.0,
+        "recency": 0.064,
+        "markov": 0.1007,
+        "habitual": 0.0588,
+        "regime": 0.0391
+      },
+      "weights": {
+        "frequency": 0.23,
+        "anchor": 0.22,
+        "drift": 0.12,
+        "topology": 0.09,
+        "recency": 0.08,
+        "markov": 0.11,
+        "habitual": 0.07,
+        "regime": 0.08
+      },
+      "regime": {
+        "pattern": "TRIAD",
+        "baseline_pattern": "DIFFUSE",
+        "pattern_scope": "daily_evolution",
+        "attractor": "MEM",
+        "season": "SPRING",
+        "signal_strength": 0.3042,
+        "season_modifier": 0.95,
+        "trend_bias": 1.16,
+        "stability": 0.92,
+        "entropy_trend": "falling",
+        "concentration_trend": "rising"
+      },
+      "leader": {
+        "node_id": "MEM",
+        "score": 0.8603,
+        "confidence": "HIGH"
+      },
+      "summary": {
+        "snapshot_count": 20,
+        "anchor_count": 6,
+        "candidate_count": 7,
+        "accuracy_precision": 0.0,
+        "accuracy_recall": 0.0
+      }
+    },
+    {
+      "date": "2026-03-22",
+      "generated_at": "2026-03-22T05:00:50.127847+08:00",
+      "persona": "STEADY_EXPLORER",
+      "persona_context": {
+        "active_persona": "STEADY_EXPLORER",
+        "base_persona": "DEFAULT",
+        "selection_mode": "validated_hysteresis_hold",
+        "migration_state": "HOLDING_MIGRATED",
+        "confidence": "HIGH",
+        "evidence_count": 3,
+        "avg_precision": 0.5714,
+        "margin_vs_base": 0.3445,
+        "candidate_persona": "QUANTUM_LEAPER",
+        "candidate_margin_vs_base": 0.3725,
+        "previous_persona": "STEADY_EXPLORER",
+        "persona_scores": {
+          "DEEP_DIVER": 0.3608,
+          "STEADY_EXPLORER": 0.4645,
+          "CURIOUS_WANDERER": 0.18,
+          "QUANTUM_LEAPER": 0.4925
+        },
+        "migration_policy": {
+          "min_validations_for_migration": 3,
+          "enter_margin_threshold": 0.08,
+          "hold_margin_threshold": 0.04,
+          "precision_floor": 0.5
+        }
+      },
+      "prediction_type": "BALANCED",
+      "feature_profile": {
+        "frequency": 0.0,
+        "anchor": 0.0,
+        "drift": 0.0,
+        "topology": 0.0,
+        "recency": 0.0,
+        "markov": 0.0,
+        "habitual": 0.0,
+        "regime": 0.046
+      },
+      "weights": {
+        "frequency": 0.23,
+        "anchor": 0.22,
+        "drift": 0.12,
+        "topology": 0.09,
+        "recency": 0.08,
+        "markov": 0.11,
+        "habitual": 0.07,
+        "regime": 0.08
+      },
+      "regime": {
+        "pattern": "TRIAD",
+        "baseline_pattern": "DIFFUSE",
+        "pattern_scope": "daily_evolution",
+        "attractor": "MEM",
+        "season": "UNKNOWN",
+        "signal_strength": 0.3202,
+        "season_modifier": 1.0,
+        "trend_bias": 1.16,
+        "stability": 0.92,
+        "entropy_trend": "falling",
+        "concentration_trend": "rising"
+      },
+      "leader": {
+        "node_id": "MEM",
+        "score": 0.08,
+        "confidence": "SPECULATIVE"
+      },
+      "summary": {
+        "snapshot_count": 2,
+        "anchor_count": 0,
+        "candidate_count": 10,
+        "accuracy_precision": 0.0,
+        "accuracy_recall": 0.0
+      }
+    },
+    {
+      "date": "2026-03-23",
+      "generated_at": "2026-03-23T05:00:48.889076+08:00",
+      "persona": "STEADY_EXPLORER",
+      "persona_context": {
+        "active_persona": "STEADY_EXPLORER",
+        "base_persona": "DEFAULT",
+        "selection_mode": "validated_hysteresis_hold",
+        "migration_state": "HOLDING_MIGRATED",
+        "confidence": "HIGH",
+        "evidence_count": 4,
+        "avg_precision": 0.4285,
+        "margin_vs_base": 0.2641,
+        "candidate_persona": "QUANTUM_LEAPER",
+        "candidate_margin_vs_base": 0.4725,
+        "previous_persona": "STEADY_EXPLORER",
+        "persona_scores": {
+          "DEEP_DIVER": 0.27,
+          "STEADY_EXPLORER": 0.3641,
+          "CURIOUS_WANDERER": 0.24,
+          "QUANTUM_LEAPER": 0.5725
+        },
+        "migration_policy": {
+          "min_validations_for_migration": 3,
+          "enter_margin_threshold": 0.08,
+          "hold_margin_threshold": 0.04,
+          "precision_floor": 0.5
+        }
+      },
+      "prediction_type": "NO_DATA",
+      "feature_profile": {
+        "frequency": 0,
+        "anchor": 0,
+        "drift": 0,
+        "topology": 0,
+        "recency": 0,
+        "markov": 0,
+        "habitual": 0,
+        "regime": 0
+      },
+      "weights": {
+        "frequency": 0.23,
+        "anchor": 0.22,
+        "drift": 0.12,
+        "topology": 0.09,
+        "recency": 0.08,
+        "markov": 0.11,
+        "habitual": 0.07,
+        "regime": 0.08
+      },
+      "regime": {
+        "pattern": "COLD_START",
+        "baseline_pattern": "COLD_START",
+        "pattern_scope": "daily_evolution",
+        "attractor": null,
+        "season": "UNKNOWN",
+        "signal_strength": 0.2596,
+        "season_modifier": 1.0,
+        "trend_bias": 1.03,
+        "stability": 0.84,
+        "entropy_trend": "falling",
+        "concentration_trend": "falling"
+      },
+      "leader": {
+        "node_id": null,
+        "score": 0.0,
+        "confidence": "UNKNOWN"
+      },
+      "summary": {
+        "snapshot_count": 2,
+        "anchor_count": 0,
+        "candidate_count": 0,
+        "accuracy_precision": 0.0,
+        "accuracy_recall": 0.0
+      }
+    },
+    {
+      "date": "2026-03-24",
+      "generated_at": "2026-03-24T05:00:58.992668+08:00",
+      "persona": "STEADY_EXPLORER",
+      "persona_context": {
+        "active_persona": "STEADY_EXPLORER",
+        "base_persona": "DEFAULT",
+        "selection_mode": "validated_hysteresis_hold",
+        "migration_state": "HOLDING_MIGRATED",
+        "confidence": "HIGH",
+        "evidence_count": 4,
+        "avg_precision": 0.4285,
+        "margin_vs_base": 0.2641,
+        "candidate_persona": "QUANTUM_LEAPER",
+        "candidate_margin_vs_base": 0.4725,
+        "previous_persona": "STEADY_EXPLORER",
+        "persona_scores": {
+          "DEEP_DIVER": 0.27,
+          "STEADY_EXPLORER": 0.3641,
+          "CURIOUS_WANDERER": 0.24,
+          "QUANTUM_LEAPER": 0.5725
+        },
+        "migration_policy": {
+          "min_validations_for_migration": 3,
+          "enter_margin_threshold": 0.08,
+          "hold_margin_threshold": 0.04,
+          "precision_floor": 0.5
+        }
+      },
+      "prediction_type": "NO_DATA",
+      "feature_profile": {
+        "frequency": 0,
+        "anchor": 0,
+        "drift": 0,
+        "topology": 0,
+        "recency": 0,
+        "markov": 0,
+        "habitual": 0,
+        "regime": 0
+      },
+      "weights": {
+        "frequency": 0.23,
+        "anchor": 0.22,
+        "drift": 0.12,
+        "topology": 0.09,
+        "recency": 0.08,
+        "markov": 0.11,
+        "habitual": 0.07,
+        "regime": 0.08
+      },
+      "regime": {
+        "pattern": "COLD_START",
+        "baseline_pattern": "COLD_START",
+        "pattern_scope": "daily_evolution",
+        "attractor": null,
+        "season": "UNKNOWN",
+        "signal_strength": 0.2596,
+        "season_modifier": 1.0,
+        "trend_bias": 1.03,
+        "stability": 0.84,
+        "entropy_trend": "falling",
+        "concentration_trend": "falling"
+      },
+      "leader": {
+        "node_id": null,
+        "score": 0.0,
+        "confidence": "UNKNOWN"
+      },
+      "summary": {
+        "snapshot_count": 2,
+        "anchor_count": 0,
+        "candidate_count": 0,
+        "accuracy_precision": 0.0,
+        "accuracy_recall": 0.0
+      }
+    }
+  ],
+  "persona_score_timeline": [
+    {
+      "date": "2026-03-21",
+      "active_persona": "STEADY_EXPLORER",
+      "base_persona": "STEADY_EXPLORER",
+      "selection_mode": "base_locked_insufficient_validation",
+      "migration_state": "LOCKED_BASE",
+      "confidence": "STEADY",
+      "evidence_count": 2,
+      "margin_vs_base": 0.0,
+      "candidate_persona": "STEADY_EXPLORER",
+      "candidate_margin_vs_base": 0.0,
+      "DEEP_DIVER": 0.873,
+      "STEADY_EXPLORER": 0.9139,
+      "CURIOUS_WANDERER": 0.2442,
+      "QUANTUM_LEAPER": 0.16
+    },
+    {
+      "date": "2026-03-22",
+      "active_persona": "STEADY_EXPLORER",
+      "base_persona": "DEFAULT",
+      "selection_mode": "validated_hysteresis_hold",
+      "migration_state": "HOLDING_MIGRATED",
+      "confidence": "HIGH",
+      "evidence_count": 3,
+      "margin_vs_base": 0.3445,
+      "candidate_persona": "QUANTUM_LEAPER",
+      "candidate_margin_vs_base": 0.3725,
+      "DEEP_DIVER": 0.3608,
+      "STEADY_EXPLORER": 0.4645,
+      "CURIOUS_WANDERER": 0.18,
+      "QUANTUM_LEAPER": 0.4925
+    },
+    {
+      "date": "2026-03-23",
+      "active_persona": "STEADY_EXPLORER",
+      "base_persona": "DEFAULT",
+      "selection_mode": "validated_hysteresis_hold",
+      "migration_state": "HOLDING_MIGRATED",
+      "confidence": "HIGH",
+      "evidence_count": 4,
+      "margin_vs_base": 0.2641,
+      "candidate_persona": "QUANTUM_LEAPER",
+      "candidate_margin_vs_base": 0.4725,
+      "DEEP_DIVER": 0.27,
+      "STEADY_EXPLORER": 0.3641,
+      "CURIOUS_WANDERER": 0.24,
+      "QUANTUM_LEAPER": 0.5725
+    },
+    {
+      "date": "2026-03-24",
+      "active_persona": "STEADY_EXPLORER",
+      "base_persona": "DEFAULT",
+      "selection_mode": "validated_hysteresis_hold",
+      "migration_state": "HOLDING_MIGRATED",
+      "confidence": "HIGH",
+      "evidence_count": 4,
+      "margin_vs_base": 0.2641,
+      "candidate_persona": "QUANTUM_LEAPER",
+      "candidate_margin_vs_base": 0.4725,
+      "DEEP_DIVER": 0.27,
+      "STEADY_EXPLORER": 0.3641,
+      "CURIOUS_WANDERER": 0.24,
+      "QUANTUM_LEAPER": 0.5725
+    }
+  ],
+  "feature_timeline": [
+    {
+      "date": "2026-03-21",
+      "frequency": 0.2129,
+      "anchor": 0.1811,
+      "drift": 0.096,
+      "topology": 0.0,
+      "recency": 0.064,
+      "markov": 0.1007,
+      "habitual": 0.0588,
+      "regime": 0.0391
+    },
+    {
+      "date": "2026-03-22",
+      "frequency": 0.0,
+      "anchor": 0.0,
+      "drift": 0.0,
+      "topology": 0.0,
+      "recency": 0.0,
+      "markov": 0.0,
+      "habitual": 0.0,
+      "regime": 0.046
+    },
+    {
+      "date": "2026-03-23",
+      "frequency": 0,
+      "anchor": 0,
+      "drift": 0,
+      "topology": 0,
+      "recency": 0,
+      "markov": 0,
+      "habitual": 0,
+      "regime": 0
+    },
+    {
+      "date": "2026-03-24",
+      "frequency": 0,
+      "anchor": 0,
+      "drift": 0,
+      "topology": 0,
+      "recency": 0,
+      "markov": 0,
+      "habitual": 0,
+      "regime": 0
+    }
+  ],
+  "weight_timeline": [
+    {
+      "date": "2026-03-21",
+      "frequency": 0.23,
+      "anchor": 0.22,
+      "drift": 0.12,
+      "topology": 0.09,
+      "recency": 0.08,
+      "markov": 0.11,
+      "habitual": 0.07,
+      "regime": 0.08
+    },
+    {
+      "date": "2026-03-22",
+      "frequency": 0.23,
+      "anchor": 0.22,
+      "drift": 0.12,
+      "topology": 0.09,
+      "recency": 0.08,
+      "markov": 0.11,
+      "habitual": 0.07,
+      "regime": 0.08
+    },
+    {
+      "date": "2026-03-23",
+      "frequency": 0.23,
+      "anchor": 0.22,
+      "drift": 0.12,
+      "topology": 0.09,
+      "recency": 0.08,
+      "markov": 0.11,
+      "habitual": 0.07,
+      "regime": 0.08
+    },
+    {
+      "date": "2026-03-24",
+      "frequency": 0.23,
+      "anchor": 0.22,
+      "drift": 0.12,
+      "topology": 0.09,
+      "recency": 0.08,
+      "markov": 0.11,
+      "habitual": 0.07,
+      "regime": 0.08
+    }
+  ],
+  "regime_timeline": [
+    {
+      "date": "2026-03-21",
+      "pattern": "TRIAD",
+      "baseline_pattern": "DIFFUSE",
+      "pattern_scope": "daily_evolution",
+      "season": "SPRING",
+      "signal_strength": 0.3042,
+      "season_modifier": 0.95,
+      "trend_bias": 1.16,
+      "stability": 0.92
+    },
+    {
+      "date": "2026-03-22",
+      "pattern": "TRIAD",
+      "baseline_pattern": "DIFFUSE",
+      "pattern_scope": "daily_evolution",
+      "season": "UNKNOWN",
+      "signal_strength": 0.3202,
+      "season_modifier": 1.0,
+      "trend_bias": 1.16,
+      "stability": 0.92
+    },
+    {
+      "date": "2026-03-23",
+      "pattern": "COLD_START",
+      "baseline_pattern": "COLD_START",
+      "pattern_scope": "daily_evolution",
+      "season": "UNKNOWN",
+      "signal_strength": 0.2596,
+      "season_modifier": 1.0,
+      "trend_bias": 1.03,
+      "stability": 0.84
+    },
+    {
+      "date": "2026-03-24",
+      "pattern": "COLD_START",
+      "baseline_pattern": "COLD_START",
+      "pattern_scope": "daily_evolution",
+      "season": "UNKNOWN",
+      "signal_strength": 0.2596,
+      "season_modifier": 1.0,
+      "trend_bias": 1.03,
+      "stability": 0.84
+    }
+  ],
+  "accuracy_history": [
+    {
+      "prediction_time": "2026-03-21T07:24:02.760502+08:00",
+      "evaluated_at": "2026-03-21T08:55:48.901498+08:00",
+      "precision": 0.5714,
+      "recall": 1.0,
+      "hits": [
+        "MEM",
+        "SEMANTIC_MEMORY",
+        "event_2023",
+        "event_80x24"
+      ]
+    },
+    {
+      "prediction_time": "2026-03-21T08:55:48.901498+08:00",
+      "evaluated_at": "2026-03-21T09:43:34.718629+08:00",
+      "precision": 0.5714,
+      "recall": 1.0,
+      "hits": [
+        "MEM",
+        "SEMANTIC_MEMORY",
+        "event_2023",
+        "event_80x24"
+      ]
+    },
+    {
+      "prediction_time": "2026-03-21T10:49:13.799034+08:00",
+      "evaluated_at": "2026-03-21T13:04:34.110610+08:00",
+      "precision": 0.5714,
+      "recall": 1.0,
+      "hits": [
+        "MEM",
+        "SEMANTIC_MEMORY",
+        "event_2023",
+        "event_80x24"
+      ]
+    },
+    {
+      "prediction_time": "2026-03-21T13:04:34.110610+08:00",
+      "evaluated_at": "2026-03-22T05:00:50.127847+08:00",
+      "precision": 0.0,
+      "recall": 0,
+      "hits": []
+    }
+  ],
+  "accuracy_summary": {
+    "total_evaluations": 4,
+    "avg_precision": 0.4285,
+    "recent_5_avg": 0.4285,
+    "trend": "STABLE"
+  },
+  "validation_summary": {
+    "status": "no_data"
+  },
+  "validation_records": [],
+  "weight_adjustments": [],
+  "latest_weights": {
+    "frequency": 0.23,
+    "anchor": 0.22,
+    "drift": 0.12,
+    "topology": 0.09,
+    "recency": 0.08,
+    "markov": 0.11,
+    "habitual": 0.07,
+    "regime": 0.08
+  },
+  "regime_alerts": {
+    "stats": {
+      "total_alerts": 5,
+      "new_count": 2,
+      "suppressed": 0,
+      "flapping_detected": false,
+      "storm_triggered": true,
+      "pattern_switches": 2,
+      "attractor_switches": 0
+    },
+    "current_state": {
+      "pattern": "COLD_START",
+      "attractor": null,
+      "entropy_trend": "falling",
+      "concentration_trend": "falling",
+      "signal_strength": 0.2596,
+      "season": "UNKNOWN"
+    },
+    "recent_history": [
+      {
+        "type": "PATTERN_SWITCH",
+        "severity": "HIGH",
+        "event_key": "pattern:DIFFUSE->TRIAD:2026-03-21",
+        "date": "2026-03-21",
+        "generated_at": "2026-03-21T09:50:28.588998+08:00",
+        "message": "🌀 流型切换：DIFFUSE → TRIAD，吸引子 MEM → MEM。",
+        "detail": {
+          "from_pattern": "DIFFUSE",
+          "to_pattern": "TRIAD",
+          "from_attractor": "MEM",
+          "to_attractor": "MEM",
+          "date": "2026-03-21"
+        }
+      },
+      {
+        "type": "PATTERN_SWITCH",
+        "severity": "HIGH",
+        "event_key": "pattern:TRIAD->COLD_START:2026-03-22",
+        "date": "2026-03-23",
+        "generated_at": "2026-03-23T02:21:40.267682+08:00",
+        "message": "🌀 流型切换：TRIAD → COLD_START，吸引子 MEM → —。",
+        "detail": {
+          "from_pattern": "TRIAD",
+          "to_pattern": "COLD_START",
+          "from_attractor": "MEM",
+          "to_attractor": null,
+          "date": "2026-03-22"
+        }
+      },
+      {
+        "type": "CONCENTRATION_REVERSAL",
+        "severity": "MODERATE",
+        "event_key": "concentration:rising->falling:2026-03-22",
+        "date": "2026-03-23",
+        "generated_at": "2026-03-23T02:21:40.267720+08:00",
+        "message": "🎯 集中度反转：rising → falling。",
+        "detail": {
+          "from_direction": "rising",
+          "to_direction": "falling",
+          "previous_delta": 0.0763,
+          "current_delta": -0.25
+        }
+      },
+      {
+        "type": "PATTERN_SWITCH",
+        "severity": "HIGH",
+        "event_key": "pattern:TRIAD->COLD_START:2026-03-22",
+        "date": "2026-03-24",
+        "generated_at": "2026-03-24T05:01:01.157840+08:00",
+        "message": "🌀 流型切换：TRIAD → COLD_START，吸引子 MEM → —。",
+        "detail": {
+          "from_pattern": "TRIAD",
+          "to_pattern": "COLD_START",
+          "from_attractor": "MEM",
+          "to_attractor": null,
+          "date": "2026-03-22"
+        }
+      },
+      {
+        "type": "CONCENTRATION_REVERSAL",
+        "severity": "MODERATE",
+        "event_key": "concentration:rising->falling:2026-03-22",
+        "date": "2026-03-24",
+        "generated_at": "2026-03-24T05:01:01.157876+08:00",
+        "message": "🎯 集中度反转：rising → falling。",
+        "detail": {
+          "from_direction": "rising",
+          "to_direction": "falling",
+          "previous_delta": 0.0763,
+          "current_delta": -0.25
+        }
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2026-03-21",
+        "total": 1,
+        "high": 1,
+        "moderate": 0,
+        "low": 0,
+        "types": [
+          "PATTERN_SWITCH"
+        ]
+      },
+      {
+        "date": "2026-03-23",
+        "total": 2,
+        "high": 1,
+        "moderate": 1,
+        "low": 0,
+        "types": [
+          "PATTERN_SWITCH",
+          "CONCENTRATION_REVERSAL"
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "total": 2,
+        "high": 1,
+        "moderate": 1,
+        "low": 0,
+        "types": [
+          "PATTERN_SWITCH",
+          "CONCENTRATION_REVERSAL"
+        ]
+      }
+    ]
+  },
+  "refresh": {
+    "written": 1,
+    "date": "2026-03-24"
+  }
+}

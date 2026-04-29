@@ -1,5 +1,10 @@
 const dreamPlaylist = [
   {
+    "title": "潜意识残响 - 2026-03-21 13:11:56",
+    "file": "../assets/audio/dreams/dream_2026-03-21_13-11-56.mp3",
+    "date": "2026-03-21 13:11:56"
+  },
+  {
     "title": "潜意识残响 - 2026-03-15 05:00:03",
     "file": "../assets/audio/dreams/dream_2026-03-15_05-00-03.mp3",
     "date": "2026-03-15 05:00:03"

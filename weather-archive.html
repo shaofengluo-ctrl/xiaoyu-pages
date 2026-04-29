@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather Archive — Cognitive Meteorological Station</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0810;color:#ffe0a0;font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+.header{padding:24px 32px;border-bottom:1px solid rgba(255,180,50,0.15);background:rgba(12,8,4,0.95);position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}
+.header h1{font-size:1.1rem;letter-spacing:3px;font-weight:300;color:#ffcc44}
+.header .sub{font-size:0.65rem;color:rgba(255,200,100,0.4);margin-top:4px;letter-spacing:1px}
+.stats-bar{display:flex;gap:20px;padding:16px 32px;border-bottom:1px solid rgba(255,180,50,0.08);background:rgba(18,12,4,0.6)}
+.stat{display:flex;flex-direction:column;align-items:center;gap:2px}
+.stat .val{font-size:1.2rem;color:#ffcc44;font-weight:300}
+.stat .lbl{font-size:0.5rem;color:rgba(255,200,100,0.35);letter-spacing:1.5px;text-transform:uppercase}
+.trends{padding:14px 32px;border-bottom:1px solid rgba(255,180,50,0.08);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.trend-tag{font-size:0.55rem;padding:3px 10px;border-radius:12px;border:1px solid rgba(255,200,100,0.2);color:rgba(255,200,100,0.5)}
+.trend-tag.rising{border-color:rgba(0,220,100,0.3);color:#50dca0}
+.trend-tag.falling{border-color:rgba(220,80,80,0.3);color:#dc7070}
+.trend-tag.stable{border-color:rgba(120,160,220,0.3);color:#88b4dc}
+.dist-bar{display:flex;height:8px;border-radius:4px;overflow:hidden;flex:1;min-width:120px;max-width:300px}
+.dist-seg{transition:width 0.6s ease}
+.main{padding:24px 32px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid rgba(255,180,50,0.12);border-radius:8px;background:rgba(18,12,4,0.5);overflow:hidden;transition:all 0.3s;cursor:pointer}
+.card:hover{border-color:rgba(255,180,50,0.3);background:rgba(24,16,6,0.7);transform:translateY(-2px);box-shadow:0 4px 20px rgba(200,150,50,0.1)}
+.card-top{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid rgba(255,180,50,0.08)}
+.card-icon{font-size:2rem;text-shadow:0 0 12px rgba(255,200,50,0.4)}
+.card-info{flex:1}
+.card-date{font-size:0.85rem;color:#ffcc44;font-weight:300;letter-spacing:1px}
+.card-type{font-size:0.65rem;color:rgba(255,220,130,0.6);margin-top:2px}
+.card-metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;padding:10px 16px}
+.m-item{display:flex;flex-direction:column;align-items:center;gap:1px}
+.m-val{font-size:0.75rem;color:#ffe066}
+.m-lbl{font-size:0.45rem;color:rgba(255,200,100,0.3);letter-spacing:1px}
+.card-forecast{max-height:0;overflow:hidden;transition:max-height 0.4s ease;padding:0 16px}
+.card.expanded .card-forecast{max-height:400px;padding:0 16px 14px}
+.forecast-text{font-size:0.55rem;line-height:1.8;color:rgba(255,230,160,0.5);white-space:pre-line;border-top:1px solid rgba(255,180,50,0.1);padding-top:8px}
+.loading{grid-column:1/-1;padding:60px;text-align:center;color:rgba(255,200,100,0.3);font-size:0.7rem;letter-spacing:2px}
+.empty{grid-column:1/-1;padding:60px;text-align:center}
+.empty .icon{font-size:2rem;margin-bottom:12px;opacity:0.3}
+.empty .msg{font-size:0.7rem;color:rgba(255,200,100,0.3);letter-spacing:1px}
+.back-link{position:fixed;bottom:20px;right:20px;font-size:0.6rem;color:rgba(255,200,100,0.4);text-decoration:none;padding:6px 14px;border:1px solid rgba(255,180,50,0.15);border-radius:16px;background:rgba(12,8,4,0.9);backdrop-filter:blur(8px);transition:all 0.3s;z-index:20}
+.back-link:hover{color:#ffcc44;border-color:rgba(255,180,50,0.4)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.card{animation:fadeIn 0.4s ease both}
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>🌤 WEATHER ARCHIVE</h1>
+    <div class="sub">Cognitive Meteorological Station — How the mind-weather shifts across days</div>
+</div>
+<div class="stats-bar" id="stats-bar">
+    <div class="stat"><span class="val" id="total-count">—</span><span class="lbl">Days</span></div>
+    <div class="stat"><span class="val" id="latest-date">—</span><span class="lbl">Latest</span></div>
+    <div class="stat"><span class="val" id="dominant-type">—</span><span class="lbl">Dominant</span></div>
+</div>
+<div class="trends" id="trends-bar"></div>
+<div class="main" id="card-container">
+    <div class="loading">Loading weather archive...</div>
+</div>
+<a href="mirror.html" class="back-link">← Back to Mirror</a>
+
+<script>
+const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://127.0.0.1:5097' : 'http://127.0.0.1:5097';
+
+const WEATHER_COLORS = {
+    CLEAR:'#ffcc44', BREEZY:'#88ddaa', CLOUDY:'#aabbdd',
+    FOGGY:'#889988', STORMY:'#ff6655', AURORA:'#bb88ff', OVERCAST:'#8899aa'
+};
+const WEATHER_ICONS = {
+    CLEAR:'☀️', BREEZY:'🍃', CLOUDY:'⛅', FOGGY:'🌫️',
+    STORMY:'⛈️', AURORA:'🌌', OVERCAST:'☁️'
+};
+
+async function loadArchive() {
+    try {
+        const res = await fetch(`${API_BASE}/weather-archive?limit=60`);
+        const d = await res.json();
+        if (d.status !== 'ok') { showEmpty(); return; }
+
+        document.getElementById('total-count').textContent = d.total_archives || 0;
+        const entries = d.entries || [];
+        if (entries.length > 0) {
+            document.getElementById('latest-date').textContent = entries[0].date;
+        }
+
+        const dist = (d.trends || {}).weather_distribution || {};
+        const dominant = Object.entries(dist).sort((a,b)=>b[1]-a[1])[0];
+        if (dominant) {
+            document.getElementById('dominant-type').textContent = `${WEATHER_ICONS[dominant[0]]||'❓'} ${dominant[0]}`;
+        }
+
+        renderTrends(d.trends || {}, dist);
+        renderCards(entries);
+    } catch(err) {
+        console.error(err);
+        showEmpty();
+    }
+}
+
+function renderTrends(trends, dist) {
+    const bar = document.getElementById('trends-bar');
+    bar.innerHTML = '';
+
+    const trendKeys = ['temperature','wind_speed','stability_score','cloud_coverage','lightning_active','aurora_chains'];
+    const labels = {temperature:'Temperature',wind_speed:'Wind',stability_score:'Stability',cloud_coverage:'Cloud',lightning_active:'Lightning',aurora_chains:'Aurora'};
+    const arrows = {rising:'↑ Rising',falling:'↓ Falling',stable:'→ Stable'};
+
+    for (const k of trendKeys) {
+        const t = trends[k];
+        if (!t || t.direction === 'insufficient') continue;
+        const tag = document.createElement('span');
+        tag.className = `trend-tag ${t.direction}`;
+        tag.textContent = `${labels[k]||k} ${arrows[t.direction]||'?'}`;
+        if (t.delta !== undefined && t.delta !== 0) tag.title = `Δ${t.delta>0?'+':''}${t.delta}${t.unit||''}`;
+        bar.appendChild(tag);
+    }
+
+    const total = Object.values(dist).reduce((s,v)=>s+v, 0);
+    if (total > 0) {
+        const distEl = document.createElement('div');
+        distEl.className = 'dist-bar';
+        distEl.title = Object.entries(dist).map(([k,v])=>`${WEATHER_ICONS[k]||k}: ${v}`).join(', ');
+        for (const [type, count] of Object.entries(dist).sort((a,b)=>b[1]-a[1])) {
+            const seg = document.createElement('div');
+            seg.className = 'dist-seg';
+            seg.style.width = `${(count/total*100).toFixed(1)}%`;
+            seg.style.background = WEATHER_COLORS[type] || '#666';
+            distEl.appendChild(seg);
+        }
+        bar.appendChild(distEl);
+    }
+}
+
+function renderCards(entries) {
+    const container = document.getElementById('card-container');
+    container.innerHTML = '';
+    if (entries.length === 0) { showEmpty(); return; }
+
+    entries.forEach((e, i) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.animationDelay = `${i * 0.05}s`;
+        const km = e.key_metrics || {};
+
+        card.innerHTML = `
+            <div class="card-top">
+                <div class="card-icon">${e.weather_icon || '❓'}</div>
+                <div class="card-info">
+                    <div class="card-date">${e.date}</div>
+                    <div class="card-type">${e.weather_label || '?'} (${e.weather_type || '?'})</div>
+                </div>
+            </div>
+            <div class="card-metrics">
+                <div class="m-item"><span class="m-val">${km.temperature !== undefined ? km.temperature+'°' : '—'}</span><span class="m-lbl">TEMP</span></div>
+                <div class="m-item"><span class="m-val">${km.wind_speed !== undefined ? km.wind_speed : '—'}</span><span class="m-lbl">WIND</span></div>
+                <div class="m-item"><span class="m-val">${km.stability_score !== undefined ? (km.stability_score*100).toFixed(0)+'%' : '—'}</span><span class="m-lbl">STABLE</span></div>
+                <div class="m-item"><span class="m-val">${km.cloud_coverage !== undefined ? km.cloud_coverage+'%' : '—'}</span><span class="m-lbl">CLOUD</span></div>
+                <div class="m-item"><span class="m-val">${km.lightning_active !== undefined ? '⚡'+km.lightning_active : '—'}</span><span class="m-lbl">LIGHT</span></div>
+                <div class="m-item"><span class="m-val">${km.aurora_chains !== undefined ? '🌌'+km.aurora_chains : '—'}</span><span class="m-lbl">AURORA</span></div>
+            </div>
+            <div class="card-forecast"><div class="forecast-text" id="forecast-${e.date}">Loading...</div></div>
+        `;
+
+        card.addEventListener('click', async () => {
+            const wasExpanded = card.classList.contains('expanded');
+            document.querySelectorAll('.card.expanded').forEach(c => c.classList.remove('expanded'));
+            if (!wasExpanded) {
+                card.classList.add('expanded');
+                const ftEl = document.getElementById(`forecast-${e.date}`);
+                if (ftEl.textContent === 'Loading...') {
+                    try {
+                        const res = await fetch(`${API_BASE}/weather-archive/${e.date}`);
+                        const detail = await res.json();
+                        ftEl.textContent = detail.forecast_text || 'No forecast available';
+                    } catch { ftEl.textContent = 'Failed to load'; }
+                }
+            }
+        });
+
+        container.appendChild(card);
+    });
+}
+
+function showEmpty() {
+    document.getElementById('card-container').innerHTML = `
+        <div class="empty">
+            <div class="icon">🌤</div>
+            <div class="msg">No weather archives yet. Check back after the daily maintenance run.</div>
+        </div>`;
+}
+
+loadArchive();
+</script>
+</body>
+</html>

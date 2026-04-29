@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guidance Trend Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+  <style>
+    body{margin:0;background:#050816;color:#dbeafe;font-family:'Courier New',monospace}
+    .wrap{padding:16px 18px 28px}
+    .hero{display:flex;justify-content:space-between;gap:12px;align-items:end;flex-wrap:wrap}
+    .hero h1{margin:0;color:#34d399;letter-spacing:2px;font-size:22px}
+    .sub{color:#64748b;font-size:12px}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0}
+    .card,.panel{background:#0b1120;border:1px solid rgba(52,211,153,.18);border-radius:12px;padding:12px}
+    .k{font-size:11px;color:#64748b}
+    .v{font-size:22px;color:#a7f3d0;margin-top:6px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .full{grid-column:1/-1}
+    .chart{height:320px}
+    .mini{font-size:12px;line-height:1.7;color:#cbd5e1}
+    .list{display:flex;flex-direction:column;gap:8px;max-height:260px;overflow:auto}
+    .item{padding:8px 10px;border:1px solid rgba(148,163,184,.12);border-radius:10px;background:#0f172a}
+    .nav a{color:#7dd3fc;text-decoration:none;margin-right:12px;font-size:12px}
+    .strat-icon{font-size:28px}
+    .pill{display:inline-block;padding:2px 8px;border-radius:8px;font-size:11px;margin:2px}
+    .pill-EXPLORE{background:rgba(52,211,153,.2);color:#34d399}
+    .pill-DEEPEN{background:rgba(96,165,250,.2);color:#60a5fa}
+    .pill-CONSOLIDATE{background:rgba(251,191,36,.2);color:#fbbf24}
+    .pill-REST{background:rgba(167,139,250,.2);color:#a78bfa}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <h1>🧭 GUIDANCE TREND DASHBOARD</h1>
+        <div class="sub">Phase 166-A · multi-day strategy history · accuracy trends · weight evolution · context correlations</div>
+      </div>
+      <div class="nav">
+        <a href="../mirror.html" target="_blank">&larr; Mirror</a>
+        <a href="graph-viewer-3d.html" target="_blank">🌐 3D Graph</a>
+        <a href="attention-prediction-dashboard.html" target="_blank">📈 Prediction</a>
+      </div>
+    </div>
+    <div id="stats" class="stats"></div>
+    <div class="grid">
+      <div class="panel"><div class="mini" id="current"></div></div>
+      <div class="panel"><div class="mini" id="distribution"></div></div>
+      <div class="panel full"><div class="mini" style="margin-bottom:8px">STRATEGY TIMELINE</div><div id="strategy-chart" class="chart"></div></div>
+      <div class="panel full"><div class="mini" style="margin-bottom:8px">ACCURACY SCORES (4-DIMENSION)</div><div id="accuracy-chart" class="chart"></div></div>
+      <div class="panel full"><div class="mini" style="margin-bottom:8px">WEIGHT EVOLUTION</div><div id="weight-chart" class="chart"></div></div>
+      <div class="panel"><div class="mini" style="margin-bottom:8px">EXPLORATION BUDGET HISTORY</div><div id="budget-chart" class="chart"></div></div>
+      <div class="panel"><div class="mini" style="margin-bottom:8px">CONTEXT CORRELATIONS</div><div id="correlations" class="list"></div></div>
+      <div class="panel full"><div class="mini" style="margin-bottom:8px">WEIGHT ADJUSTMENTS</div><div id="adjustments" class="list"></div></div>
+    </div>
+  </div>
+  <script src="guidance-trend.js"></script>
+</body>
+</html>

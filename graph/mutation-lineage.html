@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutation Lineage Tree</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0a0f; color: #e0e0e0; font-family: 'JetBrains Mono', monospace; overflow: hidden; }
+        #header { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: rgba(10,10,15,0.9); padding: 16px 24px; border-bottom: 1px solid rgba(168,85,247,0.3); display: flex; justify-content: space-between; align-items: center; }
+        #header h1 { font-size: 1.2em; color: #a855f7; }
+        #stats { display: flex; gap: 24px; font-size: 0.85em; }
+        #stats .stat { text-align: center; }
+        #stats .stat-val { font-size: 1.4em; font-weight: bold; }
+        #tree-container { width: 100vw; height: 100vh; padding-top: 70px; }
+        #sidebar { position: fixed; right: 0; top: 70px; width: 320px; bottom: 0; background: rgba(15,15,25,0.95); border-left: 1px solid rgba(168,85,247,0.2); padding: 16px; overflow-y: auto; z-index: 5; }
+        #sidebar h2 { color: #a855f7; font-size: 0.95em; margin-bottom: 12px; }
+        .node-card { background: rgba(168,85,247,0.08); border: 1px solid rgba(168,85,247,0.2); border-radius: 8px; padding: 12px; margin-bottom: 10px; font-size: 0.8em; cursor: pointer; transition: border-color 0.3s; }
+        .node-card:hover { border-color: rgba(168,85,247,0.5); }
+        .node-card .label { color: #a855f7; font-weight: bold; margin-bottom: 6px; }
+        .node-card .meta { color: #888; font-size: 0.9em; line-height: 1.6; }
+        .verdict-keep { color: #34d399; }
+        .verdict-revert { color: #f87171; }
+        .verdict-active { color: #fb923c; }
+        .empty-state { color: #666; text-align: center; padding: 60px 20px; font-size: 0.9em; }
+        .empty-state .icon { font-size: 3em; margin-bottom: 16px; }
+        .weight-bar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; margin: 4px 0; }
+        .weight-bar div { transition: width 0.3s; }
+        a.back-link { color: #a855f7; text-decoration: none; font-size: 0.85em; }
+        a.back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div>
+            <h1>🧬🌳 Mutation Lineage Tree</h1>
+            <a class="back-link" href="../mirror.html">&larr; Back to Mirror</a>
+        </div>
+        <div id="stats">
+            <div class="stat"><div class="stat-val" id="s-gen" style="color:#a855f7">G0</div><div>generation</div></div>
+            <div class="stat"><div class="stat-val" id="s-exp" style="color:#60a5fa">0</div><div>experiments</div></div>
+            <div class="stat"><div class="stat-val" id="s-drift" style="color:#c084fc">0</div><div>total drift</div></div>
+            <div class="stat"><div class="stat-val" id="s-vel" style="color:#34d399">0</div><div>velocity</div></div>
+        </div>
+    </div>
+    <div id="tree-container"></div>
+    <div id="sidebar">
+        <h2>Lineage Nodes</h2>
+        <div id="node-list"></div>
+    </div>
+
+    <script src="mutation-lineage.js"></script>
+</body>
+</html>

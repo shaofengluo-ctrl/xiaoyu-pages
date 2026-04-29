@@ -1,0 +1,25 @@
+{
+  "date": "2026-03-24",
+  "timestamp": "2026-03-24T05:00:34.931687+08:00",
+  "status": "stable",
+  "status_label": "稳定维持期",
+  "total_nodes": 261,
+  "total_edges": 925,
+  "contradiction_density": 0.0805,
+  "contradiction_density_pct": "8.1%",
+  "integration_ratio": 1.0,
+  "orphan_rate": 0.1111,
+  "orphan_rate_pct": "11.1%",
+  "synthesis_count": 1,
+  "type_entropy": 3.4078,
+  "top_hub": {
+    "id": "MEMORY",
+    "name": "memory",
+    "degree": 122
+  },
+  "signals": [],
+  "contradiction_count": 21,
+  "resolved_count": 0,
+  "resolution_rate": 0.0,
+  "resolution_rate_pct": "0.0%"
+}

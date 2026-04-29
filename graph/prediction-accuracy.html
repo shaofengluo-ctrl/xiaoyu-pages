@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 Prediction Accuracy Tracker</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #06060f; color: #e0e0ff; font-family: 'Courier New', monospace; min-height: 100vh; }
+header { padding: 14px 24px; border-bottom: 1px solid #1a1a3a; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+header h1 { font-size: 1.1rem; color: #c084fc; letter-spacing: 2px; text-shadow: 0 0 14px #c084fc55; }
+.subtitle { font-size: 0.65rem; color: #5a5a8a; margin-top: 2px; }
+.live-badge { font-size: 0.6rem; background: #1a0a2e; border: 1px solid #7c3aed44; color: #a855f7; padding: 3px 9px; border-radius: 12px; letter-spacing: 1px; }
+.live-badge::before { content: '⬤ '; animation: blink 2.5s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+.stats-bar { display: flex; gap: 20px; padding: 7px 24px; background: #090914; border-bottom: 1px solid #1a1a3a; font-size: 0.68rem; color: #444; flex-wrap: wrap; }
+.stats-bar b { color: #c084fc; }
+.stats-bar b.ok { color: #00ffd0; }
+.stats-bar b.warn { color: #f97316; }
+.stats-bar b.info { color: #38bdf8; }
+.container { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 16px 20px; }
+@media (max-width: 768px) { .container { grid-template-columns: 1fr; } }
+.card { background: rgba(10,8,24,0.9); border: 1px solid #1e1a3a; border-radius: 8px; padding: 14px; }
+.card-title { font-size: 0.65rem; letter-spacing: 2px; color: #7c3aed; margin-bottom: 10px; text-transform: uppercase; }
+.full-row { grid-column: 1 / -1; }
+.status-banner { padding: 11px 14px; border-radius: 6px; font-size: 0.65rem; margin-bottom: 10px; letter-spacing: 0.5px; line-height: 1.6; }
+.status-wait { background: rgba(24,16,48,0.8); border: 1px solid #3a2a60; color: #7868a0; }
+.status-ok { background: rgba(0,24,16,0.8); border: 1px solid #005040; color: #00e0b0; }
+.status-insufficient { background: rgba(20,16,8,0.8); border: 1px solid #504020; color: #b09060; }
+.feat-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.feat-name { font-size: 0.6rem; color: #777; width: 115px; flex-shrink: 0; }
+.feat-bar-wrap { flex: 1; height: 5px; background: #15152a; border-radius: 3px; overflow: hidden; position: relative; }
+.feat-bar-fill { height: 100%; border-radius: 3px; position: absolute; left: 0; top: 0; }
+.feat-bar-pos { background: linear-gradient(90deg, #00aa88, #00ffd0); }
+.feat-bar-neg { background: linear-gradient(90deg, #ff4466, #aa2233); }
+.feat-val { font-size: 0.58rem; width: 50px; text-align: right; font-weight: 600; }
+.feat-val.pos { color: #00ffd0; }
+.feat-val.neg { color: #ff6688; }
+.feat-val.neu { color: #444; }
+.weight-row { display: flex; align-items: center; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #0f0f1e; font-size: 0.6rem; }
+.weight-row:last-child { border-bottom: none; }
+.weight-name { color: #777; width: 105px; }
+.weight-from { color: #444; }
+.weight-arrow { color: #7c3aed; margin: 0 5px; }
+.weight-to-up { color: #00ffd0; font-weight: 600; }
+.weight-to-dn { color: #ff6688; font-weight: 600; }
+.weight-same { color: #333; }
+.round-item { display: flex; align-items: center; gap: 10px; padding: 5px 0; border-bottom: 1px solid #0a0a18; font-size: 0.58rem; }
+.round-item:last-child { border-bottom: none; }
+.round-date { color: #444; width: 110px; flex-shrink: 0; }
+.round-bar-wrap { flex: 1; height: 4px; background: #15152a; border-radius: 2px; overflow: hidden; }
+.round-bar-fill { height: 100%; border-radius: 2px; }
+.prec-hi { background: #00aa88; }
+.prec-md { background: #aa7700; }
+.prec-lo { background: #aa2244; }
+.round-pct { font-size: 0.6rem; font-weight: 600; width: 42px; text-align: right; }
+.pct-hi { color: #00ffd0; }
+.pct-md { color: #ffaa44; }
+.pct-lo { color: #ff6688; }
+.snap-row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; font-size: 0.6rem; color: #555; }
+.snap-dot { width: 8px; height: 8px; border-radius: 50%; background: #1a1a2e; border: 1px solid #333; flex-shrink: 0; }
+.snap-dot.filled { background: #7c3aed; border-color: #c084fc; box-shadow: 0 0 5px #7c3aed88; }
+.nav-row { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.nav-btn { padding: 4px 12px; background: rgba(30,10,60,0.5); border: 1px solid #7c3aed44; border-radius: 8px; color: #a855f7; font-size: 0.58rem; letter-spacing: 1px; text-decoration: none; cursor: pointer; }
+.nav-btn:hover { background: rgba(124,58,237,0.2); border-color: #c084fc88; color: #d09afc; }
+.ts { font-size: 0.55rem; color: #2a2a40; margin-top: 12px; text-align: right; }
+#precision-chart { width: 100%; height: 160px; }
+.empty-hint { color: #2a2a3a; font-size: 0.65rem; text-align: center; padding: 50px 0; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>📊 PREDICTION ACCURACY TRACKER</h1>
+    <div class="subtitle">Phase 122-A · Prediction Validation Loop · 自我校正闭环</div>
+  </div>
+  <span class="live-badge">LIVE</span>
+</header>
+<div class="stats-bar" id="stats-bar">
+  <span class="stat">Status: <b id="s-status">—</b></span>
+  <span class="stat">Snapshots: <b id="s-snaps" class="info">—</b></span>
+  <span class="stat">Rounds: <b id="s-rounds" class="info">—</b></span>
+  <span class="stat">Avg Precision: <b id="s-prec" class="ok">—</b></span>
+  <span class="stat">Hit Rate: <b id="s-hit" class="ok">—</b></span>
+  <span class="stat">Window: <b id="s-window" class="warn">7 days</b></span>
+</div>
+<div class="container" id="main">
+  <div id="loading" class="card full-row"><div class="empty-hint">Loading prediction accuracy data...</div></div>
+</div>
+
+<script>
+const API = 'http://127.0.0.1:5097';
+
+async function load() {
+  let data = null;
+  try {
+    const r = await fetch(`${API}/prediction-accuracy`);
+    if (r.ok) data = await r.json();
+  } catch(e) { console.warn('API error:', e); }
+
+  const c = document.getElementById('main');
+  c.innerHTML = '';
+
+  if (!data) {
+    c.innerHTML = '<div class="card full-row"><div class="empty-hint">⚠ Cannot connect to memory server (127.0.0.1:5097)</div></div>';
+    return;
+  }
+
+  const status = data.status || 'unknown';
+  document.getElementById('s-status').textContent = status;
+
+  // ── Overview card ──────────────────────────────────────────
+  const overviewCard = document.createElement('div');
+  overviewCard.className = 'card full-row';
+  overviewCard.innerHTML = '<div class="card-title">🔭 VALIDATION OVERVIEW</div>';
+
+  if (status === 'validated') {
+    const s = data.summary || {};
+    document.getElementById('s-snaps').textContent = data.snapshots_available || '?';
+    document.getElementById('s-rounds').textContent = s.validation_rounds || 0;
+    const prec = (s.avg_precision || 0);
+    const precPct = (prec * 100).toFixed(1) + '%';
+    const precColor = prec >= 0.3 ? '#00ffd0' : prec >= 0.15 ? '#ffaa44' : '#ff6688';
+    document.getElementById('s-prec').textContent = precPct;
+    document.getElementById('s-prec').style.color = precColor;
+    document.getElementById('s-hit').textContent = ((s.overall_hit_rate||0)*100).toFixed(1) + '%';
+
+    overviewCard.innerHTML += `
+      <div class="status-banner status-ok">
+        ✅ Validation complete — ${s.validation_rounds} rounds validated<br>
+        Avg Precision@K: <strong style="color:${precColor}">${precPct}</strong> &nbsp;|&nbsp;
+        Overall Hit Rate: <strong>${((s.overall_hit_rate||0)*100).toFixed(1)}%</strong> &nbsp;|&nbsp;
+        Total: ${s.total_hits}/${s.total_predicted} predictions hit
+      </div>`;
+
+    // Precision history chart
+    overviewCard.innerHTML += '<div class="card-title" style="margin-top:10px;">📈 PRECISION HISTORY</div><svg id="precision-chart"></svg>';
+
+    const rounds = data.validation_results || [];
+    if (rounds.length > 0) {
+      setTimeout(() => buildChart(rounds), 100);
+    } else {
+      overviewCard.innerHTML += '<div class="empty-hint">No closed validation windows yet</div>';
+    }
+  } else if (status === 'insufficient_data') {
+    const avail = data.snapshots_available || 0;
+    const need = data.min_required || 3;
+    document.getElementById('s-snaps').textContent = `${avail}/${need}`;
+    overviewCard.innerHTML += `
+      <div class="status-banner status-insufficient">
+        📸 Accumulating prediction snapshots — ${avail} of ${need} required collected<br>
+        Each daily body_maintenance.py run saves one snapshot. Come back in ${need - avail} more day(s).
+      </div>`;
+    overviewCard.innerHTML += '<div class="card-title" style="margin-top:10px;">📸 SNAPSHOT PROGRESS</div>';
+    let dots = '';
+    for (let i = 0; i < need; i++) {
+      dots += `<span class="snap-dot ${i < avail ? 'filled' : ''}"></span>`;
+    }
+    overviewCard.innerHTML += `<div style="display:flex; align-items:center; gap:6px; font-size:0.62rem; margin-top:8px;">${dots} <span style="color:#555; margin-left:6px;">${avail}/${need} snapshots collected</span></div>`;
+    overviewCard.innerHTML += `<div style="font-size:0.6rem; color:#444; margin-top:10px;">Next validation check: after validation window of <strong style="color:#7c3aed">${data.min_required || 3} snapshots</strong> + <strong style="color:#7c3aed">7 days</strong> closes</div>`;
+  } else if (status === 'no_closed_windows') {
+    document.getElementById('s-snaps').textContent = data.snapshots_available || 0;
+    overviewCard.innerHTML += `
+      <div class="status-banner status-wait">
+        ⏳ Waiting for 7-day validation window to close<br>
+        ${data.snapshots_available || 0} snapshots collected. First validation available after window closes.
+      </div>`;
+  } else {
+    overviewCard.innerHTML += `<div class="status-banner status-wait">Status: ${status}<br>${data.message||''}</div>`;
+  }
+
+  overviewCard.innerHTML += `<div class="nav-row">
+    <a class="nav-btn" href="../mirror.html" target="_blank">← MIRROR</a>
+    <a class="nav-btn" href="graph-viewer-3d.html#predict" target="_blank">🔮 3D PREDICT</a>
+    <a class="nav-btn" href="resonance-timeline.html" target="_blank">⏱ TIMELINE</a>
+  </div>`;
+  overviewCard.innerHTML += `<div class="ts" id="refresh-ts">Loaded: —</div>`;
+  c.appendChild(overviewCard);
+
+  if (status === 'validated') {
+    // Feature analysis card
+    const featCard = document.createElement('div');
+    featCard.className = 'card';
+    featCard.innerHTML = '<div class="card-title">🔬 FEATURE DISCRIMINATIVE POWER</div>';
+    const fa = data.feature_analysis || {};
+    const feats = Object.entries(fa).sort((a,b) => b[1].discriminative_power - a[1].discriminative_power);
+    const maxDP = Math.max(...feats.map(f => Math.abs(f[1].discriminative_power)), 0.01);
+    feats.forEach(([name, info]) => {
+      const dp = info.discriminative_power || 0;
+      const w = Math.min((Math.abs(dp) / maxDP) * 100, 100);
+      const cls = dp > 0.01 ? 'pos' : dp < -0.01 ? 'neg' : 'neu';
+      const barCls = dp >= 0 ? 'feat-bar-pos' : 'feat-bar-neg';
+      const sign = dp >= 0 ? '+' : '';
+      featCard.innerHTML += `
+        <div class="feat-row">
+          <span class="feat-name">${name}</span>
+          <div class="feat-bar-wrap"><div class="feat-bar-fill ${barCls}" style="width:${w}%"></div></div>
+          <span class="feat-val ${cls}">${sign}${dp.toFixed(3)}</span>
+        </div>`;
+    });
+    c.appendChild(featCard);
+
+    // Weight suggestions card
+    const wCard = document.createElement('div');
+    wCard.className = 'card';
+    wCard.innerHTML = '<div class="card-title">⚖️ WEIGHT ADJUSTMENT SUGGESTIONS</div>';
+    const ws = data.weight_suggestions || {};
+    const cw = data.current_weights || {};
+    if (ws.changes && Object.keys(ws.changes).length > 0) {
+      Object.entries(cw).forEach(([k, v]) => {
+        const newV = ws.changes[k];
+        const changed = newV !== undefined;
+        const dir = changed ? (newV > v ? 'up' : 'dn') : 'same';
+        const cls = dir === 'up' ? 'weight-to-up' : dir === 'dn' ? 'weight-to-dn' : 'weight-same';
+        const toHtml = changed ? `<span class="weight-arrow">→</span><span class="${cls}">${newV}</span>` : '<span class="weight-same">unchanged</span>';
+        wCard.innerHTML += `<div class="weight-row"><span class="weight-name">${k}</span><span class="weight-from">${v}</span>${toHtml}</div>`;
+      });
+      wCard.innerHTML += `<div style="margin-top:10px; font-size:0.58rem; color:#555; line-height:1.6;">
+        Run <code style="color:#c084fc; background:#0a0a18; padding:1px 5px; border-radius:3px;">python scripts/prediction_validator.py --adjust</code> to apply
+      </div>`;
+    } else {
+      wCard.innerHTML += '<div style="color:#333; font-size:0.62rem; padding: 12px 0;">No adjustments needed — all features within normal range</div>';
+      Object.entries(cw).forEach(([k,v]) => {
+        wCard.innerHTML += `<div class="weight-row"><span class="weight-name">${k}</span><span class="weight-from">${v}</span><span class="weight-same">✓ ok</span></div>`;
+      });
+    }
+    c.appendChild(wCard);
+
+    // Validation rounds card
+    const rCard = document.createElement('div');
+    rCard.className = 'card full-row';
+    rCard.innerHTML = '<div class="card-title">📋 VALIDATION ROUNDS</div>';
+    const rounds2 = data.validation_results || [];
+    rounds2.slice(-10).reverse().forEach(r => {
+      const prec = r.precision || 0;
+      const pct = (prec * 100).toFixed(0);
+      const barCls = prec >= 0.3 ? 'prec-hi' : prec >= 0.15 ? 'prec-md' : 'prec-lo';
+      const pctCls = prec >= 0.3 ? 'pct-hi' : prec >= 0.15 ? 'pct-md' : 'pct-lo';
+      const hits = r.hit_nodes || [];
+      rCard.innerHTML += `
+        <div class="round-item">
+          <span class="round-date">${r.snapshot_at ? r.snapshot_at.slice(0,16) : '—'}</span>
+          <div class="round-bar-wrap"><div class="round-bar-fill ${barCls}" style="width:${pct}%"></div></div>
+          <span class="round-pct ${pctCls}">${pct}%</span>
+          <span style="color:#333; font-size:0.58rem;">${r.hits}/${r.predictions_count} hit${hits.length?': '+hits.slice(0,2).join(', '):''}</span>
+        </div>`;
+    });
+    c.appendChild(rCard);
+  }
+
+  document.getElementById('refresh-ts').textContent = 'Last updated: ' + new Date().toLocaleTimeString('zh-CN');
+}
+
+function buildChart(rounds) {
+  const svg = d3.select('#precision-chart');
+  const w = svg.node().parentElement.offsetWidth - 32;
+  const h = 140;
+  svg.attr('width', w).attr('height', h);
+
+  const data = rounds.slice(-20).map((r,i) => ({i, prec: r.precision||0, date: r.snapshot_at||''}));
+  const x = d3.scaleLinear().domain([0, Math.max(data.length-1,1)]).range([40, w-20]);
+  const y = d3.scaleLinear().domain([0, 1]).range([h-24, 8]);
+
+  // Grid
+  svg.append('line').attr('x1',40).attr('y1',y(0.3)).attr('x2',w-20).attr('y2',y(0.3))
+    .attr('stroke','#1a1a2e').attr('stroke-dasharray','4,4');
+  svg.append('text').attr('x',34).attr('y',y(0.3)+4).attr('fill','#333').attr('font-size','9').attr('text-anchor','end').text('30%');
+  svg.append('line').attr('x1',40).attr('y1',y(0.15)).attr('x2',w-20).attr('y2',y(0.15))
+    .attr('stroke','#1a1a2e').attr('stroke-dasharray','4,4');
+  svg.append('text').attr('x',34).attr('y',y(0.15)+4).attr('fill','#333').attr('font-size','9').attr('text-anchor','end').text('15%');
+
+  // Area fill
+  if (data.length > 1) {
+    const area = d3.area().x(d=>x(d.i)).y0(h-24).y1(d=>y(d.prec)).curve(d3.curveMonotoneX);
+    svg.append('path').datum(data).attr('d', area)
+      .attr('fill', 'url(#areaGrad)').attr('opacity', 0.3);
+    const grad = svg.append('defs').append('linearGradient').attr('id','areaGrad').attr('x1','0%').attr('y1','0%').attr('x2','0%').attr('y2','100%');
+    grad.append('stop').attr('offset','0%').attr('stop-color','#7c3aed').attr('stop-opacity',0.8);
+    grad.append('stop').attr('offset','100%').attr('stop-color','#7c3aed').attr('stop-opacity',0.0);
+
+    const line = d3.line().x(d=>x(d.i)).y(d=>y(d.prec)).curve(d3.curveMonotoneX);
+    svg.append('path').datum(data).attr('d', line)
+      .attr('fill','none').attr('stroke','#a855f7').attr('stroke-width',2);
+  }
+
+  // Dots
+  svg.selectAll('circle').data(data).enter().append('circle')
+    .attr('cx',d=>x(d.i)).attr('cy',d=>y(d.prec))
+    .attr('r',4).attr('fill', d => d.prec>=0.3?'#00ffd0':d.prec>=0.15?'#ffaa44':'#ff6688')
+    .attr('stroke','#06060f').attr('stroke-width',1.5);
+
+  // X labels (first and last)
+  if (data.length > 0) {
+    const fmt = d => d.date ? d.date.slice(5,10) : '';
+    svg.append('text').attr('x',x(0)).attr('y',h-4).attr('fill','#333').attr('font-size','8').attr('text-anchor','middle').text(fmt(data[0]));
+    if (data.length > 1)
+      svg.append('text').attr('x',x(data.length-1)).attr('y',h-4).attr('fill','#333').attr('font-size','8').attr('text-anchor','middle').text(fmt(data[data.length-1]));
+  }
+}
+
+load();
+setInterval(load, 300000); // refresh every 5 min
+</script>
+</body>
+</html>

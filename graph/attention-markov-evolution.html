@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attention Markov Evolution</title>
+  <style>
+    body { margin:0; background:#050912; color:#d7e6f5; font-family:'Courier New',monospace; }
+    .wrap { display:grid; grid-template-columns: 280px 1fr 320px; height:100vh; }
+    .side, .detail { padding:16px; background:rgba(4,12,24,0.96); border-right:1px solid rgba(56,189,248,.15); overflow:auto; }
+    .detail { border-right:none; border-left:1px solid rgba(56,189,248,.15); }
+    .main { padding:16px; overflow:auto; }
+    h1 { margin:0 0 12px; font-size:22px; color:#38bdf8; letter-spacing:2px; }
+    .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:14px; }
+    .card,.day { background:#0b1422; border:1px solid rgba(56,189,248,.14); border-radius:10px; padding:10px; }
+    .k { font-size:11px; color:rgba(180,220,255,.48); }
+    .v { font-size:20px; color:#e0f2fe; margin-top:4px; }
+    .chart { background:#08111d; border:1px solid rgba(56,189,248,.12); border-radius:12px; padding:12px; margin-bottom:14px; }
+    .row { display:flex; justify-content:space-between; gap:8px; align-items:center; }
+    .pill { font-size:11px; padding:2px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.15); }
+    .days { display:flex; flex-direction:column; gap:8px; }
+    .day { cursor:pointer; transition:.2s; }
+    .day:hover,.day.active { border-color:rgba(56,189,248,.45); box-shadow:0 0 18px rgba(56,189,248,.12); }
+    .mini { font-size:12px; color:rgba(220,240,255,.66); line-height:1.7; }
+    svg { width:100%; height:240px; display:block; }
+    .legend { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; font-size:11px; color:rgba(200,230,255,.55); }
+    .dot { width:10px; height:10px; border-radius:50%; display:inline-block; margin-right:4px; }
+    a { color:#7dd3fc; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <aside class="side">
+      <h1>🌀 EVOLUTION</h1>
+      <div id="summary" class="mini">Loading...</div>
+      <div style="margin:12px 0 10px; color:#7dd3fc; font-size:12px; letter-spacing:1px;">RECENT DAYS</div>
+      <div id="days" class="days"></div>
+    </aside>
+    <main class="main">
+      <div class="stats">
+        <div class="card"><div class="k">TOTAL DAYS</div><div id="s-days" class="v">0</div></div>
+        <div class="card"><div class="k">CURRENT PATTERN</div><div id="s-pattern" class="v" style="font-size:16px;">—</div></div>
+        <div class="card"><div class="k">PATTERN SWITCHES</div><div id="s-switches" class="v">0</div></div>
+        <div class="card"><div class="k">ATTRACTOR SWITCHES</div><div id="s-attractors" class="v">0</div></div>
+      </div>
+      <section class="chart">
+        <div class="row"><strong>Entropy / Concentration</strong><span id="trend-line" class="mini"></span></div>
+        <svg id="trend-chart" viewBox="0 0 760 240" preserveAspectRatio="none"></svg>
+        <div class="legend">
+          <span><span class="dot" style="background:#38bdf8"></span>avg entropy</span>
+          <span><span class="dot" style="background:#f59e0b"></span>top-share concentration</span>
+        </div>
+      </section>
+      <section class="chart">
+        <div class="row"><strong>Pattern Timeline</strong><a href="../mirror.html" target="_blank">← mirror</a></div>
+        <div id="timeline" class="days" style="margin-top:10px;"></div>
+      </section>
+    </main>
+    <aside class="detail">
+      <h1 style="font-size:18px;">DAY DETAIL</h1>
+      <div id="detail" class="mini">Select a day.</div>
+    </aside>
+  </div>
+  <script src="attention-markov-evolution.js"></script>
+</body>
+</html>
