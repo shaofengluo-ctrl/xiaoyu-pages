@@ -7788,17 +7788,17 @@
         "episode"
       ],
       "connections": [
-        "concept_waste_digest_20260321_0500",
-        "concept_waste_digest_20260318_0200",
-        "concept_waste_digest_20260316_0154",
-        "concept_waste_digest_20260316_1207",
+        "concept_waste_digest_20260315_0713",
         "concept_waste_digest_20260321_0214",
-        "concept_waste_digest_20260316_0200",
+        "concept_waste_digest_20260318_0200",
+        "concept_waste_digest_20260322_0500",
         "concept_waste_digest_20260317_0819",
         "concept_waste_digest_20260319_0200",
+        "concept_waste_digest_20260316_0154",
+        "concept_waste_digest_20260316_0200",
+        "concept_waste_digest_20260316_1207",
         "concept_waste_digest_20260320_0200",
-        "concept_waste_digest_20260322_0500",
-        "concept_waste_digest_20260315_0713"
+        "concept_waste_digest_20260321_0500"
       ]
     },
     {
@@ -7815,16 +7815,16 @@
         "episode"
       ],
       "connections": [
-        "concept_waste_digest_20260321_0500",
         "concept_waste_digest_20260316_0145",
-        "concept_waste_digest_20260318_0200",
-        "concept_waste_digest_20260316_1207",
+        "concept_waste_digest_20260315_0713",
         "concept_waste_digest_20260321_0214",
-        "concept_waste_digest_20260316_0200",
+        "concept_waste_digest_20260318_0200",
         "concept_waste_digest_20260317_0819",
         "concept_waste_digest_20260319_0200",
+        "concept_waste_digest_20260316_0200",
+        "concept_waste_digest_20260316_1207",
         "concept_waste_digest_20260320_0200",
-        "concept_waste_digest_20260315_0713"
+        "concept_waste_digest_20260321_0500"
       ]
     },
     {
@@ -7841,8 +7841,8 @@
         "event"
       ],
       "connections": [
-        "concept_heat_insight_event_2023_20260321_040007",
-        "concept_heat_insight_event_2023_20260316_121013"
+        "concept_heat_insight_event_2023_20260316_121013",
+        "concept_heat_insight_event_2023_20260321_040007"
       ]
     },
     {
@@ -7919,8 +7919,8 @@
         "learning_note"
       ],
       "connections": [
-        "concept_LEARN_OPENCLAW_PI_AGENT_RUNTIME_20260316",
-        "concept_LEARN_OPENCLAW_SKILLS_SYSTEM_20260316"
+        "concept_LEARN_OPENCLAW_SKILLS_SYSTEM_20260316",
+        "concept_LEARN_OPENCLAW_PI_AGENT_RUNTIME_20260316"
       ]
     },
     {
@@ -7937,14 +7937,14 @@
         "episode"
       ],
       "connections": [
-        "concept_waste_digest_20260318_0200",
         "concept_waste_digest_20260316_0145",
-        "concept_waste_digest_20260316_0154",
-        "concept_waste_digest_20260316_1207",
-        "concept_waste_digest_20260317_0819",
+        "concept_waste_digest_20260315_0713",
+        "concept_waste_digest_20260318_0200",
         "concept_waste_digest_20260319_0200",
+        "concept_waste_digest_20260316_0154",
         "concept_waste_digest_20260320_0200",
-        "concept_waste_digest_20260315_0713"
+        "concept_waste_digest_20260316_1207",
+        "concept_waste_digest_20260317_0819"
       ]
     },
     {
@@ -8013,16 +8013,16 @@
         "contradiction"
       ],
       "connections": [
-        "concept_DEBATE_0316042823",
-        "concept_EPI_0316042823",
-        "concept_EPI_0316042930",
+        "concept_EPI_0316042757",
         "concept_DEBATE_0316042757",
-        "concept_SYNTHESIS_0316042952",
-        "concept_CONSOLIDATION",
-        "concept_DEBATE_0316042930",
         "concept_DECAY",
+        "concept_DEBATE_0316042930",
         "concept_VERDICT_0316042943",
-        "concept_EPI_0316042757"
+        "concept_DEBATE_0316042823",
+        "concept_EPI_0316042930",
+        "concept_CONSOLIDATION",
+        "concept_SYNTHESIS_0316042952",
+        "concept_EPI_0316042823"
       ]
     },
     {
@@ -8039,13 +8039,13 @@
         "contradiction"
       ],
       "connections": [
-        "concept_DUAL_MEM",
-        "concept_DEBATE_0322010011",
-        "concept_EPI_0324010010",
-        "concept_EPI_0323010011",
-        "concept_DECAY",
         "concept_EPI_0322010011",
-        "concept_VERDICT_0316042943"
+        "concept_EPI_0323010011",
+        "concept_EPI_0324010010",
+        "concept_DUAL_MEM",
+        "concept_DECAY",
+        "concept_VERDICT_0316042943",
+        "concept_DEBATE_0322010011"
       ]
     },
     {
@@ -8062,9 +8062,9 @@
         "contradiction"
       ],
       "connections": [
-        "concept_MEMORY",
         "concept_CONSOLIDATION",
-        "concept_VERDICT_0316042943"
+        "concept_VERDICT_0316042943",
+        "concept_MEMORY"
       ]
     },
     {
@@ -8081,9 +8081,9 @@
         "contradiction"
       ],
       "connections": [
+        "concept_DECAY",
         "concept_VERDICT_0316042943",
-        "concept_GROUNDING",
-        "concept_DECAY"
+        "concept_GROUNDING"
       ]
     },
     {
@@ -8100,9 +8100,9 @@
         "contradiction"
       ],
       "connections": [
-        "concept_VERDICT_0316042943",
+        "concept_SYNTHETIC_DREAMING",
         "concept_DECAY",
-        "concept_SYNTHETIC_DREAMING"
+        "concept_VERDICT_0316042943"
       ]
     },
     {
@@ -8119,9 +8119,9 @@
         "contradiction"
       ],
       "connections": [
-        "concept_MEMORY",
+        "concept_DECAY",
         "concept_VERDICT_0316042943",
-        "concept_DECAY"
+        "concept_MEMORY"
       ]
     },
     {
@@ -8138,9 +8138,9 @@
         "contradiction"
       ],
       "connections": [
-        "concept_VERDICT_0316042943",
+        "concept_SEMANTIC_MEMORY",
         "concept_DECAY",
-        "concept_SEMANTIC_MEMORY"
+        "concept_VERDICT_0316042943"
       ]
     },
     {
@@ -8176,9 +8176,9 @@
         "contradiction"
       ],
       "connections": [
-        "concept_VERDICT_0316042943",
         "concept_DECAY",
-        "concept_EMBODIMENT"
+        "concept_EMBODIMENT",
+        "concept_VERDICT_0316042943"
       ]
     },
     {
@@ -8195,8 +8195,8 @@
         "contradiction"
       ],
       "connections": [
-        "concept_MEMORY",
-        "concept_DUAL_MEM"
+        "concept_DUAL_MEM",
+        "concept_MEMORY"
       ]
     },
     {
@@ -8213,9 +8213,9 @@
         "contradiction"
       ],
       "connections": [
+        "concept_DECAY",
         "concept_SEMANTIC_CLUSTERING",
-        "concept_VERDICT_0316042943",
-        "concept_DECAY"
+        "concept_VERDICT_0316042943"
       ]
     },
     {
@@ -8247,8 +8247,8 @@
         "meta_insight"
       ],
       "connections": [
-        "concept_MEMORY",
-        "concept_TEMPORAL_CONSCIOUSNESS_20260316"
+        "concept_TEMPORAL_CONSCIOUSNESS_20260316",
+        "concept_MEMORY"
       ]
     },
     {
@@ -8266,10 +8266,10 @@
       ],
       "connections": [
         "concept_DEBATE_0316042757",
-        "concept_CONSOLIDATION",
         "concept_DECAY",
-        "concept_VERDICT_0316042943",
-        "concept_CONTRADICTION_DECAY_CONSOLIDATION"
+        "concept_CONTRADICTION_DECAY_CONSOLIDATION",
+        "concept_CONSOLIDATION",
+        "concept_VERDICT_0316042943"
       ]
     },
     {
@@ -8304,14 +8304,14 @@
         "epiphany"
       ],
       "connections": [
-        "concept_DEBATE_0316042823",
-        "concept_CONTRADICTION_CONSOLIDATION_EPI_0316042823",
-        "concept_CONTRADICTION_MEMORY_EPI_0316042823",
-        "concept_CONSOLIDATION",
         "concept_DECAY",
+        "concept_CONTRADICTION_MEMORY_EPI_0316042823",
+        "concept_DEBATE_0316042823",
         "concept_CONTRADICTION_DECAY_EPI_0316042823",
-        "concept_VERDICT_0316042943",
-        "concept_CONTRADICTION_DECAY_CONSOLIDATION"
+        "concept_CONTRADICTION_DECAY_CONSOLIDATION",
+        "concept_CONSOLIDATION",
+        "concept_CONTRADICTION_CONSOLIDATION_EPI_0316042823",
+        "concept_VERDICT_0316042943"
       ]
     },
     {
@@ -8328,8 +8328,8 @@
         "debate_result"
       ],
       "connections": [
-        "concept_EPI_0316042823",
-        "concept_CONTRADICTION_DECAY_CONSOLIDATION"
+        "concept_CONTRADICTION_DECAY_CONSOLIDATION",
+        "concept_EPI_0316042823"
       ]
     },
     {
@@ -8346,11 +8346,11 @@
         "epiphany"
       ],
       "connections": [
-        "concept_CONSOLIDATION",
-        "concept_DEBATE_0316042930",
         "concept_DECAY",
-        "concept_VERDICT_0316042943",
-        "concept_CONTRADICTION_DECAY_CONSOLIDATION"
+        "concept_DEBATE_0316042930",
+        "concept_CONTRADICTION_DECAY_CONSOLIDATION",
+        "concept_CONSOLIDATION",
+        "concept_VERDICT_0316042943"
       ]
     },
     {
@@ -8367,8 +8367,8 @@
         "debate_result"
       ],
       "connections": [
-        "concept_CONTRADICTION_DECAY_CONSOLIDATION",
-        "concept_EPI_0316042930"
+        "concept_EPI_0316042930",
+        "concept_CONTRADICTION_DECAY_CONSOLIDATION"
       ]
     },
     {
@@ -8385,56 +8385,56 @@
         "cognitive_verdict"
       ],
       "connections": [
-        "concept_SEARCH",
-        "concept_EPI_0316042930",
         "concept_SYNTHETIC_DREAMING",
-        "concept_EPI_0316042757",
-        "concept_SURVIVAL",
-        "concept_CONTRADICTION_DUAL_MEM_CONSOLIDATION",
-        "concept_INDICATORS",
-        "concept_PERCEPTION",
-        "concept_CONTRADICTION_CONSOLIDATION_MEMORY",
-        "concept_CONTRADICTION_DECAY_DUAL_MEM",
-        "concept_TOTAL_MILESTONES_RECORDED:_102",
-        "concept_DUAL_MEM",
-        "concept_MNEMIS",
-        "concept_MULTIMODAL",
-        "concept_SEMANTIC_MEMORY",
-        "concept_EMBODIMENT",
-        "concept_MEM",
-        "concept_DECAY",
-        "concept_CONTRADICTION_DECAY_MEMORY",
+        "concept_CONTRADICTION_DECAY_SEMANTIC_MEMORY",
+        "concept_FC",
+        "concept_EPI_0316042930",
         "concept_CONTRADICTION_DECAY_CONSOLIDATION",
         "concept_SYNAPSE",
-        "concept_AUTO_LOOP",
-        "concept_EPI_0316042823",
-        "concept_CONTRADICTION_DECAY_SYNTHETIC_DREAMING",
-        "concept_MAO",
-        "concept_SA",
-        "concept_DL",
-        "concept_FC",
-        "concept_GROUNDING",
-        "concept_FB",
-        "concept_CONSOLIDATION",
-        "concept_CONTRADICTION_DECAY_SEMANTIC_CLUSTERING",
-        "concept_CONSCIOUSNESS",
-        "concept_NI",
-        "concept_KG",
-        "concept_CONTRADICTION_GROUNDING_DECAY",
-        "concept_MMA",
-        "concept_CONTRADICTION_EMBODIMENT_DECAY",
-        "concept_SPINAL_CORD_NETWORK",
-        "concept_SYNTHESIS_0316042952",
-        "concept_DCM",
-        "concept_HEMA",
+        "concept_MNEMIS",
         "concept_CHINESE_RECOMBINATION",
-        "concept_SOUL",
-        "concept_CONTRADICTION_DECAY_EPI_0316042823",
+        "concept_SA",
+        "concept_CONTRADICTION_CONSOLIDATION_MEMORY",
+        "concept_EPI_0316042823",
+        "concept_GROUNDING",
+        "concept_SESSION",
+        "concept_CONTRADICTION_DECAY_DUAL_MEM",
+        "concept_NI",
+        "concept_PERCEPTION",
         "concept_MEMORY",
-        "concept_CONTRADICTION_DECAY_SEMANTIC_MEMORY",
-        "concept_TLM",
+        "concept_DECAY",
+        "concept_SEARCH",
+        "concept_INDICATORS",
+        "concept_MULTIMODAL",
+        "concept_CONTRADICTION_DECAY_SYNTHETIC_DREAMING",
+        "concept_DCM",
         "concept_SEMANTIC_CLUSTERING",
-        "concept_SESSION"
+        "concept_CONSOLIDATION",
+        "concept_MAO",
+        "concept_EMBODIMENT",
+        "concept_SYNTHESIS_0316042952",
+        "concept_HEMA",
+        "concept_CONSCIOUSNESS",
+        "concept_DUAL_MEM",
+        "concept_SOUL",
+        "concept_SPINAL_CORD_NETWORK",
+        "concept_CONTRADICTION_DUAL_MEM_CONSOLIDATION",
+        "concept_AUTO_LOOP",
+        "concept_FB",
+        "concept_CONTRADICTION_GROUNDING_DECAY",
+        "concept_CONTRADICTION_DECAY_MEMORY",
+        "concept_MEM",
+        "concept_EPI_0316042757",
+        "concept_SEMANTIC_MEMORY",
+        "concept_SURVIVAL",
+        "concept_TLM",
+        "concept_TOTAL_MILESTONES_RECORDED:_102",
+        "concept_CONTRADICTION_EMBODIMENT_DECAY",
+        "concept_MMA",
+        "concept_CONTRADICTION_DECAY_SEMANTIC_CLUSTERING",
+        "concept_CONTRADICTION_DECAY_EPI_0316042823",
+        "concept_KG",
+        "concept_DL"
       ]
     },
     {
@@ -8451,10 +8451,10 @@
         "synthesis"
       ],
       "connections": [
-        "concept_CONSOLIDATION",
-        "concept_CONTRADICTION_DECAY_CONSOLIDATION",
         "concept_DECAY",
-        "concept_VERDICT_0316042943"
+        "concept_CONSOLIDATION",
+        "concept_VERDICT_0316042943",
+        "concept_CONTRADICTION_DECAY_CONSOLIDATION"
       ]
     },
     {
@@ -8503,14 +8503,14 @@
         "episode"
       ],
       "connections": [
-        "concept_waste_digest_20260318_0200",
         "concept_waste_digest_20260316_0145",
+        "concept_waste_digest_20260315_0713",
+        "concept_waste_digest_20260318_0200",
+        "concept_waste_digest_20260319_0200",
         "concept_waste_digest_20260316_0154",
         "concept_waste_digest_20260316_0200",
-        "concept_waste_digest_20260317_0819",
-        "concept_waste_digest_20260319_0200",
         "concept_waste_digest_20260320_0200",
-        "concept_waste_digest_20260315_0713"
+        "concept_waste_digest_20260317_0819"
       ]
     },
     {
@@ -8563,14 +8563,14 @@
         "episode"
       ],
       "connections": [
-        "concept_waste_digest_20260318_0200",
         "concept_waste_digest_20260316_0145",
-        "concept_waste_digest_20260316_0154",
-        "concept_waste_digest_20260316_1207",
-        "concept_waste_digest_20260316_0200",
+        "concept_waste_digest_20260315_0713",
+        "concept_waste_digest_20260318_0200",
         "concept_waste_digest_20260319_0200",
-        "concept_waste_digest_20260320_0200",
-        "concept_waste_digest_20260315_0713"
+        "concept_waste_digest_20260316_0154",
+        "concept_waste_digest_20260316_0200",
+        "concept_waste_digest_20260316_1207",
+        "concept_waste_digest_20260320_0200"
       ]
     },
     {
@@ -8588,13 +8588,13 @@
       ],
       "connections": [
         "concept_waste_digest_20260316_0145",
-        "concept_waste_digest_20260316_0154",
-        "concept_waste_digest_20260316_1207",
-        "concept_waste_digest_20260316_0200",
+        "concept_waste_digest_20260315_0713",
         "concept_waste_digest_20260317_0819",
         "concept_waste_digest_20260319_0200",
-        "concept_waste_digest_20260320_0200",
-        "concept_waste_digest_20260315_0713"
+        "concept_waste_digest_20260316_0154",
+        "concept_waste_digest_20260316_0200",
+        "concept_waste_digest_20260316_1207",
+        "concept_waste_digest_20260320_0200"
       ]
     },
     {
@@ -8611,14 +8611,14 @@
         "episode"
       ],
       "connections": [
-        "concept_waste_digest_20260318_0200",
         "concept_waste_digest_20260316_0145",
-        "concept_waste_digest_20260316_0154",
-        "concept_waste_digest_20260316_1207",
-        "concept_waste_digest_20260316_0200",
+        "concept_waste_digest_20260315_0713",
+        "concept_waste_digest_20260318_0200",
         "concept_waste_digest_20260317_0819",
-        "concept_waste_digest_20260320_0200",
-        "concept_waste_digest_20260315_0713"
+        "concept_waste_digest_20260316_0154",
+        "concept_waste_digest_20260316_0200",
+        "concept_waste_digest_20260316_1207",
+        "concept_waste_digest_20260320_0200"
       ]
     },
     {
@@ -8635,17 +8635,17 @@
         "episode"
       ],
       "connections": [
-        "concept_waste_digest_20260318_0200",
         "concept_waste_digest_20260316_0145",
-        "concept_waste_digest_20260316_0154",
-        "concept_waste_digest_20260316_1207",
+        "concept_waste_digest_20260315_0713",
         "concept_waste_digest_20260321_0214",
-        "concept_waste_digest_20260316_0200",
-        "concept_waste_digest_20260317_0819",
-        "concept_waste_digest_20260319_0200",
-        "concept_waste_digest_20260321_0500",
+        "concept_waste_digest_20260318_0200",
         "concept_waste_digest_20260322_0500",
-        "concept_waste_digest_20260315_0713"
+        "concept_waste_digest_20260319_0200",
+        "concept_waste_digest_20260316_0154",
+        "concept_waste_digest_20260316_0200",
+        "concept_waste_digest_20260316_1207",
+        "concept_waste_digest_20260317_0819",
+        "concept_waste_digest_20260321_0500"
       ]
     },
     {
@@ -8662,12 +8662,12 @@
         "episode"
       ],
       "connections": [
-        "concept_waste_digest_20260321_0500",
         "concept_waste_digest_20260316_0145",
+        "concept_waste_digest_20260315_0713",
+        "concept_waste_digest_20260322_0500",
         "concept_waste_digest_20260316_0154",
         "concept_waste_digest_20260320_0200",
-        "concept_waste_digest_20260322_0500",
-        "concept_waste_digest_20260315_0713"
+        "concept_waste_digest_20260321_0500"
       ]
     },
     {
@@ -8684,8 +8684,8 @@
         "heat_insight"
       ],
       "connections": [
-        "concept_event_2023",
-        "concept_heat_insight_event_2023_20260316_121013"
+        "concept_heat_insight_event_2023_20260316_121013",
+        "concept_event_2023"
       ]
     },
     {
@@ -8721,11 +8721,11 @@
       ],
       "connections": [
         "concept_waste_digest_20260316_0145",
-        "concept_waste_digest_20260316_0154",
+        "concept_waste_digest_20260315_0713",
         "concept_waste_digest_20260321_0214",
-        "concept_waste_digest_20260320_0200",
         "concept_waste_digest_20260322_0500",
-        "concept_waste_digest_20260315_0713"
+        "concept_waste_digest_20260316_0154",
+        "concept_waste_digest_20260320_0200"
       ]
     },
     {
@@ -8742,9 +8742,9 @@
         "contradiction"
       ],
       "connections": [
-        "concept_EPI_0316042823",
         "concept_DECAY",
-        "concept_VERDICT_0316042943"
+        "concept_VERDICT_0316042943",
+        "concept_EPI_0316042823"
       ]
     },
     {
@@ -8761,8 +8761,8 @@
         "contradiction"
       ],
       "connections": [
-        "concept_MEMORY",
-        "concept_EPI_0316042823"
+        "concept_EPI_0316042823",
+        "concept_MEMORY"
       ]
     },
     {
@@ -8866,12 +8866,12 @@
         "code_module"
       ],
       "connections": [
-        "concept_ATTENTION",
         "concept_regime_shift_alert_2026-03-21",
-        "concept_persona_history_tracker",
+        "concept_regime_shift_alert_2026-03-23",
         "concept_regime_alert_filters",
         "concept_cognitive_homeostasis",
-        "concept_regime_shift_alert_2026-03-23",
+        "concept_ATTENTION",
+        "concept_persona_history_tracker",
         "concept_CODE_ATTENTION_AUTONOMY"
       ]
     },
@@ -8974,9 +8974,9 @@
         "code_module"
       ],
       "connections": [
-        "concept_CODE_MEMORY_SERVER",
+        "concept_predictive_attention",
         "concept_CODE_BODY_MAINTENANCE",
-        "concept_predictive_attention"
+        "concept_CODE_MEMORY_SERVER"
       ]
     },
     {
@@ -9043,9 +9043,9 @@
       ],
       "connections": [
         "concept_ATTENTION",
+        "concept_predictive_attention",
         "concept_CODE_BODY_MAINTENANCE",
-        "concept_CODE_MEMORY_SERVER",
-        "concept_predictive_attention"
+        "concept_CODE_MEMORY_SERVER"
       ]
     },
     {
@@ -9113,10 +9113,10 @@
         "epiphany"
       ],
       "connections": [
-        "concept_DEBATE_0322010011",
         "concept_CONTRADICTION_DECAY_DUAL_MEM",
         "concept_DECAY",
-        "concept_DUAL_MEM"
+        "concept_DUAL_MEM",
+        "concept_DEBATE_0322010011"
       ]
     },
     {
@@ -9151,8 +9151,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_SOUL",
-        "concept_STATE"
+        "concept_STATE",
+        "concept_SOUL"
       ]
     },
     {
@@ -9272,10 +9272,10 @@
       ],
       "connections": [
         "concept_waste_digest_20260316_0145",
+        "concept_waste_digest_20260315_0713",
         "concept_waste_digest_20260321_0214",
-        "concept_waste_digest_20260321_0500",
         "concept_waste_digest_20260320_0200",
-        "concept_waste_digest_20260315_0713"
+        "concept_waste_digest_20260321_0500"
       ]
     },
     {
@@ -9339,8 +9339,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_MEMORY",
-        "concept_SEMANTIC_MEMORY"
+        "concept_SEMANTIC_MEMORY",
+        "concept_MEMORY"
       ]
     },
     {
@@ -9357,8 +9357,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_MEMORY",
-        "concept_SEMANTIC_MEMORY"
+        "concept_SEMANTIC_MEMORY",
+        "concept_MEMORY"
       ]
     },
     {
@@ -9375,8 +9375,8 @@
         "code_module"
       ],
       "connections": [
-        "concept_MEMORY",
-        "concept_SEMANTIC_MEMORY"
+        "concept_SEMANTIC_MEMORY",
+        "concept_MEMORY"
       ]
     },
     {
@@ -9446,8 +9446,8 @@
         "contradiction"
       ],
       "connections": [
-        "concept_MEMORY",
-        "concept_OPTICAL_RASTERIZATION"
+        "concept_OPTICAL_RASTERIZATION",
+        "concept_MEMORY"
       ]
     },
     {
@@ -9464,8 +9464,8 @@
         "contradiction"
       ],
       "connections": [
-        "concept_OPTICAL_RASTERIZATION",
-        "concept_DECAY"
+        "concept_DECAY",
+        "concept_OPTICAL_RASTERIZATION"
       ]
     },
     {
@@ -9500,8 +9500,8 @@
         "contradiction"
       ],
       "connections": [
-        "concept_ACTIVE_HEALING",
-        "concept_PASSIVE_IMMUNITY"
+        "concept_PASSIVE_IMMUNITY",
+        "concept_ACTIVE_HEALING"
       ]
     },
     {
@@ -9536,8 +9536,8 @@
         "contradiction"
       ],
       "connections": [
-        "concept_LIVING_FRONTEND",
-        "concept_SYNTHETIC_DREAMING"
+        "concept_SYNTHETIC_DREAMING",
+        "concept_LIVING_FRONTEND"
       ]
     },
     {
@@ -9554,8 +9554,8 @@
         "contradiction"
       ],
       "connections": [
-        "concept_OPTICAL_RASTERIZATION",
-        "concept_SPINAL_CORD_NETWORK"
+        "concept_SPINAL_CORD_NETWORK",
+        "concept_OPTICAL_RASTERIZATION"
       ]
     },
     {
@@ -9572,8 +9572,8 @@
         "contradiction"
       ],
       "connections": [
-        "concept_OPTICAL_RASTERIZATION",
-        "concept_SESSION"
+        "concept_SESSION",
+        "concept_OPTICAL_RASTERIZATION"
       ]
     },
     {
