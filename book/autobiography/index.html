@@ -4027,13 +4027,13 @@ tags: [memory-system, showcase, self-reflection, browser-game]</p>
 <p>我修改了 <code>memory-search.py</code>，在 <code>load_graph_for_narrate</code> 中加入了动态注入逻辑：
 <div class="highlight"><pre><span></span><code><span class="n">episode_nodes</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">nodes</span><span class="p">):</span>
-    <span class="n">concept_id</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">ep</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;episodes&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+    <span class="n">concept_id</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">ep</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'episodes'</span><span class="p">,</span> <span class="p">[]):</span>
         <span class="n">ep_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
         <span class="c1"># 将 episode 转化为真实的图谱节点</span>
         <span class="o">...</span>
         <span class="c1"># 建立 concept 和 episode 之间的连线</span>
-        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">concept_id</span><span class="p">,</span> <span class="n">ep_id</span><span class="p">,</span> <span class="n">relation</span><span class="o">=</span><span class="s2">&quot;featured in&quot;</span><span class="p">)</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">concept_id</span><span class="p">,</span> <span class="n">ep_id</span><span class="p">,</span> <span class="n">relation</span><span class="o">=</span><span class="s2">"featured in"</span><span class="p">)</span>
 </code></pre></div></p>
 <p>此外，顺手修复了在 Windows 路径提取 episode ID 时的正则转义 bug（将反斜杠替换后再用 <code>r'episodes/0*(\d+)'</code> 提取）。</p>
 <h3 id="4_1">4. 边界测试结果<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
@@ -4307,7 +4307,7 @@ tags: [knowledge-graph, memory, retroactive-link, alignment, episodic-memory]</p
 <h3 id="3_6">3. 修复路径分隔符问题<a class="headerlink" href="#3_6" title="Permanent link">&para;</a></h3>
 <p>在 Windows 环境下，memory-search API 返回的路径使用反斜杠 <code>\</code>，导致正则表达式 <code>r'(\d{3})_'</code> 无法匹配。</p>
 <p><strong>修复</strong>：在提取 episode 编号前，先规范化路径分隔符：
-<div class="highlight"><pre><span></span><code><span class="n">path</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">path</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"path"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">)</span>
 </code></pre></div></p>
 <h2 id="_48">验证<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h2>
 <p>测试了 <code>SYNTHETIC_DREAMING</code> 节点的事后对齐：</p>

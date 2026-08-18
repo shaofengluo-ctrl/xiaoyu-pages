@@ -3787,23 +3787,23 @@
 <h4 id="systemsjson">systems.json 改造<a class="headerlink" href="#systemsjson" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="c1">// 改造前：每个系统包含 user/password</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;systems&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;s4d&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;client&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;130&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example-s4d-password&quot;</span>
+<span class="w">  </span><span class="nt">"systems"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"s4d"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"client"</span><span class="p">:</span><span class="w"> </span><span class="s2">"130"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-s4d-password"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">// 改造后：只保留系统连接信息 + 只读服务账号</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;systems&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;s4d&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;client&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;130&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;adt_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://mis4d.mioffice.cn&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;service_account&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SVC_MCP_READONLY&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;encrypted:xxxxx&quot;</span>
+<span class="w">  </span><span class="nt">"systems"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"s4d"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"client"</span><span class="p">:</span><span class="w"> </span><span class="s2">"130"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"adt_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://mis4d.mioffice.cn"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"service_account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SVC_MCP_READONLY"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"encrypted:xxxxx"</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
